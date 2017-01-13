@@ -17,6 +17,12 @@ GIT
       sass-rails
       sprockets (< 4)
 
+GIT
+  remote: git://github.com/spanuska/locales_export_import.git
+  revision: c46d91822d799b74155a5dec44d57a17f7231059
+  specs:
+    locales_export_import (0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -365,6 +371,7 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   kaminari-bootstrap
+  locales_export_import!
   newrelic_rpm
   nokogiri
   omniauth-facebook

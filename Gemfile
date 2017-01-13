@@ -90,6 +90,8 @@ group :development, :test do
   gem 'sqlite3'
   # For environment vars
   gem 'dotenv-rails'
+
+  gem 'locales_export_import', github: 'spanuska/locales_export_import'
 end
 
 group :development do
