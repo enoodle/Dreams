@@ -9,7 +9,7 @@ class Image < ActiveRecord::Base
                         large: '2000x2000>'
                       },
                       :convert_options => {
-                        :all => "-quality 95 -interlace Plane"
+                        :all => "-quality 95 -interlace Plane -coalesce"
                       }
                     }
 
