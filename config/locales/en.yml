@@ -407,7 +407,8 @@ en:
   upload_headline: Upload Image
   upload_guidetext_html: Images must be smaller than 8 mb and be in jpg, png or gif
     format. To make your Dream look really awesome, make sure your images are in landscape
-    format and larger than 1500x800 pixels.
+    format and larger than 1500x800 pixels.<br>
+    Please make sure you own the required copyright for the uploaded images.
   upload_button: Upload Image
   remove_image: Remove Image
   back_to_dream: Back to dream
