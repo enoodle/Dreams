@@ -28,13 +28,6 @@ $(function() {
 
 	$('.budgetprogressbar').budgetprogressbar();
 
-	$('.donate-now-button').click(function(){
-		$('.donate-now-button').prop('disabled', true);
-		$('.donate-now-button').css('cursor', 'wait');
-		$('#donateModal').css('cursor', 'wait');
-		$('#donateForm').submit();
-	});
-
 	$('.create-new-dream').click(function(){
 		$('.create-new-dream').prop('disabled', true);
 		$('.create-new-dream').css('cursor', 'wait');
