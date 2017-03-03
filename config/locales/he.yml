@@ -124,6 +124,7 @@ he:
     foreman: "מנהלת עבודה"
     pyromaniac: "אחראי שריפה"
     designer: "מעצב/ת"
+  add_a_setup_step: הוספת שלב
 
   form_project_management_is_theme_camp_dream: "האם זהו מיצב של מחנה נושא?"
   form_project_management_is_dream_near_theme_camp: "האם המיצב מתוכנן להיות מוקם בתוך/בקרבת המחנה?"
@@ -294,6 +295,7 @@ he:
   form_safetybag_other_comments_label: "הערות נוספות לתיק הבטיחות"
   form_safetybag_other_comments_guidetext_html: "יש לכם משהו נוסף שתרצו לציין?"
   form_safetybag_remember_sketch: "אנא וודאו כי בנוסף לתמונה, העלתם שרטוט טכני לחלום - ללא שרטוט טכני לא ניתן יהיה לקבל אישור תיק בטיחות"
+  form_setup_steps_header: תוכנית ירידה לשטח
 
   form_budgetplan_label: "סקירת התקציב בש\"ח"
   create_dream: "לשלב הבא >>"
@@ -651,7 +653,10 @@ he:
         has_ticket: "האם יש כרטיס"
       people:
         <<: *person
-
+      camp_setup_step:
+        day_number: '# יום'
+        main_tasks: משימה עיקרית
+        additional_tasks: משימות נוספות
       grant:
         amount: "כמות"
         created_at: "נוצר"
