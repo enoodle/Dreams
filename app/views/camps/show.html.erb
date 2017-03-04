@@ -99,8 +99,8 @@
         <% end %>
 
     <% if current_user && @camp.creator == current_user %>
-        <%= render 'camps/dont_miss_out', except: nil %>
-      <% end %>
+      <%= render 'camps/dont_miss_out', except: nil %>
+    <% end %>
 
     <!-- Creation text content -->
         <div class="camp-description">
