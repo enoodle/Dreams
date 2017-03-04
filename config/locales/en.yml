@@ -448,11 +448,10 @@ en:
   new_password: New password
   confirm_new_password: Confirm new password
   password_characters_minimum: Minimum %{count} Characters
-  registration_text: If you've donated - enter the same phone number you used upon
-    donation.
+  registration_text: ""
   registration_code: Phone number
   invalid_membership_code: Can't find a user with that Email / Phone number. make
-    sure you use the same email and phone you used when made the donation
+    sure you use the same email and phone you used when you registered to Midburn.
   membership_code_registered: Membership code is already registered for another user.
     Perhaps you want to Login
   thanks_for_sending: Thanks for sending %{grants} grant(s)
