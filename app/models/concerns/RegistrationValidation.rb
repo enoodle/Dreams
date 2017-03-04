@@ -9,12 +9,11 @@ module RegistrationValidation
 
   def invite_code_valid
     self.email = self.email.downcase
+    self.ticket_id = self.ticket_id.strip.gsub(/[\-\. +]/, '')
     invite_code_local_tickets_valid()
     # Check if ticket exists in the local database to prevent going to remote server
     ticket = Ticket.find_by(id_code: self.ticket_id, email: self.email)
-    if ticket.present?
-      return
-    end
+    return if ticket.present?
 
     if invite_code_remote_tickets_valid()
       # Found the user in database - clear old errors local database not found
