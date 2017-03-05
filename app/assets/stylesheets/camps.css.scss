@@ -198,16 +198,23 @@ $heart-size: 72px;
     width:100%;
 
     &:active {
-        background: darken($c-donate-color, 15%) !important;
-      }
+      background: darken($c-donate-color, 15%) !important;
+    }
 
-      &:hover {
-        background: darken($c-donate-color, 10%) !important;
-      }
+    &:hover {
+      background: darken($c-donate-color, 10%) !important;
+    }
 
-      &:focus {
-        background: darken($c-donate-color, 10%) !important;
-      }
+    &:focus {
+      background: darken($c-donate-color, 10%) !important;
+    }
+  }
+
+  .donate-now-button-disabled {
+    background: $c-donate-color;
+    color: white;
+    width: 100%;
+    cursor: no-drop;
   }
 
   #heart1 {
@@ -347,7 +354,7 @@ $heart-size: 72px;
 }
 
 .disabledHeart {
-  filter: grayscale(100%);
+  opacity: 0.5;
 }
 
 .hearts {
@@ -356,6 +363,13 @@ $heart-size: 72px;
   img {
     vertical-align:top;
   }
+
+  margin-bottom: 1em;
+}
+
+.add-my-name {
+  font-size: 14px;
+  display: inline;
 }
 
 .heart {
@@ -370,8 +384,6 @@ $heart-size: 72px;
   -o-transition: all 1.2s ease;  
   -ms-transition: all 1.2s ease;  
   transition: all 1.2s ease;
-  // -webkit-filter: grayscale(100%);
-  // filter: grayscale(100%)
 }
 
 .top_message {
@@ -515,6 +527,9 @@ body {
     margin: -6px;
   }
 
+  .add-my-name {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 540px) {

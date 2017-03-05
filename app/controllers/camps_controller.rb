@@ -112,6 +112,13 @@ class CampsController < ApplicationController
       end
     end
 
+    @add_my_name = params[:add_my_name_cb]
+    if(@add_my_name == '1')
+      if not @camp.users.where(id: current_user.id).exists?
+        @camp.users << current_user
+      end
+    end
+
     redirect_to camp_path(@camp)
     flash[:notice] = "#{t:thanks_for_sending, grants: granted}"
   end
