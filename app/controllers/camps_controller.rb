@@ -6,13 +6,16 @@ class CampsController < ApplicationController
   before_action :load_lang_detector, only: %i(show index)
 
   def index
-    filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
+    filter = params[:filterrific]&.symbolize_keys || { sorted_by: 'updated_at_desc' }
     filter[:active] = true
     filter[:not_hidden] = true
+    filter.reverse_merge!(not_seeking_funding: true, not_min_funded: true)
 
     if (!current_user.nil? && (current_user.admin? || current_user.guide?))
       filter[:hidden] = true
       filter[:not_hidden] = false
+    else
+      filter[:sorted_by] = 'random'
     end
 
     @filterrific = initialize_filterrific(
