@@ -12,10 +12,10 @@
   }
 
   .panel {
-    height: 31.5em;
+    height: 32.4em;
 
     .description {
-      height: 180px;
+      height: 198px;
       margin: 0.5em;
     }
   }
@@ -38,7 +38,11 @@
       font-weight: normal;
       color: $c-pinky;
       margin: 0.5em 0.5em;
-      }
+      text-overflow: ellipsis;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+    }
   }
 
   .panel-info > .panel-heading {
