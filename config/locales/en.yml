@@ -295,6 +295,7 @@ en:
   form_safety_signs: warning sign/instruction needed
   form_safety_signs_desc: that addresses all of the aforementioned aspects, and the
     method of its placement in the art installation
+  form_safety_materials_desc: List of needed materials
   form_program_head: Program Info
   form_program_name: Dream Name
   form_program_hebrew: Hebrew

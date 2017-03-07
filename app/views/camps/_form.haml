@@ -598,6 +598,20 @@
     = form.label t("form_safety_prince")
 
   .combo
+    = form.label t("form_safety_materials")
+    .field-description
+      = t("form_safety_materials_desc")
+    %blockquote
+      = best_in_place_if @can_edit, @camp, :safety_materials, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+
+  .combo
+    = form.label t("form_safety_tools")
+    .field-description
+      = t("form_safety_tools_desc")
+    %blockquote
+      = best_in_place_if @can_edit, @camp, :safety_tools, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+
+  .combo
     = form.label t("form_safety_equipment_desc")
     .field-description
       = t("form_safety_equipment_guidetext_html")
