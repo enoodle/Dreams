@@ -236,6 +236,11 @@ he:
   form_safety_securing_parts_desc: "מפרקים, גלגלי שיניים, חלקים מסתובבים וכד - יש לתאר את טווח הבטיחות מהחלקים הנעים ואת דרככם למזער פגיעה"
   form_safety_signs: "שילוט אזהרה/הדרכה נדרש"
   form_safety_signs_desc: "המתייחס לכל האספקטים שנמנו מעלה, ואופן הצבתו במיצב"
+  form_safety_materials: "רשימת חומרי הגלם הנדרשים"
+  form_safety_materials_desc: "באילו חומרי גלם תשתמשו במיצב? (יש לפרט חומרי בניה, חיפוי, צבע, וחומרים דליקים, נפיצים או רעילים אם ישנם.)"
+  form_safety_tools: "רשימת כלי העבודה שישמשו את צוות המיצב בבנייה"
+  form_safety_tools_desc: "(כגון: מקדחה, מברגה, רתכת, דיסק, מסור דיסק, אקדח מסמרים וכו')."
+
 
   form_program_head: "מידע לתוכניה"
   form_program_name: "שם המיצב"
@@ -633,6 +638,8 @@ he:
         en_subtitle: תקציר באנגלית
         id: מזהה
         tags: תגיות
+        safety_materials: :form_safety_materials
+        safety_tools: :form_safety_tools
       person: &person
         name: 'שם'
         email: "אימייל"
