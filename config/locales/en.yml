@@ -295,7 +295,11 @@ en:
   form_safety_signs: warning sign/instruction needed
   form_safety_signs_desc: that addresses all of the aforementioned aspects, and the
     method of its placement in the art installation
-  form_safety_materials_desc: List of needed materials
+  form_safety_materials: List of needed materials
+  form_safety_materials_desc: In which raw materials will you use? (Please describe building materials, cover, color, flammable materials, explosive or toxic if there are any).
+  form_safety_tools: List of working tools that the team will use while building
+  form_safety_tools_desc: '(Such as: Drilling machine, Electric Screwdriver, Saw, Nail gun, etc).'
+
   form_program_head: Program Info
   form_program_name: Dream Name
   form_program_hebrew: Hebrew
