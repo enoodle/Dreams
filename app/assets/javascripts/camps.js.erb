@@ -29,18 +29,31 @@ $(document).ready(function() {
 $(document).ready(function() {
   $(".best_in_place").best_in_place();
   var TOTAL_NUMBER_OF_HEARTS = 10; //TODO - this should be set somewhere else - we support 10 hearts at the moment
-  var availableHearts = parseInt($('#grants').attr('max'));
-
   var defaultHeartSize = 72;
-  var hearts = $('.heart');
-  for(var i=0;i<(TOTAL_NUMBER_OF_HEARTS-availableHearts);i++) {
-    var heart = $(hearts[i]);
-    heart.attr('disabled','disabled');
-    var animatedHeartImg = heart.data('animated-heart');
-    var heartAsImage = $('<img>').attr('src',animatedHeartImg).attr('width',defaultHeartSize+'px').attr('height',defaultHeartSize+'px');
-    heart.replaceWith(heartAsImage);
-    heartAsImage.addClass('disabledHeart');
-  }
+
+  
+  (function preloadHearts() {
+    var hearts = $('.heart');
+    for(var i=0;i<TOTAL_NUMBER_OF_HEARTS;i++) {
+      var heart = $(hearts[i]);
+      var animatedHeartImg = heart.data('animated-heart');
+      var heart = new Image();
+      heart.src = animatedHeartImg;
+    };
+  })();
+
+  (function disableUsedHearts() {
+    var availableHearts = parseInt($('#grants').attr('max'));
+    var hearts = $('.heart');
+    for(var i=0;i<(TOTAL_NUMBER_OF_HEARTS-availableHearts);i++) {
+      var heart = $(hearts[i]);
+      heart.attr('disabled','disabled');
+      var animatedHeartImg = heart.data('animated-heart');
+      var heartAsImage = $('<img>').attr('src',animatedHeartImg).attr('width',defaultHeartSize+'px').attr('height',defaultHeartSize+'px');
+      heart.replaceWith(heartAsImage);
+      heartAsImage.addClass('disabledHeart');
+    }
+  })();
 
   //Allow hearts to be set from input and from clicking on them
   function updateHeartsCount() {
@@ -67,16 +80,29 @@ $(document).ready(function() {
 
   });
 
+  //On the first donate button
+  $('.donate-button').click(function () {
+    var availableHearts = parseInt($('#grants').attr('max'));
+
+    if(availableHearts > 0) {
+      var heart = $($('.heart')[0]);
+      if(!heart.hasClass('heartSelected'))
+        heart.trigger('click');
+    }
+  });
+
   // On donate - Animate hearts
   $('.donate-now-button').click(function(){
-    $('.donate-now-button').prop('disabled', true);
-    $('.donate-now-button').css('cursor', 'wait');
-    $('#donateModal').css('cursor', 'wait');
     var heartsToHandle = $('.heartSelected');
     animationCount = heartsToHandle.length;
     var increaseBy = 1;
     var defaultSpeed = 100;
-    $('.heartSelected').each(function(){
+    var heartsSelected = $('.heartSelected');
+
+    heartsSelected.each(function(){
+      $('.donate-now-button').prop('disabled', true);
+      $('.donate-now-button').css('cursor', 'wait');
+      $('#donateModal').css('cursor', 'wait');
       var heartImage = "<%= asset_path('hearts/heart_default_hover.png') %>";
       var animatedHeartImg = $(this).data('animated-heart');
       $heartAsImage = $('<img>').attr('src',heartImage).attr('width',defaultHeartSize+'px').attr('height',defaultHeartSize+'px');
