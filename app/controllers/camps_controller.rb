@@ -127,7 +127,17 @@ class CampsController < ApplicationController
   end
 
   def update
-    if (@camp.creator != current_user) and !current_user.admin and !current_user.guide
+    if Rails.configuration.x.firestarter_settings["prevent_dream_creator_from_editing"]
+      #dream-creator can't edit
+      if (@camp.creator == current_user)
+        flash[:alert] = "#{t:security_cant_edit_dream}"
+        redirect_to camp_path(@camp) and return
+      #now only admin or guide can edit
+      elsif !current_user.admin and !current_user.guide
+        flash[:alert] = "#{t:security_cant_edit_dreams_you_dont_own}"
+        redirect_to camp_path(@camp) and return
+      end
+    elsif (@camp.creator != current_user) and !current_user.admin and !current_user.guide
       flash[:alert] = "#{t:security_cant_edit_dreams_you_dont_own}"
       redirect_to camp_path(@camp) and return
     end
