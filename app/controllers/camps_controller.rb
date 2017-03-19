@@ -127,7 +127,7 @@ class CampsController < ApplicationController
   end
 
   def update
-    if Rails.configuration.x.firestarter_settings["prevent_dream_creator_from_editing"]
+    if Rails.configuration.x.firestarter_settings["disable_editing_dream"]
       #dream-creator can't edit
       if (@camp.creator == current_user)
         flash[:alert] = "#{t:security_cant_edit_dream}"
