@@ -1,0 +1,11 @@
+.nested-fields.panel.panel-default.col-md-7{ style: 'float:' + I18n.t('lang_direction')}
+  .panel-body
+    .row
+      .col-md-2{ style: 'padding: 0; float:' + I18n.t('lang_direction')}
+        = f.number_field :day_number, class: 'form-control', readonly: (!@can_edit), placeholder: true
+      .col-md-9{ style: 'float:' + I18n.t('lang_direction')}
+        = f.text_field :main_tasks, class: 'form-control', readonly: (!@can_edit), placeholder: true
+      - if (@can_edit)
+        = link_to_remove_association '', f, class: 'remove_step fa fa-trash'
+    .row
+      = f.text_area :additional_tasks, class: 'form-control', readonly: (!@can_edit), placeholder: true
