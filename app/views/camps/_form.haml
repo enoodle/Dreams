@@ -677,19 +677,20 @@
     %blockquote
       = best_in_place_if @can_edit, @camp, :location_info, html_attrs: {maxlength: 1024, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
-  #setup.row
-    .header-heading
-      = t("form_setup_steps_header")
-    %br
-    = form.fields_for :setup_steps do |step|
-      = render 'setup_step_fields', :f => step, :camp_id => @camp.id
+  - if Rails.configuration.x.firestarter_settings["setup_steps"]
+    #setup.row
+      .header-heading
+        = t("form_setup_steps_header")
+      %br
+      = form.fields_for :setup_steps do |step|
+        = render 'setup_step_fields', :f => step, :camp_id => @camp.id
 
-  - if @can_edit
-    .row
-      .links.col-xs-12
-        = link_to_add_association t('add_a_setup_step'), form, :setup_steps, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success add-association-button'
-        %br
-        %br
+    - if @can_edit
+      .row
+        .links.col-xs-12
+          = link_to_add_association t('add_a_setup_step'), form, :setup_steps, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success add-association-button'
+          %br
+          %br
 
   %br
   %br
