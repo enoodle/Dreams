@@ -413,6 +413,8 @@ he:
   confirm_new_password: "אמת סיסמא"
   password_characters_minimum: "מינימום %{count} תווים"
 
+  sign_up_spark_html: "אנא הירשמי באמצעות <b>פרופיל המידברן</b> שלך"
+
   registration_text: ""
   registration_code: "מספר פלאפון"
 
@@ -422,6 +424,7 @@ he:
     אם אתה עדיין לא מצליח להירשם, קח נשימה ופנה אלינו
     support@midburn.org.
   membership_code_registered: "או האימייל שהוכנס כבר נרשם למערכת ונמצא בשימוש תחת משתמש אחר. אולי נרשמת כבר ואתה צריך להתחבר?"
+  invalid_spark_details: "פרופיל מידברן תחת האימייל והסיסמא הנל לא נמצא. אנא בדוק את הסיסמא. האם יש לך פרופיל כזה? אולי נסה לשחזר את הסיסמא"
 
   thanks_for_sending: "תודה על ששלחת %{grants} לבבות. את מדהימה!"
 

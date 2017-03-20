@@ -1,7 +1,9 @@
 require 'concerns/RegistrationValidation'
+require 'concerns/SparkRegistrationValidation'
 
 class User < ActiveRecord::Base
-  include RegistrationValidation  
+  include RegistrationValidation
+  include SparkRegistrationValidation
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -117,6 +117,15 @@ and copy the name of Oauth2 client Id - this will be the `GOOGLE_APPS_NAME` env 
 4.Then inside your script there is the actual function name to call it is usually `createDream` - this is the `GOOGLE_APPS_SCRIPT_FUNCTION` env
 5.Finally leave the `GOOGLE_APPS_SCRIPT_TOKEN` empty. and then after you run your app for the first time. check the logs. you will see a url. this url will contain the actual token. then set the `GOOGLE_APPS_SCRIPT_TOKEN` to be that token
 
+## Spark support
+More about spark here - http://github.com/midburn/spark
+Spark is a "burn in a box" - we use the spark API to prevent users from Registering into multiple system.
+So anyone who has a Midburn profile could register to the system using that profile credentials.
+
+Set it using the following env var:
+`SPARK=true`
+`SPARK_URL=http://sparkstaging.midburn.org/api/userlogin`
+
 
 ## Ability to Show/Edit Point of Contact
 We've added the ability to show a contact person from art-department for the dream-creator in the dream page. This field is editable by admin/guide users only.
