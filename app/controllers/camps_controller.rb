@@ -127,9 +127,24 @@ class CampsController < ApplicationController
   end
 
   def update
-    if Rails.configuration.x.firestarter_settings["disable_editing_dream"]
-      #dream-creator can't edit
-      if (@camp.creator == current_user)
+    if (@camp.creator != current_user) and !current_user.admin and !current_user.guide
+      flash[:alert] = "#{t:security_cant_edit_dreams_you_dont_own}"
+      redirect_to camp_path(@camp) and return
+    end
+
+    #check if it is one of the public fields
+    is_all_public = true
+    camp_params.keys.each do |key|
+      if !is_attribute_public key
+        is_all_public = false
+      end
+    end
+
+    if !is_all_public and Rails.configuration.x.firestarter_settings["disable_editing_dream"]
+      #trying to edit a non public field - dream-creator can't edit
+      if current_user.admin or current_user.guide
+        # allow access
+      elsif (@camp.creator == current_user)
         flash[:alert] = "#{t:security_cant_edit_dream}"
         redirect_to camp_path(@camp) and return
       #now only admin or guide can edit
@@ -137,9 +152,6 @@ class CampsController < ApplicationController
         flash[:alert] = "#{t:security_cant_edit_dreams_you_dont_own}"
         redirect_to camp_path(@camp) and return
       end
-    elsif (@camp.creator != current_user) and !current_user.admin and !current_user.guide
-      flash[:alert] = "#{t:security_cant_edit_dreams_you_dont_own}"
-      redirect_to camp_path(@camp) and return
     end
 
     if @camp.update_attributes camp_params
@@ -209,6 +221,10 @@ class CampsController < ApplicationController
   end
 
   private
+
+  def is_attribute_public (attribute)
+    Camp::PUBLIC_ATTRIBUTES.include? attribute
+  end
 
   def camp_params
     params.require(:camp).permit!
