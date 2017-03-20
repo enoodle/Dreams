@@ -20,7 +20,7 @@ class Camp < ActiveRecord::Base
   PUBLIC_ATTRIBUTES = ['name','en_name','en_subtitle','subtitle','contact_email','contact_phone','contact_name','description','cocreation','about_the_artist','website']
 
   has_paper_trail  
-  accepts_nested_attributes_for :people, :roles, allow_destroy: true
+  accepts_nested_attributes_for :people, :roles, :setup_steps, allow_destroy: true
   acts_as_taggable
 
   validates :creator, presence: true
