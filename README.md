@@ -129,3 +129,7 @@ We've added the ability to show safety file comments for the dream-creator in th
 
 You will need to set the following env var:
 * `SHOW_SAFETY_FILE_COMMENTS=true`
+
+## Ability to Disable Editing for Dream-Creator
+If at some stage you will want to prevent the dream creators from updating a dream you can set this global env variable to do so:
+* `DISABLE_EDITING_DREAM=true`

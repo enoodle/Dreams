@@ -479,6 +479,8 @@ en:
   security_cant_tag_dreams_you_dont_own: Only guides can tag dreams. Come hack with us!
   security_cant_edit_dreams_you_dont_own: One cannot delete dreams he dont own - hacker
     come join us
+  security_cant_edit_dream: "Editing the dream is closed at the moment. You can only edit Public fields"
+  security_cant_edit_dream_html: "Editing the dream is closed at the moment. You can only edit <span class='label label-success'>Public</span> fields"
   security_cant_change_images_you_dont_own: One cannot change image he dont own - hacker come join us
   dream_not_found: The Dream you were looking for doesn't exist. Would you like to
     create a new Dream?

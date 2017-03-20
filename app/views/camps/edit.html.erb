@@ -1,9 +1,13 @@
 
 <% if (current_user && (current_user == @camp.creator)) %>
-  <% @can_edit = true %>
+  <% @can_edit_public = true %>
+  <% if !Rails.configuration.x.firestarter_settings["disable_editing_dream"] %>
+    <% @can_edit = true %>
+  <% end %>
 <% end %>
 <% if (current_user && (current_user.guide || current_user.admin)) %>
   <% @can_edit = @just_view %>
+  <% @can_edit_public = @just_view %>
 
   <%if @just_view %>
   

@@ -34,6 +34,7 @@ defaults: &defaults
   google_drive_integration: <%= ENV['GOOGLE_DRIVE_INTEGRATION'] or false %>
   show_point_of_contact: <%= ENV['SHOW_POINT_OF_CONTACT'] or false %>
   show_safety_file_comments: <%= ENV['SHOW_SAFETY_FILE_COMMENTS'] or false %>
+  disable_editing_dream: <%= ENV['DISABLE_EDITING_DREAM'] or false %>
   recaptcha: <%= ENV['RECAPTCHA'] or false %>
 
 development:

@@ -439,6 +439,8 @@ he:
   security_cant_delete_dreams_you_dont_own: "שגיאה - אתה לא יכול למחוק חלום שלא שייך לך - האקר הצטרף אלינו"
   security_cant_tag_dreams_you_dont_own: "שגיאה - רק מדריכים יכולים לתייג חלומות. רוצה לעזור לנו?"
   security_cant_edit_dreams_you_dont_own: "שגיאה - אתה לא יכול לערוך חלום שלא שייך לך - האקר הצטרף אלינו"
+  security_cant_edit_dream: "החלום סגור לעריכה כעת. ניתן לערוך רק שדות המוגדרים כפומבי"
+  security_cant_edit_dream_html: "החלום סגור לעריכה כעת. ניתן לערוך רק שדות המוגדרים כ <span class='label label-success'>פומבי</span>"
   security_cant_change_images_you_dont_own: "שגיאה - אתה לא יכול לשנות תמונה שלא שייכת לך - האקר הצטרף אלינו"
   dream_not_found: 'החלום שחיפשת לא נמצא. האם תרצי ליצור חלום חדש?'
 
