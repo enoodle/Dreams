@@ -1,5 +1,4 @@
 require 'concerns/RegistrationValidation'
-require 'concerns/SparkRegistrationValidation'
 
 class User < ActiveRecord::Base
   include RegistrationValidation
