@@ -792,3 +792,4 @@ en:
       wrong_length: Needs to be %{count} characters long
       not_saved: Not saved
   form_tags: "Tags"
+  sign_up_spark: "Please use your Midburn profile to log in"
