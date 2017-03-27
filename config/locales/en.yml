@@ -454,7 +454,7 @@ en:
   new_password: New password
   confirm_new_password: Confirm new password
   password_characters_minimum: Minimum %{count} Characters
-  sign_up_spark_html: Please user your <b>Midburn profile</b> to Sign Up
+  login_spark_html: Please use your <b>Midburn profile</b> to Login
   registration_text: ""
   registration_code: Phone number
   invalid_membership_code: Can't find a user with that Email / Phone number. make

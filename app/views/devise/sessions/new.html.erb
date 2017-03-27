@@ -5,6 +5,9 @@
 
 <div class="sign_in" dir="<%=t :html_direction %>">
   <h2><%=t :log_in %></h2>
+  <% if Rails.configuration.x.firestarter_settings['spark'] %>
+    <p><%=t :login_spark_html %></p>
+  <% end %>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
