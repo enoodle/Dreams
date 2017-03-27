@@ -13,16 +13,16 @@ module Devise
         email = params_auth_hash['email'].downcase
         Rails.logger.debug("Attempting Spark login for #{email}")
         r = HTTParty.post(ENV['SPARK_URL'].to_s, body: { username: email, password: params_auth_hash['password'] })
-        Rails.logger.debug(r)
-        if r.json['status'] == "1" #TODO - result is different now
-          user = User.where(email: email).first_or_create! do |u|
-            u.password = nil
-            u.spark_user = true
-            # TODO: Fill in more details from Spark here
+        if r.code == 200
+          unless user = User.where(email: email).first
+            user = User.create!(email: email) do |u|
+              u.spark_user = true
+              # TODO: Fill in more details from Spark here
+            end
           end
           success!(user)
         else
-          fail(:not_found_in_database)
+          fail(:invalid_spark_details) #TODO - We want to display this message to help user understand better what is wrong
         end
       end
     end
