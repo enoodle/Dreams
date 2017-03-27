@@ -12,8 +12,9 @@ module Devise
       def authenticate!
         email = params_auth_hash['email'].downcase
         Rails.logger.debug("Attempting Spark login for #{email}")
-        r = HTTParty.post(ENV['SPARK_URL'].to_s, body: { email: email, password: params_auth_hash['password'] })
-        if r.json['status'] == "true"
+        r = HTTParty.post(ENV['SPARK_URL'].to_s, body: { username: email, password: params_auth_hash['password'] })
+        Rails.logger.debug(r)
+        if r.json['status'] == "1" #TODO - result is different now
           user = User.where(email: email).first_or_create! do |u|
             u.password = nil
             u.spark_user = true
