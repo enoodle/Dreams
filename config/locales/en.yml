@@ -456,12 +456,14 @@ en:
   new_password: New password
   confirm_new_password: Confirm new password
   password_characters_minimum: Minimum %{count} Characters
+  login_spark_html: Please use your <b>Midburn profile</b> to Login
   registration_text: ""
   registration_code: Phone number
   invalid_membership_code: Can't find a user with that Email / Phone number. make
     sure you use the same email and phone you used when you registered to Midburn.
   membership_code_registered: Membership code is already registered for another user.
     Perhaps you want to Login
+  invalid_spark_details: Midburn profile under that email and password was not found. Please check your password. Do you have a Midburn profile? Maybe you should try and reset your password.
   thanks_for_sending: Thanks for sending %{grants} grant(s)
   reset_pass_hello: Hello
   reset_pass_link_text: Someone has requested a link to change your password. You
@@ -798,3 +800,4 @@ en:
       wrong_length: Needs to be %{count} characters long
       not_saved: Not saved
   form_tags: "Tags"
+  sign_up_spark: "Please use your Midburn profile to log in"
