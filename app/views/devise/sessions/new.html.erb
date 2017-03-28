@@ -8,7 +8,7 @@
   <% if Rails.configuration.x.firestarter_settings['spark'] %>
     <p><%=t :login_spark_html %></p>
   <% end %>
-
+  <h3 style="color:#eb1478">ההרשמה סגורה כרגע לחשבונות חדשים ותתאפשר ביום חמישי הקרוב</h3>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email %><br />
