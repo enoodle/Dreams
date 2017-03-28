@@ -86,6 +86,8 @@ gem 'best_in_place', '~> 3.0.1'
 # Tag dreams
 gem 'acts-as-taggable-on', '~> 4.0'
 
+gem 'httparty'
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'

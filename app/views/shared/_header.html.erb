@@ -23,7 +23,9 @@
             <% end %>
             <% if !user_signed_in? %>
               <%= link_to t("login_menu"), new_user_session_path %>
-              <%= link_to t("register_menu"), new_user_registration_path %>
+              <% unless Rails.configuration.x.firestarter_settings['spark'] %>
+                <%= link_to t("register_menu"), new_user_registration_path %>
+              <% end %>
             <% else %>
               <div class="dropdown">
                 <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <%=t :private_area %></a>

@@ -4,7 +4,11 @@
   <b><%=t ("versionate.created_at") %>:</b>
   <%= @versions.last.created_at%>
   <br>
-  <b><%=t ("activerecord.models.user.one") %></b>: <%= User.find(@versions.last.whodunnit).email %>
+  <% if @versions.last.whodunnit %>
+    <b><%=t ("activerecord.models.user.one") %></b>: <%= User.find(@versions.last.whodunnit)&.email %>
+  <% else %>
+    <b><%=t ("activerecord.models.user.one") %></b>: Deleted
+  <% end %>
   <br>
   <% if @versions.length.to_i > 1 %>
     <% if params[:version].to_i > 1 || !params[:version] %>

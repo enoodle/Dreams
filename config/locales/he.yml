@@ -413,7 +413,7 @@ he:
   confirm_new_password: "אמת סיסמא"
   password_characters_minimum: "מינימום %{count} תווים"
 
-  sign_up_spark_html: "אנא הירשמי באמצעות <b>פרופיל המידברן</b> שלך"
+  login_spark_html: "אנא התחברי באמצעות <b>פרופיל המידברן</b> שלך"
 
   registration_text: ""
   registration_code: "מספר פלאפון"
@@ -847,3 +847,4 @@ he:
         one: שניה אחת
         other: "%{count} שניות"
   form_tags: "תגיות"
+  sign_up_spark: "השתמש בפרופיל מידברן שלך כדי להתחבר"

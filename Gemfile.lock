@@ -400,6 +400,7 @@ DEPENDENCIES
   font-awesome-sass
   google-api-client
   haml
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
