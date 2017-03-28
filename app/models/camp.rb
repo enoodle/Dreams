@@ -15,11 +15,12 @@ class Camp < ActiveRecord::Base
   has_many :grants
   has_many :people, class_name: 'Person'
   has_many :roles, through: :people
+  has_many :setup_steps, class_name: :CampSetupStep
 
-  has_paper_trail
-  
-  accepts_nested_attributes_for :people, :roles, allow_destroy: true
+  PUBLIC_ATTRIBUTES = ['name','en_name','en_subtitle','subtitle','contact_email','contact_phone','contact_name','description','cocreation','about_the_artist','website']
 
+  has_paper_trail  
+  accepts_nested_attributes_for :people, :roles, :setup_steps, allow_destroy: true
   acts_as_taggable
 
   validates :creator, presence: true

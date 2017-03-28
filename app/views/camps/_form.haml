@@ -50,8 +50,13 @@
 = simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form|
   = render 'dont_miss_out', except: nil
 
-  .pink-div
-    = t("press_to_edit")
+  - if Rails.configuration.x.firestarter_settings["disable_editing_dream"]
+    .row.alignedrow
+      %p.alert{ style: 'float:' + I18n.t('lang_direction')}
+        = t("security_cant_edit_dream_html")
+  - else
+    .pink-div
+      = t("press_to_edit")
 
   .header-heading
     = t("form_basics_headline")
@@ -67,7 +72,7 @@
     .field-description
       = t("form_dream_name_guidetext_html")
     %blockquote
-      = best_in_place_if @can_edit, @camp, :name, html_attrs: {maxlength: 64, class: "form-control"}
+      = best_in_place_if @can_edit_public, @camp, :name, html_attrs: {maxlength: 64, class: "form-control"}
 
   - if Rails.configuration.x.firestarter_settings["multi_lang_support"]
     .combo
@@ -75,7 +80,7 @@
       %span.label.label-success
         =t("public")
       %blockquote
-        = best_in_place_if @can_edit,@camp, :en_name, html_attrs: {maxlength: 64, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
+        = best_in_place_if @can_edit_public,@camp, :en_name, html_attrs: {maxlength: 64, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
 
   .combo#subtitle
     = form.label t("form_subtitle_label")
@@ -84,7 +89,7 @@
     .field-description
       = t("form_subtitle_guidetext_html")
     %blockquote
-      = best_in_place_if @can_edit, @camp, :subtitle, html_attrs: {maxlength: 255, class: "form-control"},as: :textarea, display_with: :simple_format
+      = best_in_place_if @can_edit_public, @camp, :subtitle, html_attrs: {maxlength: 255, class: "form-control"},as: :textarea, display_with: :simple_format
 
   - if Rails.configuration.x.firestarter_settings["multi_lang_support"]
     .combo
@@ -92,7 +97,7 @@
       %span.label.label-success
         =t("public")
       %blockquote
-        = best_in_place_if @can_edit, @camp, :en_subtitle, html_attrs: {maxlength: 255, class: "form-control"},as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+        = best_in_place_if @can_edit_public, @camp, :en_subtitle, html_attrs: {maxlength: 255, class: "form-control"},as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#contact_name
     = form.label t("form_creator_name_label")
@@ -101,7 +106,7 @@
     .field-description
       = t("form_creator_name_guidetext_html")
     %blockquote
-      = best_in_place_if @can_edit, @camp, :contact_name, html_attrs: {maxlength: 64, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
+      = best_in_place_if @can_edit_public, @camp, :contact_name, html_attrs: {maxlength: 64, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
 
   .combo#visability
     = form.label t("form_dream_visability")
@@ -127,14 +132,14 @@
     %span.label.label-success
       =t("public")
     %blockquote
-      = best_in_place_if @can_edit, @camp, :about_the_artist, html_attrs: {maxlength: 1024, class: "form-control"},as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+      = best_in_place_if @can_edit_public, @camp, :about_the_artist, html_attrs: {maxlength: 1024, class: "form-control"},as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo
     = form.label t("form_dream_website_label")
     %span.label.label-success
       =t("public")
     %blockquote  
-      = best_in_place_if @can_edit, @camp, :website, html_attrs: {maxlength: 512, class: "form-control"}, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+      = best_in_place_if @can_edit_public, @camp, :website, html_attrs: {maxlength: 512, class: "form-control"}, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#description
     - if Rails.configuration.x.firestarter_settings["description"]
@@ -144,7 +149,7 @@
       .field-description
         = t("form_description_guidetext_html")
       %blockquote
-        = best_in_place_if @can_edit, @camp, :description, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+        = best_in_place_if @can_edit_public, @camp, :description, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#electricity
     - if Rails.configuration.x.firestarter_settings["electricity"]
@@ -217,7 +222,7 @@
       .field-description
         = t("form_cocreation_guidetext_html")
       %blockquote
-        = best_in_place_if @can_edit, @camp, :cocreation, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+        = best_in_place_if @can_edit_public, @camp, :cocreation, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
 
   .combo#neighbors
@@ -425,7 +430,7 @@
   - if @can_edit
     .row
       .links.col-xs-12
-        = link_to_add_association t('add_a_new_person'), form, :people, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success', id: 'add-new-person'
+        = link_to_add_association t('add_a_new_person'), form, :people, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success add-association-button'
         %br
         %br
 
@@ -671,6 +676,21 @@
       = t("form_location_info_desc")
     %blockquote
       = best_in_place_if @can_edit, @camp, :location_info, html_attrs: {maxlength: 1024, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+
+  - if Rails.configuration.x.firestarter_settings["setup_steps"]
+    #setup.row
+      .header-heading
+        = t("form_setup_steps_header")
+      %br
+      = form.fields_for :setup_steps do |step|
+        = render 'setup_step_fields', :f => step, :camp_id => @camp.id
+
+    - if @can_edit
+      .row
+        .links.col-xs-12
+          = link_to_add_association t('add_a_setup_step'), form, :setup_steps, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success add-association-button'
+          %br
+          %br
 
   %br
   %br

@@ -104,6 +104,7 @@ en:
     foreman: Foreman
     pyromaniac: Fire and flammability supervisor
     designer: Designer
+  add_a_setup_step: Add Step
   form_project_management_is_theme_camp_dream: Does this art installation belong to a theme camp?
   form_project_management_is_dream_near_theme_camp: Is this art installation planned to be set up in or close to the theme camp?
   form_project_management_dream_pre_construction_site: Construction site
@@ -365,6 +366,7 @@ en:
   form_safetybag_other_comments_guidetext_html: Do you have anything else to say?
   form_safetybag_remember_sketch: Please make sure you've uploaded a Sketch along
     with an image. Without a sketch your safety file won't be approved
+  form_setup_steps_header: On-site plan
   form_budgetplan_label: Budget overview
   create_dream: Create Dream!
   update_dream: Update Dream!
@@ -479,6 +481,8 @@ en:
   security_cant_tag_dreams_you_dont_own: Only guides can tag dreams. Come hack with us!
   security_cant_edit_dreams_you_dont_own: One cannot delete dreams he dont own - hacker
     come join us
+  security_cant_edit_dream: "Editing the dream is closed at the moment. You can only edit Public fields"
+  security_cant_edit_dream_html: "Editing the dream is closed at the moment. You can only edit <span class='label label-success'>Public</span> fields"
   security_cant_change_images_you_dont_own: One cannot change image he dont own - hacker come join us
   dream_not_found: The Dream you were looking for doesn't exist. Would you like to
     create a new Dream?
@@ -685,6 +689,10 @@ en:
         amount: Quantity
         created_at: 'Created '
         updated_at: Update
+      camp_setup_step:
+        day_number: 'Day #'
+        main_tasks: 'Main task'
+        additional_tasks: 'Additional tasks'
     errors:
       models:
         camp:
