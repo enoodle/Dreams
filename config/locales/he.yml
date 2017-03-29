@@ -407,7 +407,7 @@ he:
   # Login page
   log_in: "התחברי"
   sign_up: "הרשמה"
-  forgot_password: "שכחת את הסיסמא?"
+  forgot_password: "ברנר, שכחת את הסיסמא?"
   reset_password_instructions: "שלח לינק איפוס סיסמא"
   change_your_password: "החלפי סיסמא"
   change_my_password: "שני סיסמא"

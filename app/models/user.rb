@@ -4,10 +4,13 @@ class User < ActiveRecord::Base
   include RegistrationValidation
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :spark_authenticatable
-         #:omniauthable, :omniauth_providers => [:facebook],
+  devise_options = [:database_authenticatable, :registerable, :rememberable, :trackable, :validatable]
+  if Rails.configuration.x.firestarter_settings['spark']
+    devise_options << :spark_authenticatable
+  else
+    devise_options << :recoverable
+  end
+  devise *devise_options
 
 
   has_many :tickets
