@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :camps, through: :memberships
   has_many :created_camps, class_name: :Camp
 
-  schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
+  schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password, :password]
 
   # Again, from Rails Girls tutorial on Facebook auth.
   # Used for handling the facebook auth callback.
@@ -30,5 +30,11 @@ class User < ActiveRecord::Base
       #user.name = auth.info.name # We don't persist usernames to the DB.
     end
   end
-  
+
+  protected
+
+  def password_required?
+    return false if Rails.configuration.x.firestarter_settings['spark']
+    super
+  end
 end
