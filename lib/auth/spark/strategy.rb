@@ -15,7 +15,7 @@ module Devise
         r = HTTParty.post(ENV['SPARK_URL'].to_s, body: { username: email, password: params_auth_hash['password'] })
         if r.code == 200
           unless user = User.where(email: email).first
-            user = User.create!(email: email, password: params_auth_hash['password'] ) do |u|
+            user = User.create!(email: email, encrypted_password: nil) do |u|
               u.spark_user = true
               # TODO: Fill in more details from Spark here
             end
