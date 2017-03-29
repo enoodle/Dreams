@@ -20,6 +20,7 @@ module Devise
               # TODO: Fill in more details from Spark here
             end
           end
+          user.update!(spark_user: true, encrypted_password: nil)
           success!(user)
         else
           fail(:invalid_spark_details) #TODO - We want to display this message to help user understand better what is wrong
