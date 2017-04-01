@@ -11,9 +11,10 @@ ActiveAdmin.register_page "Dashboard" do
           para link_to(Camp.count.to_s + " " + I18n.t("activerecord.models.camp.other"), admin_camps_path)
           para link_to(User.count.to_s + " " + I18n.t("activerecord.models.user.other"), admin_users_path)
           para link_to(Person.count.to_s + " " + I18n.t("activerecord.models.person.other"), admin_people_path)
-          para (User.count * default_coins).to_s + " Total available coins for all users"
-          para Grant.sum(:amount).to_s + " coins were distributed"
-          para (Grant.sum(:amount) * Rails.application.config.coin_rate).to_s + " amount of money distributed"
+          para (User.count * default_coins).to_s + " Total available hearts for all registered users"
+          para Grant.sum(:amount).to_s + " hearts were distributed"
+          para (Grant.sum(:amount) * Rails.application.config.coin_rate).to_s + " amount of money distributed (Based on heart value of " + Rails.application.config.coin_rate.to_s + ")"
+          para (Rails.application.config.budget_value / Grant.sum(:amount)).to_s + " Current heart value (Based on total grants of " + Rails.application.config.budget_value.to_s + " Divided by given hearts)"
         end
       end
     end
