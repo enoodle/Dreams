@@ -281,6 +281,7 @@ GEM
       httparty (~> 0.13.7)
       json
       rack
+    rb-readline (0.5.4)
     rdoc (4.2.1)
       json (~> 1.4)
     recaptcha (4.0.1)
@@ -418,6 +419,7 @@ DEPENDENCIES
   rails (= 4.2.7.1)
   rails_12factor
   raygun4ruby
+  rb-readline
   recaptcha
   rmagick
   rspec-rails

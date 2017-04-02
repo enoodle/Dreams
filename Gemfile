@@ -108,6 +108,7 @@ group :development, :test do
   gem 'sqlite3'
   # For environment vars
   gem 'dotenv-rails'
+	gem 'rb-readline'
 end
 
 group :development do

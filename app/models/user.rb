@@ -19,7 +19,9 @@ class User < ActiveRecord::Base
   has_many :camps, through: :memberships
   has_many :created_camps, class_name: :Camp
 
-  schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password, :password]
+  schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password, :password, :remember_token]
+
+  before_validation :generate_remember_token
 
   # Again, from Rails Girls tutorial on Facebook auth.
   # Used for handling the facebook auth callback.
@@ -30,6 +32,10 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       #user.name = auth.info.name # We don't persist usernames to the DB.
     end
+  end
+
+  def generate_remember_token
+    self.remember_token = Devise.friendly_token(80) if remember_token.blank?
   end
 
   protected
