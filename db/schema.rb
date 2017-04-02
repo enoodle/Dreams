@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170402155306) do
+ActiveRecord::Schema.define(version: 20170402195411) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -256,6 +256,7 @@ ActiveRecord::Schema.define(version: 20170402155306) do
     t.string   "firstname",              :limit=>128
     t.string   "lastname",               :limit=>128
     t.string   "phone",                  :limit=>32
+    t.string   "remember_token",         :limit=>80
   end
 
   create_table "versions", force: :cascade do |t|
