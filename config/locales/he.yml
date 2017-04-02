@@ -418,7 +418,7 @@ he:
   login_spark_html: "אנא התחברי באמצעות <b>פרופיל המידברן</b> שלך"
 
   registration_text: ""
-  registration_code: "מספר פלאפון"
+  registration_code: "מספר פלאפון (מזהה כרטיס)"
 
   invalid_membership_code: >
     או האימייל שהוכנס לא נמצא. אנא נסה שנית.
@@ -521,7 +521,7 @@ he:
         email: "אימייל"
         password: "סיסמא"
         password_confirmation: "אימות סיסמא"
-        ticket_id: "מספר פלאפון"
+        ticket_id: "מספר פלאפון (מזהה כרטיס)"
         encrypted_password: "סיסמא מוצפנת"
         admin: "מנהלת"
         guide: "מדריכה"
@@ -531,11 +531,14 @@ he:
         remember_me: "זכרי אותי"
         blank: "לא יכולה להשאר ריקה"
         invalid: "לא תקין"
+        phone: "פלאפון"
+        firstname: "שם פרטי"
+        lastname: "שם משפחה"
       admin_user:
         email: "אימייל"
         created_at: "נוצר"
       ticket:
-        id_code: "מספר פלאפון"
+        id_code: "מספר פלאפון (מזהה כרטיס)"
         email: "אימייל"
       camp:
         name: "שם"

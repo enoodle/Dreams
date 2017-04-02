@@ -16,7 +16,11 @@ module Devise
         if r['status'] == "true"
           unless user = User.where(email: email).first
             user = User.create!(email: email, encrypted_password: nil) do |u|
+              Rails.logger.debug(r)
               u.spark_user = true
+              u.firstname = r['firstname']
+              u.lastname = r['lastname']
+              u.phone = r['phone']
               # TODO: Fill in more details from Spark here
             end
           end
