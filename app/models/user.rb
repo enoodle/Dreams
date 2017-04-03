@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def generate_remember_token
-    self.remember_token = Devise.friendly_token(80) if remember_token.blank?
+    self.remember_token = Devise.friendly_token(80) if self[:remember_token].blank?
   end
 
   protected
