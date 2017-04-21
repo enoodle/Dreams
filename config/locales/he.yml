@@ -445,6 +445,7 @@ he:
   security_cant_edit_dream: "החלום סגור לעריכה כעת. ניתן לערוך רק שדות המוגדרים כפומבי"
   security_cant_edit_dream_html: "החלום סגור לעריכה כעת. ניתן לערוך רק שדות המוגדרים כ <span class='label label-success'>פומבי</span>"
   security_cant_change_images_you_dont_own: "שגיאה - אתה לא יכול לשנות תמונה שלא שייכת לך - האקר הצטרף אלינו"
+  security_cant_grant_anymore: "שגיאה - כבר לא ניתן לתרום לבבות במערכת - האקר הצטרף אלינו"
   dream_not_found: 'החלום שחיפשת לא נמצא. האם תרצי ליצור חלום חדש?'
 
   # Add me to dream

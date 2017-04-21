@@ -169,7 +169,7 @@ class Camp < ActiveRecord::Base
 
   def grants_received
     return self.grants.sum(:amount)
-  end 
+  end
 
   # Translating the real currency to budget
   # This called on create and on update
