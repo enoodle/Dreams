@@ -512,6 +512,7 @@ en:
     actions:
       submit_dream: submit art funds applications
       safety_file: submit a safety file
+      vote_hearts: send hearts to dreams ♥
   time:
     am: am
     formats:
