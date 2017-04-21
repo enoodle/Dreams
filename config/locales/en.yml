@@ -566,6 +566,7 @@ en:
         id_code: Mobile number
         email: Email
       camp:
+        id: Id
         name: Name
         creator: Dreamer
         subtitle: Brief review

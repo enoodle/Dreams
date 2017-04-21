@@ -12,9 +12,9 @@
         <div>
           <div class="header-nav col-xs-12">
             <% if I18n.locale == I18n.default_locale %>
-              <%= link_to "EN", :lang=>'en'%>
+              <%= link_to "English", :lang=>'en'%>
             <% else %>
-              <%= link_to "עב", :lang=>'he'%>
+              <%= link_to "עברית", :lang=>'he'%>
             <% end %>
             <%= link_to t("top_headline_dreams"), '/' %>
             <%= link_to t("top_headline_faq"), '/pages/faq-'+I18n.locale.to_s %>
