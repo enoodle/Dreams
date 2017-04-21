@@ -467,6 +467,7 @@ he:
     actions:
       submit_dream: הגשת החלומות ובקשת מלגה
       safety_file: הגשת תיק בטיחות
+      vote_hearts: שלוח לבבות לחלומות ♥
   versionate:
     latest_version: "גרסה אחרונה"
     created_at: "Created at"
