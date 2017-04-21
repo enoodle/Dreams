@@ -3,6 +3,7 @@ class CampsController < ApplicationController
   before_action :load_camp!, except: [:index, :new, :create]
   before_action :enforce_delete_permission!, only: [:destroy, :archive]
   before_action :enforce_guide!, only: %i(tag)
+  before_action :enforce_grant_lockdown!, only: %i(update_grants)
   before_action :load_lang_detector, only: %i(show index)
 
   def index
@@ -248,6 +249,18 @@ class CampsController < ApplicationController
   def enforce_delete_permission!
     if (@camp.creator != current_user) and (!current_user.admin)
       flash[:alert] = "#{t:security_cant_delete_dreams_you_dont_own}"
+      redirect_to camp_path(@camp)
+    end
+  end
+
+  def enforce_grant_lockdown!
+    unless Lockdown.instance.allowed?('vote_hearts') and Rails.configuration.x.firestarter_settings["granting_active"]
+      flash[:alert] = "#{t:security_cant_grant_anymore}"
+      redirect_to camp_path(@camp)
+    end
+
+    if (not @camp.grantingtoggle) or @camp.minbudget.blank? and @camp.maxbudget.blank?
+      flash[:alert] = "#{t:no_granting_yet}"
       redirect_to camp_path(@camp)
     end
   end
