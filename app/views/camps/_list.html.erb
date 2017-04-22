@@ -30,15 +30,15 @@
                         <div class="labels">
                             <% if Rails.configuration.x.firestarter_settings["granting_active"] and camp.minbudget %>
 
-                                <h3 class='budget-info'><%= camp.grants_received %>/<%= camp.maxbudget %><br><%=t :funded %></h3>
+                                <h3 class='budget-info'><%= camp.estimated_grants_worth %>/<%= camp.maxbudget %><br><%=t :funded %></h3>
 
                                 <!-- Only if never got grants and not opened for granting -->
-                                <% if !camp.grantingtoggle and camp.grants_received <= 0%>
+                                <% if !camp.grantingtoggle and camp.estimated_grants_worth <= 0%>
                                     <h3 class='budget-not-opened'>
                                         <%=t :granting_not_enabled %>
                                     </h3>
                                 <% else %>
-                                    <div class="budgetprogressbar" data-min="<%= camp.minbudget %>" data-max="<%= camp.maxbudget %>" data-value="<%= camp.grants_received %>"></div>
+                                    <div class="budgetprogressbar" data-min="<%= camp.minbudget %>" data-max="<%= camp.maxbudget %>" data-value="<%= camp.estimated_grants_worth %>"></div>
                                 <% end %>
 
                             <% end %>

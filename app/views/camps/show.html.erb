@@ -50,12 +50,20 @@
 
 
                     <!-- Granting system -->
-                    <% if Rails.configuration.x.firestarter_settings["granting_active"] and @camp.minbudget.present? and @camp.maxbudget.present? %>
+                    <% if Grant.granting_enabled? and @camp.minbudget.present? and @camp.maxbudget.present? %>
 
                         <li>
                             <div class='budget-info'>
                                 <div class='budget-box'>
-                                    <h3><%= @camp.grants_received %></h3><br><h4><%=t :funded %></h4>
+                                    <h3>
+                                      <%=
+                                        if Grant.granting_allowed?
+                                          @camp.grants_received
+                                        else
+                                          number_to_currency(@camp.estimated_grants_worth, unit: '') + '~'
+                                        end
+                                      %>
+                                    </h3><br><h4><%=t :funded %></h4>
                                 </div>
                                 <div class='budget-box'>
                                     <h3><%= @camp.minbudget %></h3><br><h4><%=t :min_funded %></h4>
@@ -64,7 +72,7 @@
                                     <h3><%= @camp.maxbudget %></h3><br><h4><%=t :max_funded %></h4>
                                 </div>
 
-                                <% if @camp.grantingtoggle and Lockdown.instance.allowed?('vote_hearts') %>
+                                <% if @camp.grantingtoggle and Grant.granting_allowed? %>
                                     <% if current_user && !@camp.fullyfunded %>
 
                                         <button type="button" class="btn btn-success donate-button" data-toggle="modal" data-target="#donateModal">
