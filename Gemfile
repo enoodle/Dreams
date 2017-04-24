@@ -14,9 +14,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', require: false
 # Jquery ui
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', require: false
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
@@ -35,11 +35,11 @@ gem 'devise'
 gem 'haml'
 
 # Enable Facebook authentication.
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', require: false
 
 # Admin backend
 gem 'activeadmin', github: 'activeadmin'
-gem 'cancan' # or cancancan
+gem 'cancan', require: false # or cancancan
 gem 'draper'
 gem 'pundit'
 
