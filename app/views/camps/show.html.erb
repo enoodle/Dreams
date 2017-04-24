@@ -55,6 +55,9 @@
                         <li>
                             <div class='budget-info'>
                                 <div class='budget-box'>
+                                    <div class='heart-icon'></div>
+                                </div>
+                                <div class='budget-box'>
                                     <h3>
                                       <%=
                                         if Grant.granting_allowed?
@@ -71,6 +74,30 @@
                                 <div class='budget-box'>
                                     <h3><%= @camp.maxbudget %></h3><br><h4><%=t :max_funded %></h4>
                                 </div>
+
+                                <div class='budget-box-tooltip'>
+                                </div>
+
+                                <div class='budget-box'>
+                                    <div class='coin-icon'></div>
+                                </div>
+                                <div class='budget-box'>
+                                    <h3>92</h3><br><h4><%=t :funded %></h4>
+                                </div>
+                                <div class='budget-box'>
+                                    <h3>259</h3><br><h4><%=t :min_funded %></h4>
+                                </div>
+                                <div class='budget-box'>
+                                    <h3>927</h3><br><h4><%=t :max_funded %></h4>
+                                </div>
+
+                                <div class='budget-box-tooltip'>
+                                    <div class="tooltip bottom" role="tooltip"> <div class="tooltip-arrow"></div> <div class="tooltip-inner">
+                                        💖 8 <%=t :donate_toolip_start %> 29.65 <%=t :donate_toolip_end %><br>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                                 <% if @camp.grantingtoggle and Grant.granting_allowed? %>
                                     <% if current_user && !@camp.fullyfunded %>

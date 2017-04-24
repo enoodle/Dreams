@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
           para (User.count * default_coins).to_s + " Total available hearts for all registered users"
           para Grant.sum(:amount).to_s + " hearts were distributed"
           para (Grant.sum(:amount) * Rails.application.config.coin_rate).to_s + " amount of money distributed (Based on heart value of " + Rails.application.config.coin_rate.to_s + ")"
-          para (Grant.estimated_value).to_s + " Current heart value (Based on total grants of " + Rails.application.config.budget_value.to_s + " Divided by given hearts)"
+          para (Grant.estimated_value).to_s + " Current heart value (Based on total grants of " + Rails.application.config.budget_value.to_s + " Divided by given hearts)" if Grant.sum(:amount) > 0
         end
       end
     end

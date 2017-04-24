@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Midburn/dreams.svg?branch=master)](https://travis-ci.org/Midburn/dreams)
+[![Build Status](https://travis-ci.org/Midburn/Dreams.svg?branch=master)](https://travis-ci.org/Midburn/Dreams)
 
 # Midburn Dreams
 
