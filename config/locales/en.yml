@@ -382,6 +382,7 @@ en:
   donate_content: There are many ways to help a dream come true, yet here you are
     invited to divide your Hearts donation and give it to this dream.
   donate_text: Donate
+  donate_tooltip: "%{money} hearts, which is %{estimation} NIS were donated by the Art fund"
   coins_text: Heart
   coins_left: 'Available Hearts:'
   add_my_name_cb: Holy fuck! This dream is great. Send my contact details to the dreamer

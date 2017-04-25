@@ -168,7 +168,11 @@ class Camp < ActiveRecord::Base
   #end
 
   def grants_received
-    return self.grants.sum(:amount)
+    grants.sum(:amount) + (given_funds.to_i / Grant.estimated_value.to_i)
+  end
+
+  def estimated_grants_worth
+    grants_received * (Grant.granting_allowed? ? 1 : Grant.estimated_value.to_i)
   end
 
   # Translating the real currency to budget
