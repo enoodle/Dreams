@@ -59,20 +59,18 @@
                                 </div>
                                 <div class='budget-box'>
                                     <h3>
-                                      <%=
-                                        if Grant.granting_allowed?
-                                          @camp.grants_received
-                                        else
-                                          number_to_currency(@camp.estimated_grants_worth, unit: '') + '~'
-                                        end
-                                      %>
+                                      <%= @camp.grants_received %>
                                     </h3><br><h4><%=t :funded %></h4>
                                 </div>
                                 <div class='budget-box'>
-                                    <h3><%= @camp.minbudget %></h3><br><h4><%=t :min_funded %></h4>
+                                    <h3>
+                                      <%= number_to_currency(@camp.minbudget.to_f / Grant.estimated_value, unit: '~', precision: 0) %>
+                                    </h3><br><h4><%=t :min_funded %></h4>
                                 </div>
                                 <div class='budget-box'>
-                                    <h3><%= @camp.maxbudget %></h3><br><h4><%=t :max_funded %></h4>
+                                    <h3>
+                                      <%= number_to_currency(@camp.maxbudget.to_f / Grant.estimated_value, unit: '~', precision: 0) %>
+                                    </h3><br><h4><%=t :max_funded %></h4>
                                 </div>
 
                                 <div class='budget-box-tooltip'>
@@ -82,18 +80,23 @@
                                     <div class='coin-icon'></div>
                                 </div>
                                 <div class='budget-box'>
-                                    <h3>92</h3><br><h4><%=t :funded %></h4>
+                                    <h3><%= number_to_currency(@camp.grants_received * Grant.estimated_value, unit: '₪', precision: 0) %></h3><br><h4><%=t :funded %></h4>
                                 </div>
                                 <div class='budget-box'>
-                                    <h3>259</h3><br><h4><%=t :min_funded %></h4>
+                                    <h3><%= number_to_currency(@camp.minbudget, unit: '₪', precision: 0) %></h3><br><h4><%=t :min_funded %></h4>
                                 </div>
                                 <div class='budget-box'>
-                                    <h3>927</h3><br><h4><%=t :max_funded %></h4>
+                                    <h3><%= number_to_currency(@camp.maxbudget, unit: '₪', precision: 0) %></h3><br><h4><%=t :max_funded %></h4>
                                 </div>
 
                                 <div class='budget-box-tooltip'>
-                                    <div class="tooltip bottom" role="tooltip"> <div class="tooltip-arrow"></div> <div class="tooltip-inner">
-                                        💖 8 <%=t :donate_toolip_start %> 29.65 <%=t :donate_toolip_end %><br>
+                                    <div class="tooltip bottom" role="tooltip">
+                                      <div class="tooltip-arrow"></div>
+                                      <div class="tooltip-inner">
+                                        💖  <%= t('donate_tooltip',
+                                              money: @camp.given_funds,
+                                              estimation: number_to_currency(@camp.given_funds.to_f / Grant.estimated_value, unit: '', precision: 0))
+                                        %>
                                         </div>
                                     </div>
                                 </div>

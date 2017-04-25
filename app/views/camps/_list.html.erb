@@ -12,7 +12,8 @@
                 <div class="panel panel-info">
                     <div class="panel-body camp-index">
                         <% if camp.images.any? %>
-                            <%= image_tag(camp.images.first.attachment.url(:square), :class => "grow") %>
+				<%= image_tag(camp.images.first.attachment.url(:square), :class => "gr
+		  ow") %>
                         <% else %>
                             <%= image_tag('bsb_placeholder_square.jpg' , :class => "grow") %>
                         <% end %>
@@ -30,7 +31,7 @@
                         <div class="labels">
                             <% if Rails.configuration.x.firestarter_settings["granting_active"] and camp.minbudget %>
 
-                                <h3 class='budget-info'><%= camp.estimated_grants_worth %>/<%= camp.maxbudget %><br><%=t :funded %></h3>
+                                <h3 class='budget-info'><%= camp.grants_received %>/<%= (camp.maxbudget.to_f / Grant.estimated_value).to_i %><br><%=t :funded %></h3>
 
                                 <!-- Only if never got grants and not opened for granting -->
                                 <% if !camp.grantingtoggle and camp.estimated_grants_worth <= 0%>
@@ -38,7 +39,7 @@
                                         <%=t :granting_not_enabled %>
                                     </h3>
                                 <% else %>
-                                    <div class="budgetprogressbar" data-min="<%= camp.minbudget %>" data-max="<%= camp.maxbudget %>" data-value="<%= camp.estimated_grants_worth %>"></div>
+                                    <div class="budgetprogressbar" data-min="<%= (camp.minbudget.to_f / Grant.estimated_value).to_i %>" data-max="<%= (camp.maxbudget.to_f / Grant.estimated_value).to_i %>" data-value="<%= camp.grants_received %>"></div>
                                 <% end %>
 
                             <% end %>
