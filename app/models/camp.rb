@@ -168,7 +168,7 @@ class Camp < ActiveRecord::Base
   #end
 
   def grants_received
-    grants.sum(:amount) + (given_funds.to_i / Grant.estimated_value.to_i)
+    grants.sum(:amount) + (given_funds.to_f / Grant.estimated_value.to_f).to_i
   end
 
   def estimated_grants_worth
