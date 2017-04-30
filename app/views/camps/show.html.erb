@@ -59,13 +59,13 @@
                                 </div>
                                 <div class='budget-box'>
                                     <h3>
-                                      <%= @camp.hearts_received %>
-                                    </h3><h4><%=t :funded_hearts %></h4>
+                                      <%= number_to_currency(@camp.hearts_received.to_f * Grant.estimated_value, unit: '₪', precision: 0) %> ~
+                                    </h3><h4><%=t :funded_hearts_in_currency %></h4>
                                 </div>
                                 <div class='budget-box'>
                                     <h3>
-                                      <%= number_to_currency(@camp.hearts_received.to_f * Grant.estimated_value, unit: '₪', precision: 0) %> ~
-                                    </h3><h4><%=t :funded_hearts_in_currency %></h4>
+                                      <%= @camp.hearts_received %>
+                                    </h3><h4><%=t :funded_hearts %></h4>
                                 </div>
 
                                 <div class='budget-box-linebreak'></div>
