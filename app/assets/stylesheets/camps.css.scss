@@ -127,10 +127,30 @@ $main-image-height: 550px;
         margin-left: 24px;
         padding-left: 24px;
         border-left: 1px solid rgba(255,255,255,0.3);
-        min-width: 150px;
+        min-width: 172px;
+
+        h4 {
+          display: block;
+          margin-top: 5px;
+        }
       }
 
-      .budget-box-tooltip {
+      .combined-budget-box {
+        .heart-icon, .coin-icon {
+          width: 28%;
+          display: inline-block;
+          background-size: 40px; 
+        }
+        .glyphicon-plus {
+          width: 28%;
+          display: inline-block;
+          color: $c-pinky;
+          font-size: 32px;
+          padding-bottom: 27px;
+        }
+      }
+
+      .budget-box-linebreak {
         flex-basis: 100%;
         margin: 10px 0;
       }
@@ -588,10 +608,33 @@ body {
   }
 
   .dream_main_image {
-    height: 650px;
+    height: 825px;
   }
   .dream_main_text {
-    height: 650px; 
+    height: 825px; 
+  }
+
+  p.dream_main_creator {
+    margin-bottom: 0.5em !important;
+  }
+
+  .budget-info {
+    .budget-box {
+      margin-bottom: 0;
+    }
+    .budget-box-linebreak {
+      margin: 1px 0;
+    }
+
+    .heart-icon {
+      height: 48px !important;
+      background-size: 48px 48px !important;
+    }
+
+    .coin-icon {
+      height: 48px !important;
+      background-size: 48px 48px !important;
+    }
   }
 }
 
