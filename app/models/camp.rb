@@ -167,6 +167,10 @@ class Camp < ActiveRecord::Base
     # align_budget
   #end
 
+  def hearts_received
+    grants.sum(:amount)
+  end
+
   def grants_received
     grants.sum(:amount) + (given_funds.to_f / Grant.estimated_value.to_f).to_i
   end
