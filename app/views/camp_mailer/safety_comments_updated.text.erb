@@ -1,0 +1,6 @@
+<%= t("mails.safety_comments_updated.subject") %> <%= @camp.name %>
+<%= '='*t("mails.safety_comments_updated.subject").length %>=<%= '='*@camp.name.length %>
+
+<%= @editor.email %> <%= t("mails.safety_comments_updated.someone_updated_safety_comments") %>
+
+<%= @camp.safety_file_comments %>

@@ -868,3 +868,8 @@ he:
     failure:
       invalid: |
         לא הצלחנו למצוא את הפרופיל שלך. אולי תנסי לשחזר סיסמא?
+
+  mails:
+    safety_comments_updated:
+      subject: הערות בטיחות עודכנו עבור החלום
+      someone_updated_safety_comments: עדכן את הערות הבטיחות עבור חלום זה

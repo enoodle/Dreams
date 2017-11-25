@@ -784,6 +784,11 @@ en:
           dreamprop_community_context_desc: Description
           dreamprop_theme_annual_desc: Description
 
+  mails:
+    safety_comments_updated:
+      subject: Safety Comment Updated For Dream
+      someone_updated_safety_comments: has updated the safety comments for this dream
+
   errors:
     format: "%{attribute} %{message}"
     messages:
