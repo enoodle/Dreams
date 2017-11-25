@@ -129,4 +129,7 @@ group :development do
 
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', '~> 0.4.0', group: :doc
+
+  dev_gemfile = File.expand_path("Gemfile.dev.rb", __dir__)
+  eval_gemfile(dev_gemfile) if File.exist?(dev_gemfile)
 end
