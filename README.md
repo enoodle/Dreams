@@ -81,6 +81,12 @@ Make sure you change the username, password, token and event id
 
 ## Production
 
+#### Schema changes
+After any schema changes make sure you run
+`heroku run rake db:migrate --app=YOUR_APP`
+Then you might need to restart the instance with
+`heroku run restart --app=YOUR_APP`
+
 #### Email
 To get the mailing system working on Heroku -
 * Add Sendgrid as a Resource (this will automatically set SENDGRID_USERNAME & SENDGRID_PASSWORD)
@@ -142,3 +148,14 @@ You will need to set the following env var:
 ## Ability to Disable Editing for Dream-Creator
 If at some stage you will want to prevent the dream creators from updating a dream you can set this global env variable to do so:
 * `DISABLE_EDITING_DREAM=true`
+
+# Events
+Each year we have new dreams.
+We need to update each year by setting the `default_event` parameter in the `application.rb` file
+
+If you just integrated the events be sure to run
+`rails console`
+OR
+`heroku run rails console --app=YOUR_APP`
+Then set all events to your event - for example for midburn2017 we call
+`Camp.all.each do |camp| camp.update(event_id:'midburn2017') end`

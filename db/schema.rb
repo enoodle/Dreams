@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425081304) do
+ActiveRecord::Schema.define(version: 20171030112008) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 20170425081304) do
     t.string   "safety_materials",                                         :limit=>4096
     t.string   "safety_tools",                                             :limit=>4096
     t.integer  "given_funds"
+    t.string   "event_id",                                                 :limit=>128, :default=>"midburn2018"
   end
 
   create_table "grants", force: :cascade do |t|

@@ -17,6 +17,7 @@
               <%= link_to "עברית", :lang=>'he'%>
             <% end %>
             <%= link_to t("top_headline_dreams"), '/' %>
+            
             <%= link_to t("top_headline_faq"), '/pages/faq-'+I18n.locale.to_s %>
             <%= link_to t("how_can_i_help_title"), howcanihelp_path %>
             <% if user_signed_in? and !Rails.application.config.x.firestarter_settings['disable_open_new_dream'] and Lockdown.instance.allowed?('submit_dream') %>
