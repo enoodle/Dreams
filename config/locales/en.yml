@@ -13,7 +13,7 @@ en:
   top_headline_html: Midburn<br>Dreams
   top_headline_resources: Resources >
   top_headline_dreams: Dreams
-  top_headline_old_dreams: 2015 Dreams
+  top_headline_old_dreams: 2017 Dreams
   top_headline_faq: FAQ
   creations_menu: Dreams
   register_creation_menu: Create A Dream
@@ -36,7 +36,8 @@ en:
   welcome_user_text_html: Midburn Dreams is a directory of our collective imagination.
     We dream together and breathe life into our mad and wondrous creations. Dreams
     need matter to come to life, and this is where we share resources to make that
-    happen. Have a look around or create a dream of your own!
+    happen. Have a look around or create a dream of your own! If you're looking for the old dreams from 2017, they're <a href='chronicles?id=old'>safe and sound here</a>
+  welcome_user_text_chronicles_html: "Here is the dreams archive. Old dreamers and old dreams are here."
   header_faq_link: Did you already read our FAQ page?
   footer_left_html: Midburn is a participatory community where we co-create events
     and gatherings as prototypes of our dreams. It is an empty container, open to
@@ -141,6 +142,7 @@ en:
   form_neighbors_label: Who would your perfect neighbors be?
   form_neighbors_guidetext_html: What kind of midburners would you like as neighbors?
     Quiet, Deep playa, Near camps, Near sounds camps, Far away from sound camps
+  form_event_label: Event year
   form_spec_headline: Technical information and Visibility
   form_spec_guidelines: Please note that in order to complete the registration process you must upload, imaging, sketches and other files via "Upload photos" in the personal area. Requests which fail to meet this criteria will not be considered.
   form_spec_physical_description_label: Please insert physical descriptions and specifications
