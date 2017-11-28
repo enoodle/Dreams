@@ -155,7 +155,17 @@ class CampsController < ApplicationController
       end
     end
 
+    safety_comments_updated = false
+    if camp_params.keys.include?('safety_file_comments') &&
+        camp_params['safety_file_comments'] != @camp.safety_file_comments
+      safety_comments_updated = true
+    end
+
     if @camp.update_attributes camp_params
+      if safety_comments_updated
+        send_safety_comments_update_notifications(current_user)
+      end
+
       if params[:done] == '1'
         redirect_to camp_path(@camp)
       else
@@ -282,6 +292,10 @@ class CampsController < ApplicationController
 
   def load_lang_detector
     @detector = StringDirection::Detector.new(:dominant)
+  end
+
+  def send_safety_comments_update_notifications(updating_user)
+    CampMailer.safety_comments_updated(@camp, updating_user).deliver_later
   end
 end
 

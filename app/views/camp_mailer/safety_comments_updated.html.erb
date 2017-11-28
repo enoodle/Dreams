@@ -1,0 +1,7 @@
+<h1><%= t("mails.safety_comments_updated.subject") %> <%= @camp.name %></h1>
+<p>
+<%= @editor.email %> <%= t("mails.safety_comments_updated.someone_updated_safety_comments") %><br>
+</p>
+<p>
+<%= @camp.safety_file_comments %>
+</p>

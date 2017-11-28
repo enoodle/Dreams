@@ -42,58 +42,66 @@ describe CampsController do
     end
   end
 
-  context 'update permissions' do
+  context '#update' do
     let!(:camp) { Camp.create!(camp_attributes.merge(creator: user)) }
 
-    shared_examples_for 'should fail' do
-      it 'should not succeed updating' do
-        post :update, camp: camp_attributes, id: camp.id
-
-        expect(flash[:alert]).to_not be_nil
-      end
+    it 'sends an email when safety comments are updated' do
+      sign_in user
+      expect(controller).to receive(:send_safety_comments_update_notifications).with(user)
+      post :update, camp: camp_attributes.merge!(:safety_file_comments => 'hell world'), id: camp.id
     end
 
-    shared_examples_for 'should succeed' do
-      it 'should succeed updating' do
-        post :update, camp: camp_attributes, id: camp.id
+    context 'update permissions' do
+      shared_examples_for 'should fail' do
+        it 'should not succeed updating' do
+          post :update, camp: camp_attributes, id: camp.id
 
-        expect(flash[:alert]).to be_nil
-        expect(flash[:notice]).to be_nil
-      end
-    end
-
-    describe 'not logged in' do
-      it_behaves_like 'should fail'
-    end
-
-    context 'logged in' do
-      let(:guide) { false }
-      let(:admin) { false }
-      let(:current_user) {
-        User.create!(email: 'mr@robot.me', password: 'badpassword', guide: guide, admin: admin)
-      }
-
-      before :each do
-        sign_in current_user
+          expect(flash[:alert]).to_not be_nil
+        end
       end
 
-      context 'another user' do
+      shared_examples_for 'should succeed' do
+        it 'should succeed updating' do
+          post :update, camp: camp_attributes, id: camp.id
+
+          expect(flash[:alert]).to be_nil
+          expect(flash[:notice]).to be_nil
+        end
+      end
+
+      describe 'not logged in' do
         it_behaves_like 'should fail'
       end
 
-      context 'dream owner' do
-        let(:current_user) { user }
-        it_behaves_like 'should succeed'
-      end
+      context 'logged in' do
+        let(:guide) { false }
+        let(:admin) { false }
+        let(:current_user) {
+          User.create!(email: 'mr@robot.me', password: 'badpassword', guide: guide, admin: admin)
+        }
 
-      context 'guide' do
-        let(:guide) { true }
-        it_behaves_like 'should succeed'
-      end
+        before :each do
+          sign_in current_user
+        end
 
-      context 'admin' do
-        let(:admin) { true }
-        it_behaves_like 'should succeed'
+        context 'another user' do
+          it_behaves_like 'should fail'
+        end
+
+        context 'dream owner' do
+          let(:current_user) { user }
+          it_behaves_like 'should succeed'
+        end
+
+        context 'guide' do
+          let(:guide) { true }
+          it_behaves_like 'should succeed'
+        end
+
+        context 'admin' do
+          let(:admin) { true }
+          it_behaves_like 'should succeed'
+        end
       end
     end
   end
