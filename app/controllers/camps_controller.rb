@@ -197,7 +197,7 @@ class CampsController < ApplicationController
   end
 
   def update_team_members_on_spark()
-    if !Rails.configuration.x.firestarter_settings['spark']
+    if !Rails.configuration.x.firestarter_settings['spark_people']
       return
     end
     Rails.logger.debug("Updating team members on spark...")
