@@ -189,12 +189,12 @@ class CampsController < ApplicationController
       return
     end
     Rails.logger.debug("Updating team members on spark...")
-    camp_info = {
+    dream_info = {
       id: @camp.id,
       name: @camp.name,
       event: @camp.event_id,
     }
-    Rails.logger.debug(camp_info.to_s)
+    Rails.logger.debug(dream_info.to_s)
     team_members = @camp.people.map do |r| 
       {
         name: r.name,
@@ -203,7 +203,7 @@ class CampsController < ApplicationController
     end
     Rails.logger.debug(team_members.to_s)
     
-    r = HTTParty.post(ENV['SPARK_PEOPLE_URL'].to_s, body: { members: team_members, token: ENV['SPARK_TOKEN'] })
+    r = HTTParty.post(ENV['SPARK_PEOPLE_URL'].to_s, body: { dream: dream_info, members: team_members, token: ENV['SPARK_TOKEN'] })
     if r['status'] == "true"
       Rails.logger.debug("Updated team members successfully!")
     else
