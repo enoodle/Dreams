@@ -9,6 +9,38 @@
   @extend %textOverflowEllipsis;
 }
 
+.menu-heading {
+  height: 79px;
+  margin: 28px 0 56px 0;
+  ul {
+    border-top: 1px solid #FDD5F6;
+    border-bottom: 1px solid #FDD5F6;
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 0;
+
+    li {
+      padding: 5px;
+      font-size: 17px;
+      display: inline-block;
+    }
+    
+    .active {
+      background-color: $c-pinky;
+      color: white;
+    }
+  }
+}
+
+.step
+{
+  display: none;
+}
+
+.active-step {
+  display: initial;
+}
+
 .delete_button {
   @extend %button;
   background: $c-red;

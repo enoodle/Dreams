@@ -37,6 +37,7 @@ class CampsController < ApplicationController
 
   def edit
     @just_view = params[:just_view]
+    @step_param = params[:step]
   end
 
   def create
@@ -170,9 +171,20 @@ class CampsController < ApplicationController
         update_team_members_on_spark()
         redirect_to camp_path(@camp)
       else
-        respond_to do |format|
-          format.html { redirect_to edit_camp_path(id: @camp.id) }
-          format.json { respond_with_bip(@camp) }
+        if params[:step]
+          new_step = params[:step].to_i
+          if (new_step < 6)
+            new_step = new_step + 1
+          end
+          respond_to do |format|
+            format.html { redirect_to edit_camp_path(id: @camp.id, step: new_step) }
+            format.json { respond_with_bip(@camp) }
+          end
+        else
+          respond_to do |format|
+            format.html { redirect_to edit_camp_path(id: @camp.id) }
+            format.json { respond_with_bip(@camp) }
+          end
         end
       end
     else

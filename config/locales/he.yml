@@ -74,7 +74,18 @@ he:
   sort_by: "מיין לפי"
 
   # Creation registration form
-  form_basics_headline: "רישום החלום"
+  form_basics_headline: "הצגת הפרויקט"
+
+  # Dream edit menu 
+  form_01_title: "01 הנחיות כלליות"
+  form_02_title: "02 התחלנו..."
+  form_03_title: "03 פירוט טכני ונראות"
+  form_04_title: "04 אופי היצירה"
+  form_05_title: "05 הגשת בקשה למענק"
+  form_06_title: "06 תיק בטיחות"
+
+  # Step 1
+  form_general_instructions: "כאן בקרוב יוצג מידע כללי על התהליך בינתיים לחצו על שמור והמשך"
 
   # Dream Description
   form_summary: "תקציר החלום"
@@ -156,6 +167,7 @@ he:
   form_neighbors_guidetext_html: "מה היה מיקום טוב עבורכם? מבחינת מיקומיישן?"
   form_event_label: "שנת החלום"
 
+  # Step 3
   form_spec_headline: "פירוט טכני ונראות"
   form_spec_guidelines: "יש לשם לב שעל מנת להשלים את הליך ההרשמה יש להעלות דימויים, שרטוטים וקבצים נוספים דרך העלאת תמונות באזור האישי. בקשות ללא דימויים לא ייבחנו."
   form_spec_physical_description_label: "מהו התיאור פיזי של המיצב/יצירה שלכם"
