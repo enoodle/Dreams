@@ -203,7 +203,7 @@ class CampsController < ApplicationController
     end
     Rails.logger.debug(team_members.to_s)
     
-    r = HTTParty.post(ENV['SPARK_PEOPLE_URL'].to_s, body: { dream: dream_info, members: team_members, token: ENV['SPARK_TOKEN'] })
+    r = HTTParty.post(ENV['SPARK_PEOPLE_URL'].to_s, body: { dream:  dream_info, members: team_members, token: ENV['SPARK_TOKEN'] })
     if r['status'] == "true"
       Rails.logger.debug("Updated team members successfully!")
     else
