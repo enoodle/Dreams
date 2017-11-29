@@ -34,7 +34,7 @@
       <%if @just_view %>
         <%= link_to t(:open_dream_for_guide_edit_view_only), edit_camp_path(id: @camp.id), class: "btn btn-success" %>
       <% else %>
-        <%= link_to t(:open_dream_for_guide_edit), edit_camp_path(id: @camp.id, just_view: !(@just_view)), class: "btn btn-success" %>
+        <%= link_to t(:open_dream_for_guide_edit), edit_camp_path(id: @camp.id, just_view: !(@just_view), step: (step_param)), class: "btn btn-success" %>
       <% end %>
     <% end %>
 
