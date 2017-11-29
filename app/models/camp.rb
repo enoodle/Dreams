@@ -161,11 +161,12 @@ class Camp < ActiveRecord::Base
     displayed.includes(:tags)
   }
 
-  # before_save do
-    # No more - at this stage we're no longer aligning the budget
+  before_save do
+    # This will be closed when we close the system in the future
+    # (This comment is not relevant because it is more) No more - at this stage we're no longer aligning the budget
     # keep it here so we know that when we begin a new system we want this to happen
-    # align_budget
-  #end
+    align_budget
+  end
 
   def hearts_received
     grants.sum(:amount)
