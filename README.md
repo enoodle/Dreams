@@ -132,6 +132,8 @@ Set it using the following env var:
 `SPARK=true`
 `SPARK_URL=http://sparkstaging.midburn.org/api/userlogin`
 
+Also one request was that the spark would know when we update the list of people - make sure you set the `SPARK_PEOPLE_URL`
+
 
 ## Ability to Show/Edit Point of Contact
 We've added the ability to show a contact person from art-department for the dream-creator in the dream page. This field is editable by admin/guide users only.

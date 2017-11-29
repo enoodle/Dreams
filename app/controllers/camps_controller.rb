@@ -157,6 +157,7 @@ class CampsController < ApplicationController
 
     if @camp.update_attributes camp_params
       if params[:done] == '1'
+        update_team_members_on_spark()
         redirect_to camp_path(@camp)
       else
         respond_to do |format|
@@ -170,6 +171,36 @@ class CampsController < ApplicationController
         format.html { render :action => "edit" }
         format.json { respond_with_bip(@camp) }
       end
+    end
+  end
+
+  def update_team_members_on_spark()
+    if !Rails.configuration.x.firestarter_settings['spark']
+      return
+    end
+    Rails.logger.debug("Updating team members on spark...")
+    camp_info = {
+      id: @camp.id,
+      name: @camp.name,
+      event: @camp.event_id,
+    }
+    Rails.logger.debug(camp_info.to_s)
+    team_members = @camp.people.map do |r| 
+      {
+        name: r.name,
+        email: r.email
+      }
+    end
+    Rails.logger.debug(team_members.to_s)
+    
+    r = HTTParty.post(ENV['SPARK_PEOPLE_URL'].to_s, body: { members: team_members, token: ENV['SPARK_TOKEN'] })
+    if r['status'] == "true"
+      Rails.logger.debug("Updated team members successfully!")
+    else
+      Rails.logger.error("Cant update team members on spark!")
+      Rails.logger.error(r['body'])
+      Rails.logger.error(r['code'])
+      Rails.logger.error(r['message'])
     end
   end
 
