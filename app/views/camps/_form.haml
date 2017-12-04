@@ -37,10 +37,6 @@
     $('.step'+step).addClass('active-step');
   }
 
-  function activateMenuLinks() {
-    // On clicking a menu item - Should not refresh the page
-  }
-
   function findGetParameter(parameterName) {
     var result = null,
         tmp = [];
@@ -98,17 +94,23 @@
   .menu-heading
     %ul
       %li
-        = t("form_01_title")
+        %a{ :href => '?step=1'}
+          = t("form_01_title")
       %li
-        = t("form_02_title")
+        %a{ :href => '?step=2'}
+          = t("form_02_title")
       %li
-        = t("form_03_title")
+        %a{ :href => '?step=3'}
+          = t("form_03_title")
       %li
-        = t("form_04_title")
+        %a{ :href => '?step=4'}
+          = t("form_04_title")
       %li
-        = t("form_05_title")
+        %a{ :href => '?step=5'}
+          = t("form_05_title")
       %li
-        = t("form_06_title")
+        %a{ :href => '?step=6'}
+          = t("form_06_title")
 
   .step.step1
     .header-heading
