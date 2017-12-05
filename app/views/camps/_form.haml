@@ -701,50 +701,6 @@
       %blockquote
         = best_in_place_if @can_edit, @camp, :safety_signs, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
-    .program
-      .header-heading
-        = t("form_program_head")
-
-      .combo
-        = form.label t("form_program_name")
-      .input-group
-        %span.input-group-addon
-          = t("form_program_hebrew")
-        = best_in_place_if @can_edit, @camp, :program_dream_name_he, html_attrs: {maxlength: 256, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .input-group
-        %span.input-group-addon
-          = t("form_program_english")  
-        = best_in_place_if @can_edit, @camp, :program_dream_name_en, html_attrs: {maxlength: 256, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .combo
-        = form.label t("form_program_dreamer")
-      .input-group
-        %span.input-group-addon
-          = t("form_program_hebrew")  
-        = best_in_place_if @can_edit, @camp, :program_dreamer_name_he, html_attrs: {maxlength: 256, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-      .input-group
-        %span.input-group-addon
-          = t("form_program_english")  
-        = best_in_place_if @can_edit, @camp, :program_dreamer_name_en, html_attrs: {maxlength: 256, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-      .combo
-        = form.label t("form_program_description")
-      .input-group
-        %span.input-group-addon
-          = t("form_program_hebrew")  
-        = best_in_place_if @can_edit, @camp, :program_dream_about_he, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-      .input-group
-        %span.input-group-addon
-          = t("form_program_english")  
-        = best_in_place_if @can_edit, @camp, :program_dream_about_en, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
-    .combo
-      = form.label t("form_program_activity")
-      .field-description
-        = t("form_program_activity_desc")
-      = best_in_place_if @can_edit, @camp, :program_special_activity, html_attrs: {maxlength: 4096, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
-
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     
     .header-heading.safetybag-header
