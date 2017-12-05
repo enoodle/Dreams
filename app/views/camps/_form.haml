@@ -91,10 +91,12 @@
       = t("press_to_edit")
 
   %div
-    = @camp.id
-    = t("form_dream_name")
-    = t("form_dream_id")
-    = @camp.name
+    %h2
+      = t("form_dream_id")
+      = @camp.id
+    %h2
+      = t("form_dream_name")
+      = @camp.name
 
   .menu-heading
     %ul
