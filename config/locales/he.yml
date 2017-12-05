@@ -77,12 +77,12 @@ he:
   form_basics_headline: "הצגת הפרויקט"
 
   # Dream edit menu 
-  form_01_title: "01 הנחיות כלליות"
-  form_02_title: "02 התחלנו..."
-  form_03_title: "03 פירוט טכני ונראות"
-  form_04_title: "04 אופי היצירה"
-  form_05_title: "05 הגשת בקשה למענק"
-  form_06_title: "06 תיק בטיחות"
+  form_01_title: "הנחיות כלליות"
+  form_02_title: "התחלנו..."
+  form_03_title: "פירוט טכני ונראות"
+  form_04_title: "אופי היצירה"
+  form_05_title: "הגשת בקשה למענק"
+  form_06_title: "תיק בטיחות"
 
   # Step 1
   form_general_instructions: "כאן בקרוב יוצג מידע כללי על התהליך בינתיים לחצו על שמור והמשך"
