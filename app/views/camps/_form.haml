@@ -21,7 +21,6 @@
 
     toggleScholarship();
     toggleCurrentView();
-    activateMenuLinks();
     // Toggle dream_scholarship_extension only in cases where 2nd checkbox is off
     $(".funding-toggle").change(toggleScholarship);
 
@@ -90,6 +89,12 @@
   - else
     .pink-div
       = t("press_to_edit")
+
+  %div
+    = @camp.id
+    = t("form_dream_name")
+    = t("form_dream_id")
+    = @camp.name
 
   .menu-heading
     %ul
@@ -323,16 +328,6 @@
           %br
           %br
 
-    .row
-      .combo.col-xs-12
-        = form.label :projectmgmt_is_theme_camp_dream
-        = form.check_box :projectmgmt_is_theme_camp_dream, data: {show:'#theme_camp_related_desc'}
-
-    #theme_camp_related_desc.col-xs-12
-      .combo
-        = form.label :projectmgmt_is_dream_near_theme_camp
-        = form.check_box :projectmgmt_is_dream_near_theme_camp
-
     .combo.col-xs-12
       = form.label :projectmgmt_dream_pre_construction_site
       %br
@@ -347,17 +342,10 @@
     .combo
       = t("form_spec_guidelines")
 
-    .combo
-      = form.label t("form_spec_physical_description_label")
-      .field-description
-        = t("form_spec_physical_description_guidetext_html")
-      %blockquote
-        = best_in_place_if @can_edit, @camp, :spec_physical_description, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
-
     .row
       .combo.col-xs-12
         = form.label t("form_spec_sizes")
-
+    
     .row
       .col-xs-4
         = form.label t("form_spec_length_label")
@@ -371,6 +359,13 @@
         = form.label t("form_spec_height_label")
         %blockquote
           = best_in_place_if @can_edit, @camp, :spec_height, html_attrs: {maxlength: 128, class: "form-control"}, place_holder: t(:form_click_to_edit_html)
+
+    .combo
+      = form.label t("form_spec_physical_description_label")
+      .field-description
+        = t("form_spec_physical_description_guidetext_html")
+      %blockquote
+        = best_in_place_if @can_edit, @camp, :spec_physical_description, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
     .combo.col-xs-12
       = form.label t("form_spec_visual_night_day_label")
@@ -414,6 +409,18 @@
       = form.label t("form_dream_prop_philosophy")
       %blockquote
         = best_in_place_if @can_edit, @camp, :dreamprop_philosophy, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+    
+    .combo
+      = form.label :dreamprop_theme_is_annual
+      = form.check_box :dreamprop_theme_is_annual, data: {show:'#theme_annual'}
+
+    #theme_annual
+      .combo
+        = form.label :dreamprop_theme_annual_desc
+        .field-description
+          = t("form_dream_prop_theme_annual_desc_guidetext_html")
+        %blockquote
+          = best_in_place_if @can_edit, @camp, :dreamprop_theme_annual_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
     .combo
       = form.label t("form_dream_prop_inspiration")
@@ -421,6 +428,58 @@
         = t("form_dream_prop_inspiration_guidetext_html")
       %blockquote
         = best_in_place_if @can_edit, @camp, :dreamprop_inspiration, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+    
+    .combo
+      = form.label :dreamprop_interactivity_is_fire_present
+      = form.check_box :dreamprop_interactivity_is_fire_present, data: {show:'#fire_present'}
+      
+    #fire_present
+      .combo
+        = form.label :dreamprop_interactivity_fire_present_desc
+        .field-description
+          = t("form_dream_prop_interactivity_fire_present_desc_guidetext_html")
+        %blockquote
+          = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_fire_present_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+    
+    .combo
+      = form.label :dreamprop_interactivity_is_fire_event
+      = form.check_box :dreamprop_interactivity_is_fire_event, data: {show:'#fire_event'}
+
+    #fire_event
+      .combo
+        = form.label :dreamprop_interactivity_fire_event_desc
+        .field-description
+          = t("form_dream_prop_interactivity_fire_event_desc_guidetext_html")
+        %blockquote
+          = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_fire_event_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+          
+    .h3
+      = t("form_dream_prop_community")
+
+    .combo
+      = form.label :dreamprop_community_is_installation_present_for_event
+      = form.check_box :dreamprop_community_is_installation_present_for_event
+
+    .combo
+      = form.label :dreamprop_community_is_context
+      = form.check_box :dreamprop_community_is_context, data: {show:'#community_context'}
+
+    .combo
+      = form.label :dreamprop_community_is_installation_present_for_public
+      = form.check_box :dreamprop_community_is_installation_present_for_public
+
+    #community_context
+      .combo
+        = form.label :dreamprop_community_context_desc
+        .field-description
+          = t("form_dream_prop_community_context_desc_guidetext_html")
+        %blockquote
+          = best_in_place_if @can_edit, @camp, :dreamprop_community_context_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+
+    .combo
+      = form.label :dreamprop_community_is_interested_in_publicity
+      = form.check_box :dreamprop_community_is_interested_in_publicity
+
 
     .h3
       = t("form_dream_prop_interactivity")
@@ -433,18 +492,6 @@
         = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_audience_participation, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
     .combo
-      = form.label :dreamprop_interactivity_is_fire_present
-      = form.check_box :dreamprop_interactivity_is_fire_present, data: {show:'#fire_present'}
-
-    #fire_present
-      .combo
-        = form.label :dreamprop_interactivity_fire_present_desc
-        .field-description
-          = t("form_dream_prop_interactivity_fire_present_desc_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_fire_present_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
-
-    .combo
       = form.label :dreamprop_interactivity_is_sound
       = form.check_box :dreamprop_interactivity_is_sound, data: {show:'#sound_present'}
 
@@ -455,28 +502,6 @@
           = t("form_dream_prop_interactivity_sound_desc_guidetext_html")
         %blockquote
           = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_sound_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
-
-    .combo
-      = form.label :dreamprop_interactivity_is_fire_event
-      = form.check_box :dreamprop_interactivity_is_fire_event, data: {show:'#fire_event'}
-
-    #fire_event
-      .combo
-        = form.label :dreamprop_interactivity_fire_event_desc
-        .field-description
-          = t("form_dream_prop_interactivity_fire_event_desc_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_fire_event_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
-
-    .header-heading
-    = t("form_location_header")
-
-    .combo
-      = form.label t("form_location_info")
-      .field-description
-        = t("form_location_info_desc")
-      %blockquote
-        = best_in_place_if @can_edit, @camp, :location_info, html_attrs: {maxlength: 1024, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
     - if Rails.configuration.x.firestarter_settings["setup_steps"]
       #setup.row
@@ -492,48 +517,6 @@
             = link_to_add_association t('add_a_setup_step'), form, :setup_steps, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success add-association-button'
             %br
             %br
-          
-    .h3
-      = t("form_dream_prop_community")
-
-    .combo
-      = form.label :dreamprop_community_is_installation_present_for_event
-      = form.check_box :dreamprop_community_is_installation_present_for_event
-
-    .combo
-      = form.label :dreamprop_community_is_installation_present_for_public
-      = form.check_box :dreamprop_community_is_installation_present_for_public
-
-    .combo
-      = form.label :dreamprop_community_is_context
-      = form.check_box :dreamprop_community_is_context, data: {show:'#community_context'}
-
-    #community_context
-      .combo
-        = form.label :dreamprop_community_context_desc
-        .field-description
-          = t("form_dream_prop_community_context_desc_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :dreamprop_community_context_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
-
-    .combo
-      = form.label :dreamprop_community_is_interested_in_publicity
-      = form.check_box :dreamprop_community_is_interested_in_publicity
-
-    .h3
-      = t("form_dream_prop_theme")
-
-    .combo
-      = form.label :dreamprop_theme_is_annual
-      = form.check_box :dreamprop_theme_is_annual, data: {show:'#theme_annual'}
-
-    #theme_annual
-      .combo
-        = form.label :dreamprop_theme_annual_desc
-        .field-description
-          = t("form_dream_prop_theme_annual_desc_guidetext_html")
-        %blockquote
-          = best_in_place_if @can_edit, @camp, :dreamprop_theme_annual_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .step.step5
     .header-heading
@@ -568,17 +551,9 @@
           = t("form_dream_scholarship_budget_desc")
 
         .combo
-          = form.label t("form_dream_scholarship_budget_min_original")
-          %blockquote
-            = best_in_place_if @can_edit, @camp, :dreamscholarship_budget_min_original, html_attrs: {maxlength: 6, class: "form-control"}, place_holder: t(:form_click_to_edit_html), display_with: :number_to_currency, :helper_options => {:unit => "₪", precision:0}
-
-        .combo
           = form.label t("form_dream_scholarship_budget_max_original")
           %blockquote
             = best_in_place_if @can_edit, @camp, :dreamscholarship_budget_max_original, html_attrs: {maxlength: 6, class: "form-control"}, place_holder: t(:form_click_to_edit_html), display_with: :number_to_currency, :helper_options => {:unit => "₪", precision:0}
-          = form.label t("form_dream_scholarship_budget_max_original_desc")
-          %blockquote
-            = best_in_place_if @can_edit, @camp, :dreamscholarship_budget_max_original_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
         %br
         .budget
@@ -653,15 +628,6 @@
       = t("form_safety_plan_guidetext_html")
 
     .h3
-      = form.label t("form_heavy_equip")
-
-    .combo
-      = form.label :safety_is_heavy_equipment
-      = form.check_box :safety_is_heavy_equipment
-      %br
-      = t("form_heavy_equip_desc")
-
-    .h3
       = form.label t("form_safety_prince")
 
     .combo
@@ -698,6 +664,14 @@
         = t("form_safety_how_desc")
       %blockquote
         = best_in_place_if @can_edit, @camp, :safety_how, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)    
+
+    .combo
+      = form.label :safety_is_heavy_equipment
+      = form.check_box :safety_is_heavy_equipment
+      %br
+      = t("form_heavy_equip_desc_html")
+    
+    %br
 
     .combo
       = form.label t("form_safety_grounding")

@@ -58,6 +58,7 @@ en:
   form_basics_headline: Dream registration
   form_summary: Summary
   form_dream_name: Dream name
+  form_dream_id: "Dream ID"
   form_dream_name_en_label: Dream name in English (required)
   form_dream_name_label: Dream name (required) 
   form_dream_name_guidetext_html: What's your dream prototype called?
@@ -262,7 +263,8 @@ en:
   form_heavy_equip: Request for Mechanical Engineering Equipment - MEE
   form_is_heavey_equip_needed: Does the construction of the art installation require
     the use of any MEE?
-  form_heavy_equip_desc: Attention! Coordination of needs will be performed privately
+  form_heavy_equip_desc_html: >
+    Attention! Coordination of needs will be performed privately
     with the art department.
   form_safety_plan: A detailed engineering plan of the art installation
   form_safety_plan_guidetext_html: 1. A general plan of the structure specifying the

@@ -1,5 +1,9 @@
 .nested-fields.panel.panel-default.col-md-7{ style: 'float:' + I18n.t('lang_direction')}
   .panel-body
+    = f.label :roles
+    = f.collection_check_boxes(:role_ids, Role.all, :id, :identifier) do |b|
+      = b.label { b.check_box + ' ' + t("project_roles." + b.text) }
+    %br
     = f.label :name
     - if (@can_edit)
       = f.text_field :name, class: 'form-control'
@@ -33,9 +37,6 @@
         %br
         %br
 
-    = f.label :roles
-    = f.collection_check_boxes(:role_ids, Role.all, :id, :identifier) do |b|
-      = b.label { b.check_box + ' ' + t("project_roles." + b.text) }
     %br
     - if (@can_edit)
       = link_to_remove_association t("remove_person"), f, class: 'remove_person fa fa-trash'
