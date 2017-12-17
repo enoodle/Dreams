@@ -21,10 +21,36 @@
 
     toggleScholarship();
     toggleCurrentView();
+    validateSteps();
     // Toggle dream_scholarship_extension only in cases where 2nd checkbox is off
     $(".funding-toggle").change(toggleScholarship);
 
   });
+
+  function validateSteps() {
+    for (var step = 1; step <= 6; step++) {
+      menuItem = $('.menu-heading>ul>li')[step-1];
+      fieldList = $('.step'+step)[0].querySelectorAll('blockquote')
+      var valid = true;
+      if (0 == $('.step'+step)[0].querySelectorAll('blockquote a').length) {
+        for (var field = 0; field < fieldList.length; field++) {
+          if ("" == fieldList[field].innerText.trim()) {
+            valid = false;
+            break;
+          }
+        }
+      } else {
+        valid = false;
+      }
+      if (valid) {
+        $(menuItem).addClass('valid');
+        $(menuItem)[0].querySelector('img').src = #{"'" + image_path('complete.png')+"'"};
+      } else {
+        $(menuItem).addClass('invalid');
+        $(menuItem)[0].querySelector('img').src = #{"'" + image_path('not_complete.png')+"'"};
+      }
+    }
+  }
 
   function toggleCurrentView() {
     var step = findGetParameter('step') || 1;
@@ -101,21 +127,27 @@
   .menu-heading
     %ul
       %li
+        %img
         %a{ :href => '?step=1'}
           = t("form_01_title")
       %li
+        %img
         %a{ :href => '?step=2'}
           = t("form_02_title")
       %li
+        %img
         %a{ :href => '?step=3'}
           = t("form_03_title")
       %li
+        %img
         %a{ :href => '?step=4'}
           = t("form_04_title")
       %li
+        %img
         %a{ :href => '?step=5'}
           = t("form_05_title")
       %li
+        %img
         %a{ :href => '?step=6'}
           = t("form_06_title")
 

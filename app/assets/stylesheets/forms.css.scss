@@ -33,9 +33,20 @@
         }
       }
     }
-    
+
+    .invalid {
+      a {
+        color: #FB8A08 !important;
+      }
+    }
+    .valid {
+      a {
+        color: $c-pinky !important;
+      }
+    }
     .active {
       border-radius:4px;
+
       a {
         color: $c-pinky !important;
         font-weight: bold;
