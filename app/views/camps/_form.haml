@@ -27,12 +27,26 @@
 
   });
 
+  function invisibleFieldsByStep(step, selector) {
+    var inviElems = Array.from(step.querySelectorAll('[style="display: none;"]'));
+    var inviFields = Array();
+    for (var e in inviElems) {
+      inviFields = inviFields.concat(Array.from(inviElems[e].querySelectorAll(selector)));
+    }
+    return inviFields;
+  }
+
   function validateSteps() {
     for (var step = 1; step <= 6; step++) {
-      menuItem = $('.menu-heading>ul>li')[step-1];
-      fieldList = $('.step'+step)[0].querySelectorAll('blockquote')
+      var menuItem = $('.menu-heading>ul>li')[step-1];
+      var invisibleA = invisibleFieldsByStep($('.step'+step)[0], 'blockquote a');
+      var invisibleBlocks = invisibleFieldsByStep($('.step'+step)[0], 'blockquote');
+      var fieldList = Array.from($('.step'+step)[0].querySelectorAll('blockquote'));
+      var EditableFieldsList = Array.from($('.step'+step)[0].querySelectorAll('blockquote a'));
+      EditableFieldsList = EditableFieldsList.filter(f => invisibleA.indexOf(f) == -1);
+      fieldList = fieldList.filter(f => invisibleBlocks.indexOf(f) == -1);
       var valid = true;
-      if (0 == $('.step'+step)[0].querySelectorAll('blockquote a').length) {
+      if (0 == EditableFieldsList.length) {
         for (var field = 0; field < fieldList.length; field++) {
           if ("" == fieldList[field].innerText.trim()) {
             valid = false;
