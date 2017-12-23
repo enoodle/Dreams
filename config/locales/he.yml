@@ -210,6 +210,7 @@ he:
   form_dream_prop_interactivity_fire_event_desc_guidetext_html: "פרטו את המניעים והערך האמנותי בשריפת המיצב ואת האופן בו זה יבוצע (שריפת מיצבים תתואם מול מחלקת אש ומותנית באילוצים רבים. אין בהצהרה זו אישור או התחייבות לשריפתו של המיצב)"
   form_dream_prop_community: "קהילה"
   form_dream_prop_community_context_desc_guidetext_html: "שיתוף פעולה בזמן הבנייה, אירועים משותפים עם קהילות אחרות וכן הלאה..."
+  form_location_request_desc_guidetext_html: "זה המקום לבקש ולהציף בפירוט את המיקום האידאלי מבחינתכם, כדי שנוכל להביאו לנקודה הכי טובה בפלאייה. שימו לב שמידות המיצב, הפעלת סאונד, צריכת החשמל ומאפייני המיצב משפיעים גם הם על הצבתו והשדות הרלוונטיים מעודכנים"
   form_dream_prop_theme: "תמה"
   form_dream_prop_theme_annual_desc_guidetext_html: ""
 
@@ -648,6 +649,7 @@ he:
         dreamprop_community_is_interested_in_publicity: "מעוניין להציג במרחב ציבורי"
         dreamprop_theme_is_annual: "תמה שנתית"
         dreamprop_theme_annual_desc: "פירוט תמה שנתית"
+        location_request_desc: "מיקום והצבה הפלאיה"
         about_the_artist: "אודות האמן"
         website: "אתר"
         spec_physical_description: "תיאור פיזי"

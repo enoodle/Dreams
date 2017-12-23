@@ -186,6 +186,7 @@ en:
     does not imply confirmation or an obligation to burn the art installation.
   form_dream_prop_community_context_desc_guidetext_html: Cooperation during costruction,
               shared events with other communities etc.
+  form_location_request_desc_guidetext_html: This is the place to request and raise in detail the idial location for you, so we can bring it to its bgest point on the Playa. please notice that the size of the Dream, sound activity, power consumption and other attributes are also effecting its placement and that those fields are filled
   form_dream_prop_theme_annual_desc_guidetext_html: Does the art installation draw its inspiration from the annual "Lucid Dream" theme or supports the ten Burning Man principles?
   form_dream_scholarship_head: Midburn Art Fund scholarship application
   form_dream_scholarship_head_desc: 'If you wish to receive a stipend from Midburn''s
@@ -643,6 +644,7 @@ en:
           public space
         dreamprop_theme_is_annual: This year's theme
         dreamprop_theme_annual_desc: Details of the year's theme
+        location_request_desc: Location on the Playa
         about_the_artist: About the artist
         website: Web site
         spec_physical_description: Physical describtion
