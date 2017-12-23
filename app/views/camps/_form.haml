@@ -625,12 +625,17 @@
               = t("form_dream_scholarship_budget_form_desc")
 
         %br
-        .combo
-          = form.label t("form_dream_scholarship_bank_account_info")
-          .field-description
-            = t("form_dream_scholarship_bank_account_info_guidetext_html")
-          %blockquote
-            = best_in_place_if @can_edit, @camp, :dreamscholarship_bank_account_info, html_attrs: {maxlength: 128, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+        .row
+          .scholarship_receiver_details
+            = render 'scholarship_receiver_fields', :f => form
+
+        - if Rails.configuration.x.firestarter_settings["bank_detail_free_text"]
+          .combo
+            = form.label t("form_dream_scholarship_bank_account_info")
+            .field-description
+              = t("form_dream_scholarship_bank_account_info_guidetext_html")
+            %blockquote
+              = best_in_place_if @can_edit, @camp, :dreamscholarship_bank_account_info, html_attrs: {maxlength: 128, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
         .h3
           = t("form_dream_scholarship_financial_conduct")
