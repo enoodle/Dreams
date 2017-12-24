@@ -39,6 +39,8 @@ defaults: &defaults
   spark: <%= (ENV['SPARK'] and ENV['SPARK_URL'].present? and ENV['SPARK_TOKEN'].present?) or false %>
   spark_people: <%= (ENV['SPARK'] and ENV['SPARK_PEOPLE_URL'].present? and ENV['SPARK_TOKEN'].present?) or false %>
   setup_steps: false
+  interactivity: false
+  bank_detail_free_text: false
 
 development:
   <<: *defaults

@@ -186,6 +186,7 @@ en:
     does not imply confirmation or an obligation to burn the art installation.
   form_dream_prop_community_context_desc_guidetext_html: Cooperation during costruction,
               shared events with other communities etc.
+  form_location_request_desc_guidetext_html: This is the place to request and raise in detail the idial location for you, so we can bring it to its bgest point on the Playa. please notice that the size of the Dream, sound activity, power consumption and other attributes are also effecting its placement and that those fields are filled
   form_dream_prop_theme_annual_desc_guidetext_html: Does the art installation draw its inspiration from the annual "Lucid Dream" theme or supports the ten Burning Man principles?
   form_dream_scholarship_head: Midburn Art Fund scholarship application
   form_dream_scholarship_head_desc: 'If you wish to receive a stipend from Midburn''s
@@ -230,6 +231,19 @@ en:
     scholarship would be wired to.
   form_dream_scholarship_bank_account_info_guidetext_html: Name of account holder/bank
     no./branch/account number
+  form_dream_scholarship_receiver_details: Details of scholarship receiver
+  form_dream_scholarship_receiver_name: Full Name
+  form_dream_scholarship_receiver_id: ID Number
+  form_dream_scholarship_receiver_living_address: Address as written in ID
+  form_dream_scholarship_receiver_mailing_address: Mailing Address
+  form_dream_scholarship_receiver_bank_account_details: Bank Account Details
+  form_dream_scholarship_receiver_bank_account_name: Name of the Bank Account Owner (should be the same as the scholarship receiver that signs the contract)
+  form_dream_scholarship_receiver_bank_account_branch_name: Bank Name
+  form_dream_scholarship_receiver_bank_account_branch_number: Bank Branch Number
+  form_dream_scholarship_receiver_bank_account_number: Bank Account Number
+  form_dream_scholarship_receiver_contact_details: Contact Details
+  form_dream_scholarship_receiver_contact_email: Email
+  form_dream_scholarship_receiver_contact_phone: Phone Number
   form_dream_scholarship_financial_conduct: Financial conduct
   form_dream_scholarship_financial_conduct_is_intial_budget: Has the project bare minimum budget met?
   form_dream_scholarship_financial_conduct_intial_budget_desc: Upon approval, scholarships will be granted only after the art installation has been completed and once it's approved as "in line with scholarship's requirements" (approx. 45 days after the event). How are you planning on financing the construction of your art installation?
@@ -643,6 +657,7 @@ en:
           public space
         dreamprop_theme_is_annual: This year's theme
         dreamprop_theme_annual_desc: Details of the year's theme
+        location_request_desc: Location on the Playa
         about_the_artist: About the artist
         website: Web site
         spec_physical_description: Physical describtion

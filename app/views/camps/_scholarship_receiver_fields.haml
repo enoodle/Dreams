@@ -1,0 +1,30 @@
+.nested-fields.panel.panel-default.col-md-7{ style: 'float:' + I18n.t('lang_direction')}
+  = f.label t("form_dream_scholarship_receiver_details")
+  .panel-body
+    - %w(name id living_address mailing_address).each do |field|
+      - field_name = "scholarship_receiver_" + field
+      = f.label t("form_dream_" + field_name)
+      %blockquote
+        = best_in_place_if @can_edit, @camp, field_name,
+          html_attrs: {class: "form-control"},
+          as: :input, place_holder: t(:form_click_to_edit_html)
+      //= f.text_field field_name, class: 'form-control', readonly: !@can_edit
+  = f.label t("form_dream_scholarship_receiver_bank_account_details")
+  .panel-body
+    - %w(name branch_name branch_number number).each do |field|
+      - field_name = "scholarship_receiver_bank_account_" + field
+      = f.label t("form_dream_" + field_name)
+      %blockquote
+        = best_in_place_if @can_edit, @camp, field_name,
+          html_attrs: {class: "form-control"},
+          as: :input, place_holder: t(:form_click_to_edit_html)
+  = f.label t("form_dream_scholarship_receiver_contact_details")
+  .panel-body
+    - %w(email phone).each do |field|
+      - field_name = "scholarship_receiver_contact_" + field
+      = f.label t("form_dream_" + field_name)
+      %blockquote
+        = best_in_place_if @can_edit, @camp, field_name,
+          html_attrs: {class: "form-control"},
+          as: :input, place_holder: t(:form_click_to_edit_html)
+%br

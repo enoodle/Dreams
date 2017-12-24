@@ -1,3 +1,5 @@
+- dream_admin ||= false
+
 .nested-fields.panel.panel-default.col-md-7{ style: 'float:' + I18n.t('lang_direction')}
   .panel-body
     = f.label :roles
@@ -38,5 +40,5 @@
         %br
 
     %br
-    - if (@can_edit)
+    - if (@can_edit && !dream_admin)
       = link_to_remove_association t("remove_person"), f, class: 'remove_person fa fa-trash'

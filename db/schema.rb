@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030112008) do
+ActiveRecord::Schema.define(version: 20171223171934) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -162,6 +162,17 @@ ActiveRecord::Schema.define(version: 20171030112008) do
     t.string   "safety_tools",                                             :limit=>4096
     t.integer  "given_funds"
     t.string   "event_id",                                                 :limit=>128, :default=>"midburn2018"
+    t.text     "location_request_desc",                                    :limit=>1042
+    t.string   "scholarship_receiver_name"
+    t.string   "scholarship_receiver_id"
+    t.string   "scholarship_receiver_living_address"
+    t.string   "scholarship_receiver_mailing_address"
+    t.string   "scholarship_receiver_bank_account_name"
+    t.string   "scholarship_receiver_bank_account_branch_name"
+    t.string   "scholarship_receiver_bank_account_branch_number"
+    t.string   "scholarship_receiver_bank_account_number"
+    t.string   "scholarship_receiver_contact_email"
+    t.string   "scholarship_receiver_contact_phone"
   end
 
   create_table "grants", force: :cascade do |t|
