@@ -92,5 +92,8 @@ Rails.application.configure do
     },
     :s3_protocol => :https
   }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = ActionMailer::Base.smtp_settings
 end
 
