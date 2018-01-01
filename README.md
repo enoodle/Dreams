@@ -151,6 +151,10 @@ You will need to set the following env var:
 If at some stage you will want to prevent the dream creators from updating a dream you can set this global env variable to do so:
 * `DISABLE_EDITING_DREAM=true`
 
+## Ability to Hide 'Create Dream' Button
+If at some stage you wish to hide the 'Create Dream' button (where dream-creation is still available by a direct link) you can set this global env variable to do so:
+* `HIDE_CREATE_DREAM_BUTTON=true`
+
 # Events
 Each year we have new dreams.
 We need to update each year by setting the `default_event` parameter in the `application.rb` file
