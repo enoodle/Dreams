@@ -56,6 +56,38 @@ en:
   hide_not_open_for_granting: Hide not open for funding
   sort_by: Sort by
   form_basics_headline: Dream registration
+
+  # Dream edit menu
+  form_01_title: "Overall Instructions"
+  form_02_title: "Introduction"
+  form_03_title: "Technical Specs & Visibility"
+  form_04_title: "Dream Theme"
+  form_05_title: "Midburn Fund - Art Grant"
+  form_06_title: "Safety Portfolio"
+
+  # Step 1
+  form_general_instructions_html: >
+    Greetings! and welcome to Dreams - the platform that mannages art registrarion for Midburn.
+    <br>We made great efforts in order to ask you only for information we need to process, present to authorities or evaluate. Therefore - please fill everything with care and attention, and share your art description as clear and easy to understand as you can.
+    <br><br>For an easier experience, we divided the registration to five sections<br>
+
+    <br><br><b>1. Introduction!</b>
+    <br>Your basic presentation of what you are creating, including team members and project management. Content shared here would appear in the What? Where? Who? printed program, and you can choose to make it available for public view.
+    <br><b>2. Technical Specs & Visibility</b>
+    <br>This section indicates your project size, shape and presence in space. Data you fill here would appear in your safety file, and use the Art Department in art placement and coordinating the electricity plan.
+    <br>If you apply for an art grant it would be reviewed by the Midburn Fund team as well.
+    <br><b>3. Dream Theme</b>
+    <br>Try to take us into your deepest motivation for creating this piece. The concepts it refers to and the experience it generates. 
+    <br>If you apply for an art grant this content would would be reviewed by the Midburn Fund team.
+    <br><b>4. Midburn Fund - Art Grant</b>
+    <br>Present your project budget, team experience and share your plan and schedule. This allows the Midburn Fund members to evaluate your dream realization potential and set the level of support accordingly.
+    <br><b>5. Safety Portfolio</b>
+    <br>Focuses on risk management, and reducing potential hazards. This content supports the Technical Specs & Visibility tab, and your drawings. It would all be presented and approved by our civic partners, and is required in order to place art on Midburn playa.
+
+    <br><br>Thank you for taking part in Midburn by sharing your art. 
+    <br>The Midburn ArtScrew would love to advice and direct you. Your project contact person in the Art Department appears in your dream page.
+
+
   form_summary: Summary
   form_dream_name: Dream name
   form_dream_id: "Dream ID"
@@ -199,10 +231,9 @@ en:
   form_dream_prop_community: Community
   form_dream_prop_theme: Theme
   form_dream_prop_head: Dream Theme
-  form_dream_prop_philosophy: What the philosophy behind the piece/art installation?
-  form_dream_prop_inspiration: What were your insperations  for this project?
-  form_dream_prop_inspiration_guidetext_html: 'For instance: historical, cultural,
-    social etc.'
+  form_dream_prop_philosophy: What fundemental idea generates this creation?
+  form_dream_prop_inspiration: What experience would participants meet when interacting with your art? What is your art-participant interface?
+  form_dream_prop_inspiration_guidetext_html: ''
   form_dream_prop_interactivity: Interactivity
   form_dream_scholarship_head_desc_link: Link
   form_dream_scholarship_fund_is_from_art_fund: Are you interested in submitting a
@@ -778,8 +809,8 @@ en:
           dreamprop_community_is_interested_in_publicity: In case there will be a
             chance of exhibiting your work in public/ at a festival/ or at another
             Midburn event, will you be interested in doing so?
-          dreamprop_theme_is_annual: Is your project supporting the Midburn's  theme
-            of the year?
+          dreamprop_theme_is_annual: >
+              How does your project support/refer to the annual Theme Brain Storm and/or the ten Burning Man principles and/or what is your inspiration for this piece? (don’t force it, but do try to about it)
           spec_is_electricity: Will your installation need electricity?
           spec_electricity_is_daytime: Will it need electricity at day time?
           spec_electricity_watt: What would be the required electric rate for the
