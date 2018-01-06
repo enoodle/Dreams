@@ -13,6 +13,14 @@
                     <%= form_for image, url: camp_image_path(image.camp_id, image),  method: :delete do |form| %>
                         <%= form.submit t(:remove_image), { class: 'delete_button' } %>
                     <% end %>
+                    <% if @camp_id.present? %>
+                        <%= button_to t(:set_default_image), set_default_image_camp_image_path(image.camp_id, image), {class: 'toggle_button'} %>
+                        <% if false %>
+                           <%= form_for [Camp.find(@camp_id), image], url: camp_path(@camp_id), method: :set_default_image do |form| %>
+                               <%= form.submit t(:set_default_image), { class: 'toggle_button' } %>
+                           <% end %>
+                        <% end %>
+                    <% end %>
                 </div>
             <% end %>
         </div>

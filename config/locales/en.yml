@@ -439,6 +439,7 @@ en:
     Please make sure you own the required copyright for the uploaded images.
   upload_button: Upload Image
   remove_image: Remove Image
+  set_default_image: Set As Default
   back_to_dream: Back to dream
   error_no_image_selected: No image selected
   fully_funded: Fully funded

@@ -45,6 +45,15 @@ class ImagesController < ApplicationController
     end
   end
 
+  def set_default_image
+    @image = Image.find_by_id(params[:id])
+    @camp = Camp.find(camp_id)
+    # TODO
+    Rails.logger.debug("Setting image #{@image.id} as default for camp #{@camp.id}")
+    redirect_to camp_images_path(camp_id: @camp_id)
+  end
+
+
   def camp_id
     @camp_id = params[:camp_id]
   end
