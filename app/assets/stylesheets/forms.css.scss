@@ -82,6 +82,10 @@
   &:active {
     background: darken($c-blue, 10%);
   }
+
+  &:disabled {
+    background: darken($c-gray, 10%);
+  }
 }
 
 .granting_button {
