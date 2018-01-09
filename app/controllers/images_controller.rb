@@ -21,6 +21,8 @@ class ImagesController < ApplicationController
     @image.user_id = current_user.id
 
     if @image.save
+      cmp = Camp.find(camp_id)
+      cmp.update(:default_image => @image) unless cmp.default_image.present?
       redirect_to camp_images_path(camp_id: @camp_id)
     else
       render action: 'index'
