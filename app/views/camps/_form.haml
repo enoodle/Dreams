@@ -21,10 +21,50 @@
 
     toggleScholarship();
     toggleCurrentView();
+    validateSteps();
     // Toggle dream_scholarship_extension only in cases where 2nd checkbox is off
     $(".funding-toggle").change(toggleScholarship);
 
   });
+
+  function invisibleFieldsByStep(step, selector) {
+    var inviElems = Array.from(step.querySelectorAll('[style="display: none;"]'));
+    var inviFields = Array();
+    for (var e in inviElems) {
+      inviFields = inviFields.concat(Array.from(inviElems[e].querySelectorAll(selector)));
+    }
+    return inviFields;
+  }
+
+  function validateSteps() {
+    for (var step = 1; step <= 6; step++) {
+      var menuItem = $('.menu-heading>ul>li')[step-1];
+      var invisibleA = invisibleFieldsByStep($('.step'+step)[0], 'blockquote a');
+      var invisibleBlocks = invisibleFieldsByStep($('.step'+step)[0], 'blockquote');
+      var fieldList = Array.from($('.step'+step)[0].querySelectorAll('blockquote'));
+      var EditableFieldsList = Array.from($('.step'+step)[0].querySelectorAll('blockquote a'));
+      EditableFieldsList = EditableFieldsList.filter(f => invisibleA.indexOf(f) == -1);
+      fieldList = fieldList.filter(f => invisibleBlocks.indexOf(f) == -1);
+      var valid = true;
+      if (0 == EditableFieldsList.length) {
+        for (var field = 0; field < fieldList.length; field++) {
+          if ("" == fieldList[field].innerText.trim()) {
+            valid = false;
+            break;
+          }
+        }
+      } else {
+        valid = false;
+      }
+      if (valid) {
+        $(menuItem).addClass('valid');
+        $(menuItem)[0].querySelector('img').src = #{"'" + image_path('complete.png')+"'"};
+      } else {
+        $(menuItem).addClass('invalid');
+        $(menuItem)[0].querySelector('img').src = #{"'" + image_path('not_complete.png')+"'"};
+      }
+    }
+  }
 
   function toggleCurrentView() {
     var step = findGetParameter('step') || 1;
@@ -101,21 +141,27 @@
   .menu-heading
     %ul
       %li
+        %img
         %a{ :href => '?step=1'}
           = t("form_01_title")
       %li
+        %img
         %a{ :href => '?step=2'}
           = t("form_02_title")
       %li
+        %img
         %a{ :href => '?step=3'}
           = t("form_03_title")
       %li
+        %img
         %a{ :href => '?step=4'}
           = t("form_04_title")
       %li
+        %img
         %a{ :href => '?step=5'}
           = t("form_05_title")
       %li
+        %img
         %a{ :href => '?step=6'}
           = t("form_06_title")
 
@@ -302,8 +348,15 @@
         %blockquote
           = best_in_place_if @can_edit, @camp, :neighbors, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
-    .header-heading
-      = t("form_project_management")
+    .h3
+      = form.label t("form_project_management")
+
+    .row
+      .col-xs-12
+        .admin_details#admin_details
+          = form.fields_for :people, @camp.people.first do |person|
+            = render 'person_fields', :f => person, :camp_id => @camp.id, :dream_admin => true
+
     .h3
       = form.label t("form_project_management_crew")
     
@@ -320,7 +373,7 @@
         = t("form_project_management_crew_desc")
     
     #responsibles
-      = form.fields_for :people do |person|
+      = form.fields_for :people, @camp.people[1..-1] do |person|
         = render 'person_fields', :f => person, :camp_id => @camp.id
     
     - if @can_edit
@@ -403,6 +456,18 @@
         %blockquote
           = best_in_place_if @can_edit, @camp, :spec_electricity_watt, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
+    .combo.col-xs-12
+      = form.label :dreamprop_interactivity_is_sound
+      = form.check_box :dreamprop_interactivity_is_sound, data: {show:'#sound_present'}
+
+    #sound_present
+      .combo
+        = form.label :dreamprop_interactivity_sound_desc
+        .field-description
+          = t("form_dream_prop_interactivity_sound_desc_guidetext_html")
+        %blockquote
+          = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_sound_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+
   .step.step4
     .header-heading
       = t("form_dream_prop_head")
@@ -455,6 +520,13 @@
         %blockquote
           = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_fire_event_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
           
+    .combo
+      = form.label :location_request_desc
+      .field-description
+        = t("form_location_request_desc_guidetext_html")
+      %blockquote
+        = best_in_place_if @can_edit, @camp, :location_request_desc, html_attrs: {maxlength: 1024, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+
     .h3
       = t("form_dream_prop_community")
 
@@ -483,27 +555,16 @@
       = form.check_box :dreamprop_community_is_interested_in_publicity
 
 
-    .h3
-      = t("form_dream_prop_interactivity")
+    - if Rails.configuration.x.firestarter_settings["interactivity"]
+      .h3
+        = t("form_dream_prop_interactivity")
 
-    .combo
-      = form.label :dreamprop_interactivity_audience_participation
-      .field-description
-        = t("form_dream_prop_interactivity_audience_participation_guidetext_html")
-      %blockquote
-        = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_audience_participation, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
-
-    .combo
-      = form.label :dreamprop_interactivity_is_sound
-      = form.check_box :dreamprop_interactivity_is_sound, data: {show:'#sound_present'}
-
-    #sound_present
       .combo
-        = form.label :dreamprop_interactivity_sound_desc
+        = form.label :dreamprop_interactivity_audience_participation
         .field-description
-          = t("form_dream_prop_interactivity_sound_desc_guidetext_html")
+          = t("form_dream_prop_interactivity_audience_participation_guidetext_html")
         %blockquote
-          = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_sound_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+          = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_audience_participation, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
     - if Rails.configuration.x.firestarter_settings["setup_steps"]
       #setup.row
@@ -564,12 +625,17 @@
               = t("form_dream_scholarship_budget_form_desc")
 
         %br
-        .combo
-          = form.label t("form_dream_scholarship_bank_account_info")
-          .field-description
-            = t("form_dream_scholarship_bank_account_info_guidetext_html")
-          %blockquote
-            = best_in_place_if @can_edit, @camp, :dreamscholarship_bank_account_info, html_attrs: {maxlength: 128, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+        .row
+          .scholarship_receiver_details
+            = render 'scholarship_receiver_fields', :f => form
+
+        - if Rails.configuration.x.firestarter_settings["bank_detail_free_text"]
+          .combo
+            = form.label t("form_dream_scholarship_bank_account_info")
+            .field-description
+              = t("form_dream_scholarship_bank_account_info_guidetext_html")
+            %blockquote
+              = best_in_place_if @can_edit, @camp, :dreamscholarship_bank_account_info, html_attrs: {maxlength: 128, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
         .h3
           = t("form_dream_scholarship_financial_conduct")

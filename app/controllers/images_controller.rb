@@ -45,6 +45,12 @@ class ImagesController < ApplicationController
     end
   end
 
+  def set_default_image
+    Camp.find(@camp_id).update(:default_image_id => params[:id])
+    redirect_to camp_images_path(camp_id: @camp_id)
+  end
+
+
   def camp_id
     @camp_id = params[:camp_id]
   end

@@ -12,6 +12,7 @@ class Camp < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
   has_many :images #, :dependent => :destroy
+  belongs_to :default_image, :class_name => "Image", :foreign_key => :default_image_id
   has_many :grants
   has_many :people, class_name: 'Person'
   has_many :roles, through: :people

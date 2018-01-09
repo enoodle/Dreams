@@ -28,6 +28,7 @@ defaults: &defaults
   person_early_arrival:  <%= ENV['PERSON_EARLY_ARRIVAL'] or false %>
   person_has_ticket:  <%= ENV['PERSON_HAS_TICKET'] or false %>
   multi_lang_support: <%= ENV['MULTI_LANG_SUPPORT'] or false %>
+  hide_create_dream_button: <%= ENV['HIDE_CREATE_DREAM_BUTTON'] or false %>
   disable_open_new_dream: <%= ENV['disable_open_new_dream'] or false %>
   disable_edit_safetybag: <%= ENV['disable_edit_safetybag'] or false %>
   disable_edit_budget: <%= ENV['disable_edit_budget'] or false %>
@@ -39,6 +40,8 @@ defaults: &defaults
   spark: <%= (ENV['SPARK'] and ENV['SPARK_URL'].present? and ENV['SPARK_TOKEN'].present?) or false %>
   spark_people: <%= (ENV['SPARK'] and ENV['SPARK_PEOPLE_URL'].present? and ENV['SPARK_TOKEN'].present?) or false %>
   setup_steps: false
+  interactivity: false
+  bank_detail_free_text: false
 
 development:
   <<: *defaults
