@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   }
   
   resources :camps, :path => 'dreams' do
-    resources :images
+    resources :images do
+      post 'set_default_image', on: :member
+    end
+
     resources :people, only: [:show, :update]
     post 'join', on: :member
     
