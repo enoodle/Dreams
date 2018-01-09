@@ -35,6 +35,15 @@ class ImagesController < ApplicationController
     @image.save!
     @image.destroy!
 
+    cmp = Camp.find(camp_id)
+    if cmp.default_image_id == @image.id
+      if cmp.images.any?
+        cmp.update(:default_image => cmp.images.first)
+      else
+        cmp.update(:default_image_id => nil)
+      end
+    end
+
     redirect_to camp_images_path(camp_id: @camp_id)
   end
 
