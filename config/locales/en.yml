@@ -442,6 +442,7 @@ en:
   set_default_image: Set As Default
   back_to_dream: Back to dream
   error_no_image_selected: No image selected
+  bad_image_or_camp: No such image or wrong camp
   fully_funded: Fully funded
   grants_recieved: Grants Received
   granting_not_enabled: Granting disabled

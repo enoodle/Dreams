@@ -3,6 +3,8 @@ require 'faker'
 I18n.reload!
 
 describe CampsController do
+  render_views
+
   let(:email) { Faker::Internet.email }
   let(:user) { User.create! email: email, password: Faker::Internet.password, ticket_id: '6687' }
   let(:camp_leader) { Faker::Name.name }
@@ -39,6 +41,23 @@ describe CampsController do
       c = Camp.find_by_contact_name camp_leader
 
       expect( c.name ).to eq 'Burn something'
+    end
+  end
+
+  context '#show' do
+    let!(:camp) { Camp.create!(camp_attributes.merge(creator: user)) }
+
+    it 'renders a simple camps page' do
+      get :show, id: camp.id
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'renders a camp with a deafult image' do
+      img = Image.create()
+      camp.default_image = img
+
+      get :show, id: camp.id
+      expect(response).to have_http_status(:success)
     end
   end
 
