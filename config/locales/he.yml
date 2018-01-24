@@ -422,6 +422,7 @@ he:
   set_default_image: "קבע כתמונה ראשית"
   back_to_dream: "חזרי לחלום"
   error_no_image_selected: "לא נבחרה שום תמונה. אנא בחרי תמונה"
+  bad_image_or_camp: "תמונה לא קיימת או חלום שגוי"
 
   # Grants widget
   fully_funded: "מומן במלואו"

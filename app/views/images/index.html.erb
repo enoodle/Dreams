@@ -6,7 +6,7 @@
 
     <div class="col-md-8">
         <div class="row">
-            <% default_image_id = Camp.find(@camp_id).default_image_id %>
+            <% @default_image_id = Camp.find(@camp_id).default_image_id %>
             <% @images&.each do |image| %>
                 <div class="camp-image">
                     <% image_url = image.attachment.url(:medium) %>
@@ -15,7 +15,7 @@
                         <%= form.submit t(:remove_image), { class: 'delete_button' } %>
                     <% end %>
                     <% if @camp_id.present? %>
-                        <% is_default = (image.id == default_image_id) %>
+                        <% is_default = (image.id == @default_image_id) %>
                         <%= button_to t(:set_default_image), set_default_image_camp_image_path(image.camp_id, image), {class: 'toggle_button', :disabled => is_default} %>
                     <% end %>
                 </div>
