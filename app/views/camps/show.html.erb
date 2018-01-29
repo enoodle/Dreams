@@ -15,7 +15,6 @@
         </div>
 
         <div id="links">
-            <% @mainImage = @camp.default_image.attachment.url(:large) %>
             <% @camp.images.each_with_index do |image, index| %>
                 <% image_url = image.attachment.url(:large)%>
                 <% thumb_url = image.attachment.url(:medium)%>

@@ -40,7 +40,7 @@ class ImagesController < ApplicationController
       if cmp.images.any?
         cmp.update(:default_image => cmp.images.first)
       else
-        cmp.update(:default_image_id => nil)
+        cmp.update(:default_image => nil)
       end
     end
 
@@ -57,7 +57,12 @@ class ImagesController < ApplicationController
   end
 
   def set_default_image
-    Camp.find(@camp_id).update(:default_image_id => params[:id])
+    @image = Image.find_by_id(params[:id])
+    if @image.present? and @image.camp_id == @camp_id.to_i
+      Camp.find(@camp_id).update(:default_image => @image)
+    else
+      flash[:alert] = "#{t:bad_image_or_camp}"
+    end
     redirect_to camp_images_path(camp_id: @camp_id)
   end
 

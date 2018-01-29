@@ -242,6 +242,9 @@ class CampsController < ApplicationController
   # Display a camp and its users
   def show
     @users = @camp.users.select(:email)
+    if @camp.default_image.present?
+      @mainImage = @camp.default_image.attachment.url(:large)
+    end
 
     # Added this to move some code out of the view.
     if current_user
