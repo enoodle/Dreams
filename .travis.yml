@@ -1,7 +1,18 @@
 language: ruby
 cache: bundler
-rvm: 
+env:
+  matrix:
+  - DEPLOY_ENVIRONMENT=staging DEPLOY_BRANCH=master
+  - DEPLOY_ENVIRONMENT=production DEPLOY_TAGS=true
+  - DEPLOY_ENVIRONMENT=staging DEPLOY_BRANCH=sk8s-travis-ci-cd
+  - ""
+
+rvm:
   - 2.3.1
+
+services:
+  - docker
+
 addons:
   apt:
     packages:
@@ -9,10 +20,12 @@ addons:
     - libmagickcore-dev
     - libmagickwand-dev
 install:
-  - gem install bundler
-  - bundle install
+  - if [ -z "${DEPLOY_ENVIRONMENT}" ]; then gem install bundler; fi
+  - if [ -z "${DEPLOY_ENVIRONMENT}" ]; then bundle install; fi
 script:
-  - bundle exec rspec spec -fd
+  - if [ -z "${DEPLOY_ENVIRONMENT}" ]; then docker build . -t dreams; fi
+  - if [ -z "${DEPLOY_ENVIRONMENT}" ]; then bundle exec rspec spec -fd; fi
+  - ./continuous_deployment_travis.sh
 notifications:
   email: false
 
