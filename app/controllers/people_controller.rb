@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
-  before_action :authenticate_user!, :load_camp!
+  before_action :authenticate_user!
+  before_action :load_camp!, only: [:show, :update]
 
   def show
     @person = @camp.people.find(params[:id])
@@ -10,6 +11,15 @@ class PeopleController < ApplicationController
     @person = @camp.people.find(params[:id])
     @person.update!(params.require(:person).permit!)
     render json: @person
+  end
+
+  def export_csv
+    unless current_user.admin
+      redirect_to root_path
+      return
+    end
+
+    send_data Person.all.to_csv, :filename => "people-#{Date.today}.csv"
   end
 
   private
