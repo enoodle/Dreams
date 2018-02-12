@@ -38,7 +38,7 @@
               </div>
             <% end %>
             <% if user_signed_in? and current_user.admin %>
-                <%= link_to t(:export_people), 'people/export' %>
+                <%= link_to t(:export_people), people_export_path %>
             <% end %>
           </div>
         </div>
