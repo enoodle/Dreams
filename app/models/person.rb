@@ -15,9 +15,10 @@ class Person < ActiveRecord::Base
     CSV.generate(headers: true) do |csv|
       csv << CSV_ATTRIBUTES.map{ |attr| attr.titleize}
       Person.includes(:camp, :roles).where(:camps => {:event_id => Rails.application.config.default_event}).each do |p|
-        csv << [ p.email, p.name, p.phone_number,
-                 p.roles.pluck(:identifier).join("|"), p.camp.name, p.camp.id,
-                 humanize.call(p.needs_early_arrival), humanize.call(p.has_ticket)
+        csv << [
+          p.email, p.name, p.phone_number, p.roles.pluck(:identifier).join("|"),
+          p.camp.en_name, p.camp.id,
+          humanize.call(p.needs_early_arrival), humanize.call(p.has_ticket)
         ]
       end
     end
