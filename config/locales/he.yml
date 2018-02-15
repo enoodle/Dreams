@@ -156,6 +156,7 @@ he:
     foreman: "מנהלת עבודה"
     pyromaniac: "אחראי שריפה"
     designer: "מעצב/ת"
+    mooper: "אחראי חשל\"ש"
   add_a_setup_step: הוספת שלב
 
   form_project_management_is_theme_camp_dream: "האם זהו מיצב של מחנה נושא?"
@@ -291,7 +292,7 @@ he:
   form_safety_grounding_desc: "כולל עומק תקיעת יתדות. במקרה הצורך מומלץ להעלות גם דימוי המתאר את שיטת הקיבוע לקרקע"
   form_safety_securing: "אופן אבטחת המיצב"
   form_safety_securing_desc: "בעזרת כבלים ,יתדות, שרשראות וכו' יש להתייחס לאבטחת היתדות וסימון ברור שלהם למניעת פגיעה במשתתפי האירוע"
-  form_safety_securing_parts: "אופן מיגון חלקים נעים מפגיעה"
+  form_safety_securing_parts: "אsופן מיגון חלקים נעים מפגיעה"
   form_safety_securing_parts_desc: "מפרקים, גלגלי שיניים, חלקים מסתובבים וכד - יש לתאר את טווח הבטיחות מהחלקים הנעים ואת דרככם למזער פגיעה"
   form_safety_signs: "שילוט אזהרה/הדרכה נדרש"
   form_safety_signs_desc: "המתייחס לכל האספקטים שנמנו מעלה, ואופן הצבתו במיצב"

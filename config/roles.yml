@@ -9,6 +9,8 @@ defaults: &defaults
     - foreman
     - pyromaniac
     - designer
+  new_roles:
+    - mooper
 
 development:
   <<: *defaults
