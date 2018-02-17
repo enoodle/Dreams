@@ -11,6 +11,7 @@ describe Person do
   let(:camp) do
     Camp.create!(
       :name          => 'Burn something',
+      :en_name       => 'Burn something english',
       :subtitle      => 'Subtitle',
       :description   => 'We will build something and then burn it',
       :electricity   => 'Big enough for a big fire',
@@ -44,7 +45,7 @@ describe Person do
 
   def person_to_line(p)
     [p.email, p.name, p.phone_number, p.roles.pluck(:identifier).join('|'),
-     camp.name, camp.id.to_s, "Yes", "No"]
+     camp.en_name, camp.id.to_s, "Yes", "No"]
   end
 
   describe "#self.to_csv" do
