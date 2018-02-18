@@ -1,6 +1,6 @@
 class CampsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :load_camp!, except: [:index, :new, :create]
+  before_action :load_camp!, except: [:index, :new, :create, :export_csv]
   before_action :enforce_delete_permission!, only: [:destroy, :archive]
   before_action :enforce_guide!, only: %i(tag)
   before_action :enforce_grant_lockdown!, only: %i(update_grants)
@@ -275,6 +275,15 @@ class CampsController < ApplicationController
   def archive
     @camp.update!(active: false)
     redirect_to camps_path
+  end
+
+  def export_csv
+    unless current_user.admin
+      redirect_to root_path
+      return
+    end
+
+    send_data Camp.all.to_csv, :filename => "dreams-#{Date.today}.csv"
   end
 
   private
