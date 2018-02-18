@@ -201,4 +201,15 @@ class Camp < ActiveRecord::Base
       self.maxbudget = 0
     end
   end
+
+  CSV_ATTRIBUTES = %w{dream_name dream_id crewsize}.freeze
+
+  def self.to_csv
+    CSV.generate(headers: true) do |csv|
+      csv << CSV_ATTRIBUTES.map{ |attr| attr.titleize}
+      Camp.where(:event_id => Rails.application.config.default_event, :is_public => true).each do |c|
+        csv << [c.en_name, c.id, c.safetybag_crewsize]
+      end
+    end
+  end
 end

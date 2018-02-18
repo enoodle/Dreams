@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   }
   
   resources :camps, :path => 'dreams' do
+    get 'export', on: :collection, to: 'camps#export_csv'
+
     resources :images do
       post 'set_default_image', on: :member
     end
