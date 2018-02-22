@@ -20,7 +20,8 @@ describe CampsController do
         noise: 'The fire consumes everything',
         nature: 'Well - it will burn....',
         contact_email: 'burn@example.com',
-        contact_name: camp_leader
+        contact_name: camp_leader,
+        people_attributes: {'0' => {name: Faker::Name.name}}
     }
   }
 
@@ -41,6 +42,12 @@ describe CampsController do
       c = Camp.find_by_contact_name camp_leader
 
       expect( c.name ).to eq 'Burn something'
+    end
+
+    it 'won\'t create a camp without manager' do
+      post :create, camp: camp_attributes.merge!(people_attributes: {})
+      expect(Camp.find_by_contact_name(camp_leader)).to be_nil
+      expect(flash[:notice]).to_not be_nil
     end
   end
 

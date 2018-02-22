@@ -12,9 +12,10 @@ class Camp < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
   has_many :images #, :dependent => :destroy
-  belongs_to :default_image, :class_name => "Image", :foreign_key => :default_image_id
+  belongs_to :default_image, class_name: 'Image', foreign_key: :default_image_id
   has_many :grants
   has_many :people, class_name: 'Person'
+  belongs_to :camp_manager, class_name: 'Person', foreign_key: :camp_manager_id
   has_many :roles, through: :people
   has_many :setup_steps, class_name: :CampSetupStep
 
