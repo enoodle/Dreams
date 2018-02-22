@@ -207,7 +207,7 @@ class Camp < ActiveRecord::Base
   def self.to_csv
     CSV.generate(headers: true) do |csv|
       csv << CSV_ATTRIBUTES.map{ |attr| attr.titleize}
-      Camp.where(:event_id => Rails.application.config.default_event, :is_public => true).each do |c|
+      Camp.where(:event_id => Rails.application.config.default_event).each do |c|
         csv << [c.en_name, c.id, c.safetybag_crewsize]
       end
     end
