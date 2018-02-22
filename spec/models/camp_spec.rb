@@ -54,8 +54,8 @@ describe Person do
                                                  camp.safetybag_crewsize.to_s])
       end
 
-      it "shows a dream from current event" do
-        camp.update(:is_public => false)
+      it "won't show dreams from non current event" do
+        camp.update(:event_id => "other")
         csv_lines = Camp.to_csv.split("\n")
         expect(csv_lines.count).to eq(1)
       end
