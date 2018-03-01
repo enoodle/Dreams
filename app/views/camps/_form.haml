@@ -354,7 +354,7 @@
     .row
       .col-xs-12
         .admin_details#admin_details
-          = form.fields_for :people, @camp.people.first do |person|
+          = form.fields_for :people, @camp.camp_manager do |person|
             = render 'person_fields', :f => person, :camp_id => @camp.id, :dream_admin => true
 
     .h3
@@ -373,7 +373,7 @@
         = t("form_project_management_crew_desc")
     
     #responsibles
-      = form.fields_for :people, @camp.people[1..-1] do |person|
+      = form.fields_for :people, @camp.people.where.not(:id => @camp.camp_manager_id) do |person|
         = render 'person_fields', :f => person, :camp_id => @camp.id
     
     - if @can_edit

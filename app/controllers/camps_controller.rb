@@ -44,14 +44,14 @@ class CampsController < ApplicationController
     # Create camp without people then add them
     @camp = Camp.new(camp_params)
     @camp.creator = current_user
-
-    if create_camp
+    if @camp.people.first.present? and create_camp
+      @camp.update(:camp_manager_id => @camp.people.first.id)
       flash[:notice] = t('created_new_dream')
-      redirect_to edit_camp_path(id: @camp.id)
-    else
-      flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
-      render :new
+      return redirect_to edit_camp_path(id: @camp.id)
     end
+
+    flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
+    render :new
   end
 
   # Toggle granting
