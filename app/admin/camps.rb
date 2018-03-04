@@ -2,12 +2,12 @@ ActiveAdmin.register Camp do
   EXCLUDED = %w(contact_email user_id seeking_members safetybag_firstMemberName safetybag_firstMemberEmail safetybag_secondMemberName safetybag_secondMemberEmail)
 
   scope :active, default: true do |dreams|
-      dreams.active(true)
+      dreams.displayed.where(active: true)
     end
   scope :displayed_with_tags, default: false
-  scope("Public") { |scope| scope.where(is_public: true) }
-  scope("Private") { |scope| scope.where(is_public: false) }
-  scope("Inactive") { |scope| scope.where(active: false) }
+  scope("Public") { |dreams| dreams.displayed.where(is_public: true) }
+  scope("Private") { |dreams| dreams.displayed.where(is_public: false) }
+  scope("Inactive") { |dreams| dreams.displayed.where(active: false) }
   
   remove_filter *%i(tag_taggings taggings base_tags)
   index do

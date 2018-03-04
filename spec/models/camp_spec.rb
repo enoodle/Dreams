@@ -44,6 +44,17 @@ describe Person do
       .and_return("current_event")
   end
 
+  describe "#displayed scop" do
+    it "displays camp" do
+      camp.update(camp_manager: john)
+      expect(Camp.displayed).to eq([camp])
+    end
+
+    it "doesn't display manager-less camps" do
+      expect(Camp.displayed).to be_empty
+    end
+  end
+
   describe "#self.to_csv" do
     context "one dream" do
       it "shows a dream from current event" do
