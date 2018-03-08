@@ -145,10 +145,8 @@ class Camp < ActiveRecord::Base
   }
 
   scope :displayed, -> {
-    q = default_select.joins("LEFT JOIN roles ON (roles.identifier = '#{:manager}')")
-            .joins("LEFT JOIN people ON (people.camp_id = camps.id)")
-            .joins("LEFT JOIN people_roles pr ON (pr.role_id = roles.id)")
-            .where('people.id = pr.person_id')
+    q = default_select.joins(:people)
+      .where('people.id = camps.camp_manager_id')
     
     if connection.adapter_name == 'SQLite'
       q.select('people.name manager_name, people.email manager_email, people.phone_number manager_phone')
