@@ -82,10 +82,13 @@ Make sure you change the username, password, token and event id
 ## Production
 
 #### Schema changes
+##### Heroku
 After any schema changes make sure you run
 `heroku run rake db:migrate --app=YOUR_APP`
 Then you might need to restart the instance with
 `heroku run restart --app=YOUR_APP`
+##### midburn-k8s
+The docker image is built to run migration on startup, This means no extra actions are required to run migrations.
 
 #### Email
 To get the mailing system working on Heroku -
@@ -165,3 +168,16 @@ OR
 `heroku run rails console --app=YOUR_APP`
 Then set all events to your event - for example for midburn2017 we call
 `Camp.all.each do |camp| camp.update(event_id:'midburn2017') end`
+
+# midburn-k8s
+##### Rails Console
+Connect to the desired environment (see https://github.com/Midburn/midburn-k8s#quickstart)
+  - `docker run -it --entrypoint bash -e OPS_REPO_SLUG=Midburn/midburn-k8s orihoch/sk8s-ops`
+  - `gcloud auth login`
+  - `source switch_environment.sh staging`
+run `kubectl exec -ti `kubectl get pods | grep "dreams-" | awk '{print $1}'` -- rails c`
+##### Update Environment Variables
+Update the dreams section here with the new values:  https://github.com/Midburn/midburn-k8s/blob/master/environments/staging/values.yaml#L101
+Some values are hardcoded in the external-chart and should be removed to the staging/values before updating.
+##### Updating production version
+To update the version in midburn-k8s production one should create a new "release" on github and then update this release number on https://github.com/Midburn/midburn-k8s/blob/master/environments/production/values.auto-updated.yaml#L6
