@@ -4,7 +4,7 @@ services:
     db:
         image: postgres
         environment:
-            - POSTGRES_USER
+            - POSTGRES_USER=root
             - POSTGRES_DB
             - POSTGRES_PASSWORD
     dreams:
@@ -35,7 +35,7 @@ services:
             - RECAPTCHA_SECRET_KEY
             - RECAPTCHA_SITE_KEY
             - S3_BUCKET_NAME
-            - SECRET_KEY_BASE
+            - SECRET_KEY_BASE=a
             - SENDGRID_PASSWORD
             - SENDGRID_USERNAME
             - SHOW_POINT_OF_CONTACT=true

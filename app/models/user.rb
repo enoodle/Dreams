@@ -1,5 +1,3 @@
-require 'concerns/RegistrationValidation'
-
 class User < ActiveRecord::Base
   include RegistrationValidation
   # Include default devise modules. Others available are:
