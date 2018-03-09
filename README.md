@@ -177,7 +177,7 @@ Connect to the desired environment (see https://github.com/Midburn/midburn-k8s#q
   - `source switch_environment.sh staging`
 run `kubectl exec -ti `kubectl get pods | grep "dreams-" | awk '{print $1}'` -- rails c`
 ##### Update Environment Variables
-Update the dreams section here with the new values:  https://github.com/Midburn/midburn-k8s/blob/master/environments/staging/values.yaml#L101
-Some values are hardcoded in the external-chart and should be removed to the staging/values before updating.
+Update the dreams section here with the new values:  https://github.com/Midburn/midburn-k8s/blob/master/environments/staging/values.yaml#L101  (or similar file in the `production` environment)
+Some values are hardcoded in the external-chart (https://github.com/Midburn/midburn-k8s/blob/master/charts-external/dreams/templates/dreams.yaml) , If possible those should be moved to the environments/../values.yaml before updating them.
 ##### Updating production version
 To update the version in midburn-k8s production one should create a new "release" on github and then update this release number on https://github.com/Midburn/midburn-k8s/blob/master/environments/production/values.auto-updated.yaml#L6
