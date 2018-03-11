@@ -88,6 +88,8 @@ gem 'acts-as-taggable-on', '~> 4.0'
 
 gem 'httparty'
 
+gem 'rinku'
+
 group :production do
   # needed by herokus
   gem 'rails_12factor'
