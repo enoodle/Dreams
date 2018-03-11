@@ -353,4 +353,3 @@ class CampsController < ApplicationController
     CampMailer.safety_comments_updated(@camp, updating_user).deliver_later
   end
 end
-
