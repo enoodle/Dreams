@@ -21,6 +21,12 @@ describe CampsController do
         nature: 'Well - it will burn....',
         contact_email: 'burn@example.com',
         contact_name: camp_leader,
+        about_the_artist: 'about them',
+        plan: 'camp plan',
+        moop: 'moop plan',
+        recycling: 'recycling plan',
+        budgetplan: 'budgetplan plan',
+        cocreation: 'cocreation plan',
         people_attributes: {'0' => {name: Faker::Name.name}}
     }
   }

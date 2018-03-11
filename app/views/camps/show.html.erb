@@ -144,7 +144,7 @@
         <% if @camp.about_the_artist.present? %>
             <div class="camp-description">
                 <b><%=t :form_about_the_artist_label %></b>
-              <%= simple_format(Rinku.auto_link(camp.about_the_artist), class: "auto-#{@detector.direction(@camp.about_the_artist)}" ) %>
+              <%= simple_format(Rinku.auto_link(@camp.about_the_artist), class: "auto-#{@detector.direction(@camp.about_the_artist)}" ) %>
             </div>
         <% end %>
 
