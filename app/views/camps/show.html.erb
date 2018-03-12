@@ -137,49 +137,49 @@
         <% if Rails.configuration.x.firestarter_settings["description"] and @camp.description.present? %>
             <div class="camp-description">
                 <b><%=t :form_description_label %></b>
-              <%= simple_format(Rinku.auto_link(@camp.description, :all, 'target="_blank"'), class: "auto-#{@detector.direction(@camp.description)}" ) %>
+              <%= simple_format_with_links(@camp.description) %>
             </div>
         <% end %>
 
         <% if @camp.about_the_artist.present? %>
             <div class="camp-description">
                 <b><%=t :form_about_the_artist_label %></b>
-              <%= simple_format(Rinku.auto_link(@camp.about_the_artist, :all, 'target="_blank"'), class: "auto-#{@detector.direction(@camp.about_the_artist)}" ) %>
+              <%= simple_format_with_links(@camp.about_the_artist) %>
             </div>
         <% end %>
 
         <% if Rails.configuration.x.firestarter_settings["plan"] and @camp.plan.present? %>
             <div class="camp-description">
                 <b><%=t :form_plan_label %></b>
-                <%= simple_format(Rinku.auto_link(@camp.plan, :all, 'target="_blank"'), class: "auto-#{@detector.direction(@camp.plan)}" ) %>
+                <%= simple_format_with_links(@camp.plan) %>
             </div>
         <% end %>
 
         <% if Rails.configuration.x.firestarter_settings["moop"] and @camp.moop.present? %>
             <div class="camp-description">
                 <b><%=t :form_moop_label %></b>
-                <%= simple_format(Rinku.auto_link(@camp.moop, :all, 'target="_blank"'), class: "auto-#{@detector.direction(@camp.moop)}" ) %>
+                <%= simple_format_with_links(@camp.moop) %>
             </div>
         <% end %>
 
         <% if Rails.configuration.x.firestarter_settings["recycling"] and @camp.recycling.present? %>
             <div class="camp-description">
                 <b><%=t :form_recycling_label %></b>
-                <%= simple_format(Rinku.auto_link(@camp.recycling, :all, 'target="_blank"'), class: "auto-#{@detector.direction(@camp.recycling)}" ) %>
+                <%= simple_format_with_links(@camp.recycling) %>
             </div>
         <% end %>
 
         <% if Rails.configuration.x.firestarter_settings["budgetplan"] and @camp.budgetplan.present? %>
             <div class="camp-description">
                 <b><%=t :form_budgetplan_label %></b>
-                <%= simple_format(Rinku.auto_link(@camp.budgetplan, :all, 'target="_blank"'), class: "auto-#{@detector.direction(@camp.budgetplan)}" ) %>
+                <%= simple_format_with_links(@camp.budgetplan) %>
             </div>
         <% end %>
 
         <% if Rails.configuration.x.firestarter_settings["cocreation"] and @camp.cocreation.present? %>
             <div class="camp-description">
                 <b><%=t :form_cocreation_label %></b>
-                <%= simple_format(Rinku.auto_link(@camp.cocreation, :all, 'target="_blank"'), class: "auto-#{@detector.direction(@camp.cocreation)}" ) %>
+                <%= simple_format_with_links(@camp.cocreation) %>
             </div>
         <% end %>
 
