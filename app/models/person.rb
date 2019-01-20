@@ -1,6 +1,6 @@
 class Person < ActiveRecord::Base
   CSV_ATTRIBUTES = %w{email name phone_number responsibilities
-    dream_name dream_number needs_early_arrival has_ticket}.freeze
+    dream_name dream_number}.freeze
   belongs_to :camp, validate: true
   has_and_belongs_to_many :roles
 
