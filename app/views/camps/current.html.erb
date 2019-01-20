@@ -24,6 +24,11 @@
         <% else %>
           <%=t :welcome_guest_text_html %>
         <% end %>
+        <%= t :welcome_looking_for_old %>:
+        <br />
+        <a href='chronicles?id=old&event=midburn2017'>2017</a>
+        <br />
+        <a href='chronicles?id=old&event=midburn2018'>2018</a>
       </div>
       <div class="col-md-4">
         <%= form_for_filterrific @filterrific do |f| %>

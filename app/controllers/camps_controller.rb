@@ -25,6 +25,10 @@ class CampsController < ApplicationController
     @camps = @filterrific.find.page(params[:page])
 
     if params[:id] == 'old'
+      @camps = @camps.where.not(event_id: Rails.application.config.default_event)
+      if params[:event]
+        @camps = @camps.where(event_id: params[:event])
+      end
       render 'chronicles'
     else
       render 'current'
