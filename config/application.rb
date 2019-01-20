@@ -25,7 +25,7 @@ module Firestarter
     Rails.application.config.x.firestarter_settings = config_for(:firestarter_settings)
     Rails.application.config.coin_rate = 3.0 #Coin conversion from NIS
     Rails.application.config.budget_value = 50000 #The total budget in NIS
-    Rails.application.config.default_event = "midburn2018"
+    Rails.application.config.default_event = "midburn2019"
 
     config.autoload_paths += Dir["#{config.root}/lib/googleAppsScript/**/"]
   end
