@@ -131,6 +131,8 @@
 #  scholarship_receiver_contact_phone                       :string
 #  default_image_id                                         :integer
 #  camp_manager_id                                          :integer
+#  requested_funds                                          :integer
+#  requested_funds_fallback                                 :integer
 #
 
 class CanCreateNewDreamValidator < ActiveModel::Validator

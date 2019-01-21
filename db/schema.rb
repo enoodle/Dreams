@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219103255) do
+ActiveRecord::Schema.define(version: 20190121165734) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -175,6 +175,8 @@ ActiveRecord::Schema.define(version: 20180219103255) do
     t.string   "scholarship_receiver_contact_phone"
     t.integer  "default_image_id"
     t.integer  "camp_manager_id"
+    t.integer  "requested_funds"
+    t.integer  "requested_funds_fallback"
   end
 
   create_table "grants", force: :cascade do |t|
