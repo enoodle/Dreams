@@ -33,12 +33,13 @@ en:
   welcome_guest_text_html: Congratulations! You've stumbled upon something special!
     <b>Midburn</b> is some awesome fucking shit. We dream together and breathe life
     into our mad and wondrous creations. Dreams need matter to come to life, and this
-    is where we share resources to make that happen.
+    is where we share resources to make that happen. Have a look around or create a dream of your own! If you're looking for the old dreams from 2018, they're <a href='chronicles?id=old'>safe and sound here</a>
   welcome_user_title: Welcome to your Dreams!
   welcome_user_text_html: Midburn Dreams is a directory of our collective imagination.
     We dream together and breathe life into our mad and wondrous creations. Dreams
     need matter to come to life, and this is where we share resources to make that
-    happen. Have a look around or create a dream of your own! If you're looking for the old dreams from 2017, they're <a href='chronicles?id=old'>safe and sound here</a>
+    happen. Have a look around or create a dream of your own!
+  welcome_looking_for_old: "If you're looking for the old dreams, they're here:"
   welcome_user_text_chronicles_html: "Here is the dreams archive. Old dreamers and old dreams are here."
   header_faq_link: Did you already read our FAQ page?
   footer_left_html: Midburn is a participatory community where we co-create events
