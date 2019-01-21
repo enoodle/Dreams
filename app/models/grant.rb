@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: grants
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  camp_id    :integer
+#  amount     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Grant < ActiveRecord::Base
   belongs_to :user
   belongs_to :camp

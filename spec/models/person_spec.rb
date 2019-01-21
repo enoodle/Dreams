@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: people
+#
+#  id                  :integer          not null, primary key
+#  name                :string
+#  email               :string
+#  phone_number        :string
+#  background          :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  camp_id             :integer          not null
+#  has_ticket          :boolean
+#  needs_early_arrival :boolean
+#
+
 require 'rails_helper'
 require 'faker'
 I18n.reload!
