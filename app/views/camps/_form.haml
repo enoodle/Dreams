@@ -171,7 +171,7 @@
 
     %div
       = t("form_general_instructions_html")
-  
+
   .step.step2
     .header-heading
       = t("form_basics_headline")
@@ -225,7 +225,7 @@
 
     .combo#visability
       = form.label t("form_dream_visability")
-      
+
       = form.radio_button :is_public, true
       = form.label t("form_dream_visability_yes")
       = form.radio_button :is_public, false
@@ -253,7 +253,7 @@
       = form.label t("form_dream_website_label")
       %span.label.label-success
         =t("public")
-      %blockquote  
+      %blockquote
         = best_in_place_if @can_edit_public, @camp, :website, html_attrs: {maxlength: 512, class: "form-control"}, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
     .combo#description
@@ -359,7 +359,7 @@
 
     .h3
       = form.label t("form_project_management_crew")
-    
+
     - if Rails.configuration.x.firestarter_settings["crew_size"]
       .row
         .combo.col-xs-7{ style: 'float:' + I18n.t('lang_direction')}
@@ -371,11 +371,11 @@
     .row
       .col-xs-12
         = t("form_project_management_crew_desc")
-    
+
     #responsibles
       = form.fields_for :people, @camp.people.where.not(:id => @camp.camp_manager_id) do |person|
         = render 'person_fields', :f => person, :camp_id => @camp.id
-    
+
     - if @can_edit
       .row
         .links.col-xs-12
@@ -400,7 +400,7 @@
     .row
       .combo.col-xs-12
         = form.label t("form_spec_sizes")
-    
+
     .row
       .col-xs-4
         = form.label t("form_spec_length_label")
@@ -477,9 +477,9 @@
       %blockquote
         = best_in_place_if @can_edit, @camp, :dreamprop_philosophy, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
     
-    .combo
-      = form.label :dreamprop_theme_is_annual
-      = form.check_box :dreamprop_theme_is_annual, data: {show:'#theme_annual'}
+    -#.combo
+    -#  = form.label :dreamprop_theme_is_annual
+    -#  = form.check_box :dreamprop_theme_is_annual, data: {show:'#theme_annual'}
 
     #theme_annual
       .combo
@@ -495,11 +495,12 @@
         = t("form_dream_prop_inspiration_guidetext_html")
       %blockquote
         = best_in_place_if @can_edit, @camp, :dreamprop_inspiration, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
-    
+
     .combo
       = form.label :dreamprop_interactivity_is_fire_present
       = form.check_box :dreamprop_interactivity_is_fire_present, data: {show:'#fire_present'}
-      
+      .field-description
+        = t("simple_form.labels.camp.edit.dreamprop_interactivity_fire_note").html_safe
     #fire_present
       .combo
         = form.label :dreamprop_interactivity_fire_present_desc
@@ -507,7 +508,7 @@
           = t("form_dream_prop_interactivity_fire_present_desc_guidetext_html")
         %blockquote
           = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_fire_present_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
-    
+
     .combo
       = form.label :dreamprop_interactivity_is_fire_event
       = form.check_box :dreamprop_interactivity_is_fire_event, data: {show:'#fire_event'}
@@ -519,7 +520,7 @@
           = t("form_dream_prop_interactivity_fire_event_desc_guidetext_html")
         %blockquote
           = best_in_place_if @can_edit, @camp, :dreamprop_interactivity_fire_event_desc, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
-          
+
     .combo
       = form.label :location_request_desc
       .field-description
@@ -595,9 +596,9 @@
         = form.label :dreamscholarship_fund_is_from_art_fund
         = form.check_box :dreamscholarship_fund_is_from_art_fund, class: 'funding-toggle'
 
-      .combo
-        = form.label :dreamscholarship_fund_is_open_for_public
-        = form.check_box :dreamscholarship_fund_is_open_for_public, class: 'funding-toggle'
+      -#.combo
+      -#  = form.label :dreamscholarship_fund_is_open_for_public
+      -#  = form.check_box :dreamscholarship_fund_is_open_for_public, class: 'funding-toggle'
 
       #dream_scholarship_extension
         .combo
@@ -607,6 +608,31 @@
           %a{ :href => "http://midburn.org/he-art-scholarship/#tab-1454880861375-3-1", :target => "_blank"}
             = t("form_dream_scholarship_pre_fill_notes_questions")
 
+        %br
+          .requested-funds
+            = t("form_dream_camp_grant_title")
+            %br
+            = form.label t("form_dream_camp_grant_notes_title")
+            %br
+            = t("form_dream_camp_grant_notes_notes")
+            %br
+            = t("form_dream_camp_grant_notes_notes_2")
+            = form.label t("form_dream_camp_grant_options")
+            %br
+            - @camp_fund_options.each do |t|
+              = form.radio_button :requested_funds, t
+              = form.label "#{number_to_currency(t, {:unit => "₪", precision:0})}"
+              %br
+            %br
+            %br
+            = t("form_dream_camp_grant_fallback_title")
+            %br
+            = form.label t("form_dream_camp_grant_options")
+            %br
+            - @camp_fund_options.each do |t|
+              = form.radio_button :requested_funds_fallback, t
+              = form.label "#{number_to_currency(t, {:unit => "₪", precision:0})}"
+              %br
         .h3
           = t("form_dream_scholarship_budget")
 
@@ -738,7 +764,7 @@
       = form.check_box :safety_is_heavy_equipment
       %br
       = t("form_heavy_equip_desc_html")
-    
+
     %br
 
     .combo
@@ -770,7 +796,7 @@
         = best_in_place_if @can_edit, @camp, :safety_signs, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
-    
+
     .header-heading.safetybag-header
       = t("form_safetybag_headline")
 

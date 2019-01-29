@@ -42,6 +42,7 @@ class CampsController < ApplicationController
   def edit
     @just_view = params[:just_view]
     @step_param = params[:step]
+    @camp_fund_options = Camp::FUNDS_REQUEST_OPTIONS_NIS
   end
 
   def create

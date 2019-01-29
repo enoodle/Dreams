@@ -248,6 +248,13 @@ en:
     the criteria for scholarship approval.
   form_dream_scholarship_pre_fill_notes_questions: If you have any questions please
     review our FAQ section
+  form_dream_camp_grant: Grant
+  form_dream_camp_grant_options: "Options:"
+  form_dream_camp_grant_title: Choose the Grant that you'd like to apply for.
+  form_dream_camp_grant_notes_title: 'Notes:'
+  form_dream_camp_grant_notes_notes: An installation can only request one Grant. Please make sure that your budget is not higher than the requested Grant.
+  form_dream_camp_grant_notes_notes_2: Make sure to build a budget as realistic and accurate as possible. An infalted budget will signficantly impair your chances of receiving the Grant.
+  form_dream_camp_grant_fallback_title: In the case that you are not qualified for the Grant you asked, would you like to automatically apply for a smaller Grant? If yes, choose the minimal Grant that you will be able to build your installation with in accordance to the specs you applied with in the original request.
   form_dream_scholarship_budget: Budget
   form_dream_scholarship_budget_desc: Please supply a two level budget, in line with
     proposals or estimates by vendors. The first budget level is the bare minimum
@@ -308,7 +315,7 @@ en:
 
   form_safety_head: Safety Portfolio
   form_safety_head_description: Safety Portfolio and placement on the Playa must be
-    completed before March 3, 2018
+    completed before April 1, 2019
   form_heavy_equip: Request for Mechanical Engineering Equipment - MEE
   form_is_heavey_equip_needed: Does the construction of the art installation require
     the use of any MEE?
@@ -684,8 +691,9 @@ en:
         dreamprop_philosophy: Your philosophical take on your creation
         dreamprop_inspiration: Sources of your inspiration
         dreamprop_interactivity_audience_participation: Audience participation
-        dreamprop_interactivity_is_fire_present: Fire
+        dreamprop_interactivity_is_fire_present: Is fire an integral part of the installation
         dreamprop_interactivity_fire_present_desc: Fire details
+        dreamprop_interactivity_fire_note: If yes please click <b><a href="https://www.midburnfiretribe.com/">this link</a></b> for an explanation from the fire tribe
         dreamprop_interactivity_is_sound: Sound
         dreamprop_interactivity_sound_desc: Sound details
         dreamprop_interactivity_is_fire_event: Burning of the installation
@@ -820,7 +828,7 @@ en:
             chance of exhibiting your work in public/ at a festival/ or at another
             Midburn event, will you be interested in doing so?
           dreamprop_theme_is_annual: >
-              How does your project support/refer to the annual Theme Brain Storm and/or the ten Burning Man principles and/or what is your inspiration for this piece? (don’t force it, but do try to about it)
+              How does your project supports the ten Burning Man principles and/or what is your inspiration for this piece? (don’t force it, but do try to about it)
           spec_is_electricity: Will your installation need electricity?
           spec_electricity_is_daytime: Will it need electricity at day time?
           spec_electricity_watt: What would be the required electric rate for the

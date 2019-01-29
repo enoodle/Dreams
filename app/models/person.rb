@@ -1,6 +1,22 @@
+# == Schema Information
+#
+# Table name: people
+#
+#  id                  :integer          not null, primary key
+#  name                :string
+#  email               :string
+#  phone_number        :string
+#  background          :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  camp_id             :integer          not null
+#  has_ticket          :boolean
+#  needs_early_arrival :boolean
+#
+
 class Person < ActiveRecord::Base
   CSV_ATTRIBUTES = %w{email name phone_number responsibilities
-    dream_name dream_number needs_early_arrival has_ticket}.freeze
+    dream_name dream_number}.freeze
   belongs_to :camp, validate: true
   has_and_belongs_to_many :roles
 
