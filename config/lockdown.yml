@@ -1,7 +1,7 @@
 common: &common
   submit_dream: 2019-06-05t00:00:00+02:00
-  safety_file: 2019-06-05t00:00:00+02:00
-  vote_hearts: 2019-06-05t00:00:00+02:00 #No hearts this year
+  safety_file: 2019-04-01t00:00:00+02:00
+  vote_hearts: 2018-06-05t00:00:00+02:00 #No hearts this year
 
 development:
   <<: *common
