@@ -691,8 +691,9 @@ en:
         dreamprop_philosophy: Your philosophical take on your creation
         dreamprop_inspiration: Sources of your inspiration
         dreamprop_interactivity_audience_participation: Audience participation
-        dreamprop_interactivity_is_fire_present: Fire
+        dreamprop_interactivity_is_fire_present: Is fire an integral part of the installation
         dreamprop_interactivity_fire_present_desc: Fire details
+        dreamprop_interactivity_fire_note: If yes please click <b><a href="https://www.midburnfiretribe.com/">this link</a></b> for an explanation from the fire tribe
         dreamprop_interactivity_is_sound: Sound
         dreamprop_interactivity_sound_desc: Sound details
         dreamprop_interactivity_is_fire_event: Burning of the installation

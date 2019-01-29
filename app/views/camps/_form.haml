@@ -499,7 +499,8 @@
     .combo
       = form.label :dreamprop_interactivity_is_fire_present
       = form.check_box :dreamprop_interactivity_is_fire_present, data: {show:'#fire_present'}
-
+      .field-description
+        = t("simple_form.labels.camp.edit.dreamprop_interactivity_fire_note").html_safe
     #fire_present
       .combo
         = form.label :dreamprop_interactivity_fire_present_desc
