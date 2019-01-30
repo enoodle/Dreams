@@ -37,7 +37,6 @@ class CampsController < ApplicationController
 
   def new
     @camp = Camp.new
-    @camp.event_id = Rails.application.config.default_event
   end
 
   def edit
@@ -50,6 +49,7 @@ class CampsController < ApplicationController
     # Create camp without people then add them
     @camp = Camp.new(camp_params)
     @camp.creator = current_user
+    @camp.event_id = Rails.application.config.default_event
     if @camp.people.first.present? and create_camp
       @camp.update(:camp_manager_id => @camp.people.first.id)
       flash[:notice] = t('created_new_dream')
