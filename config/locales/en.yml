@@ -816,6 +816,7 @@ en:
           dreamprop_interactivity_is_sound: Does the installation make any sound?
           dreamprop_interactivity_is_fire_present: Does the installation include use
             of fire as an integral part?
+          dreamprop_interactivity_fire_note: "If yes, click <b><a target='_blank' href='https://www.midburnfiretribe.com/'>this link </a></b> for an explanation from the fire department"
           dreamprop_interactivity_is_fire_event: Do you wish to plan the burning of
             your work?
           dreamprop_community_is_installation_present_for_event: Will the installation

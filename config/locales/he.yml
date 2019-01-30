@@ -795,7 +795,7 @@ he:
         edit:
           dreamprop_interactivity_is_sound: "האם המיצב 'יוצר' סאונד / רעש כלשהו?"
           dreamprop_interactivity_is_fire_present: "האם המיצב מערב הפעלת אש כחלק אינטגרלי ומהותי?"
-          dreamprop_interactivity_fire_note: "במידה וכן לחץ על  <b><a href='https://www.midburnfiretribe.com/'>הקישור הזה</a></b> להסבר ממחלקת האש"
+          dreamprop_interactivity_fire_note: "במידה וכן לחץ על  <b><a target='_blank' href='https://www.midburnfiretribe.com/'>הקישור הזה</a></b> להסבר ממחלקת האש"
           dreamprop_interactivity_is_fire_event: "האם תרצו לתאם אירוע שריפה למיצב?"
           dreamprop_community_is_installation_present_for_event: "האם המיצב מוקם במיוחד עבור האירוע?"
           dreamprop_community_is_installation_present_for_public: "האם המיצב מתוכנן להיות מוצב במרחב ציבורי כלשהו לאחר האירוע?"
