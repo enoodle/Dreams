@@ -37,6 +37,7 @@ class CampsController < ApplicationController
 
   def new
     @camp = Camp.new
+    @camp.event_id = Rails.application.config.default_event
   end
 
   def edit
