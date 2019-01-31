@@ -222,7 +222,14 @@ en:
     does not imply confirmation or an obligation to burn the art installation.
   form_dream_prop_community_context_desc_guidetext_html: Cooperation during costruction,
               shared events with other communities etc.
-  form_location_request_desc_guidetext_html: This is the place to request and raise in detail the idial location for you, so we can bring it to its bgest point on the Playa. please notice that the size of the Dream, sound activity, power consumption and other attributes are also effecting its placement and that those fields are filled
+  form_location_request_desc_guidetext_html: >
+    Please rate the 5 most important parameters (1=most/ 5=least) you would like us to consider
+    When placing your installation.
+    For instance: If you are bringing children & your installation needs daily upkeep, rate closeness to camp
+    in high priority. If you need quiet, flat terrain or any other variable you would like us to consider as a
+    high priority, let us know.
+    Please note that installation dimensions, sound use, electricity needs & characteristics all influence
+    placement as well. Make sure those fields are filled out clearly.
   form_dream_prop_theme_annual_desc_guidetext_html: Does the art installation draw its inspiration from the annual "Lucid Dream" theme or supports the ten Burning Man principles?
   form_dream_scholarship_head: Midburn Art Fund scholarship application
   form_dream_scholarship_head_desc: 'If you wish to receive a stipend from Midburn''s
@@ -314,8 +321,9 @@ en:
   form_click_to_edit_html: <a>Click to edit</a>
 
   form_safety_head: Safety Portfolio
-  form_safety_head_description: Safety Portfolio and placement on the Playa must be
-    completed before April 1, 2019
+  form_safety_head_description_html: >
+    Safety Portfolio and placement on the Playa must be completed before April 1, 2019.
+    <br>The deadline for art card submission is 1.3.2019
   form_heavy_equip: Request for Mechanical Engineering Equipment - MEE
   form_is_heavey_equip_needed: Does the construction of the art installation require
     the use of any MEE?
