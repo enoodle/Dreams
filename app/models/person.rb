@@ -29,6 +29,7 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :roles
 
   validates :name, presence: true
+  validates :email, presence: true
   validates_with EmailInSpark, :on => :create
 
   schema_validations whitelist: [:id, :created_at, :updated_at, :camp]
@@ -50,14 +51,19 @@ class Person < ActiveRecord::Base
   end
 
   def self.email_registered?(email)
-    r = HTTParty.post(
-      URI.join(ENV['SPARK_HOST'], 'volunteers/profiles').to_s,
-      body: {emails: [email]}.to_json,
-      headers: {
-        token: ENV['SPARK_TOKEN'],
-        'Content-Type': 'application/json'
-      }
-    )
-    JSON.parse(r.body)[0].key? 'user_data'
+    begin
+      r = HTTParty.post(
+        URI.join(ENV['SPARK_HOST'], 'volunteers/profiles').to_s,
+        body: {emails: [email]}.to_json,
+        headers: {
+          token: ENV['SPARK_TOKEN'],
+          'Content-Type': 'application/json'
+        },
+        timeout: 10
+      )
+      JSON.parse(r.body)[0].key? 'user_data'
+    rescue
+      false
+    end
   end
 end

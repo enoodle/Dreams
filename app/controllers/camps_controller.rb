@@ -195,8 +195,8 @@ class CampsController < ApplicationController
       end
     else
       respond_to do |format|
-        flash.now[:alert] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
-        format.html { render :action => "edit" }
+        flash[:alert] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
+        format.html { redirect_to edit_camp_path(id: @camp.id, step: params[:step].to_i) }
         format.json { respond_with_bip(@camp) }
       end
     end
