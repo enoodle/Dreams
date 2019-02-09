@@ -56,7 +56,7 @@ class CampsController < ApplicationController
       return redirect_to edit_camp_path(id: @camp.id)
     end
 
-    flash.now[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
+    flash.now[:alert] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
     render :new
   end
 

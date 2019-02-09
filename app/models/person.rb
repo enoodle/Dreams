@@ -14,6 +14,14 @@
 #  needs_early_arrival :boolean
 #
 
+class EmailInSpark < ActiveModel::Validator
+  def validate(record)
+    if !Person.email_registered?(record.email)
+      record.errors[:email] << I18n.t("email_not_in_spark") + " #{record.email}"
+    end
+  end
+end
+
 class Person < ActiveRecord::Base
   CSV_ATTRIBUTES = %w{email name phone_number responsibilities
     dream_name dream_number}.freeze
@@ -21,6 +29,7 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :roles
 
   validates :name, presence: true
+  validates_with EmailInSpark, :on => :create
 
   schema_validations whitelist: [:id, :created_at, :updated_at, :camp]
 
@@ -38,5 +47,17 @@ class Person < ActiveRecord::Base
         ]
       end
     end
+  end
+
+  def self.email_registered?(email)
+    r = HTTParty.post(
+      URI.join(ENV['SPARK_HOST'], 'volunteers/profiles').to_s,
+      body: {emails: [email]}.to_json,
+      headers: {
+        token: ENV['SPARK_TOKEN'],
+        'Content-Type': 'application/json'
+      }
+    )
+    JSON.parse(r.body)[0].key? 'user_data'
   end
 end

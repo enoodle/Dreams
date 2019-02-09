@@ -53,7 +53,7 @@ describe CampsController do
     it 'won\'t create a camp without manager' do
       post :create, camp: camp_attributes.merge!(people_attributes: {})
       expect(Camp.find_by_contact_name(camp_leader)).to be_nil
-      expect(flash[:notice]).to_not be_nil
+      expect(flash[:alert]).to_not be_nil
     end
   end
 
