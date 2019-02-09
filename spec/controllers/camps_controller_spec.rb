@@ -27,7 +27,7 @@ describe CampsController do
         recycling: 'recycling plan',
         budgetplan: 'budgetplan plan',
         cocreation: 'cocreation plan',
-        people_attributes: {'0' => {name: Faker::Name.name}}
+        people_attributes: {'0' => {name: Faker::Name.name, email: Faker::Internet.email}}
     }
   }
 

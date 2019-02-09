@@ -1,3 +1,32 @@
+:javascript
+
+  function verify_person_email(event) {
+    const email_field = event.target;
+    if (email_field.value != '') {
+      verify_email(email_field.value, function (valid) {
+        console.log(`email is valid: ${valid}`);
+        if (!valid) {
+          email_field.classList.remove("email_valid");
+          email_field.classList.add("email_invalid");
+        } else {
+          email_field.classList.remove("email_invalid");
+          email_field.classList.add("email_valid");
+        }
+      });
+    }
+  }
+
+  function verify_email(email, callback) {
+    var request = new XMLHttpRequest();
+    request.open("POST", '/verify_email', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+    request.onload  = function() {
+      callback(JSON.parse(request.response)['verified']);
+    };
+    request.send(JSON.stringify({ "email": email }));
+  }
+
 - dream_admin ||= false
 
 .nested-fields.panel.panel-default.col-md-7{ style: 'float:' + I18n.t('lang_direction')}
@@ -13,7 +42,7 @@
       = f.text_field :name, class: 'form-control', readonly: true
     = f.label :email
     - if (@can_edit)
-      = f.text_field :email, class: 'form-control'
+      = f.text_field :email, class: 'form-control person_email', onfocusout: 'verify_person_email(event)'
     - else
       = f.text_field :email, class: 'form-control', readonly: true
     = f.label :phone_number

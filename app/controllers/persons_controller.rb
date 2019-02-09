@@ -3,4 +3,8 @@ class PersonsController < ApplicationController
 
   def export
   end
+
+  def verify_email
+    render :json => { verified: Person.email_registered?(params[:email]) }
+  end
 end
