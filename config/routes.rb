@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   get '/howcanihelp' => 'howcanihelp#index'
 
   get '/people/export' => 'people#export_csv'
+
+  post '/verify_email' => 'persons#verify_email'
   
   get '*unmatched_route' => 'application#not_found'
 end

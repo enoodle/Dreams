@@ -9,6 +9,13 @@
   @extend %textOverflowEllipsis;
 }
 
+.email_valid {
+  background-color: lighten($c-green, 30%);
+}
+.email_invalid {
+  background-color: lighten($c-red, 30%);
+}
+
 .menu-heading {
   height: 79px;
   margin: 28px 0 56px 0;
