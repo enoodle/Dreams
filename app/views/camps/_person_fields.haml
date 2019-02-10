@@ -4,12 +4,17 @@
     const email_field = event.target;
     if (email_field.value != '') {
       verify_email(email_field.value, function (valid) {
+        msg = email_field.parentElement.querySelector('.nested_email_error');
         if (!valid) {
           email_field.classList.remove("email_valid");
           email_field.classList.add("email_invalid");
+          msg.classList.remove("hidden");
+          msg.classList.add("visible");
         } else {
           email_field.classList.remove("email_invalid");
           email_field.classList.add("email_valid");
+          msg.classList.add("hidden");
+          msg.classList.remove("visible");
         }
       });
     }
@@ -42,6 +47,8 @@
     = f.label :email
     - if (@can_edit)
       = f.text_field :email, class: 'form-control person_email', onfocusout: 'verify_person_email(event)'
+      .nested_email_error.hidden
+        = t("email_not_in_spark_small")
     - else
       = f.text_field :email, class: 'form-control', readonly: true
     = f.label :phone_number

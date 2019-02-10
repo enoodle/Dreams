@@ -591,6 +591,7 @@ en:
   new_dream_is_disabled: Creating new dreams is disabled at the moment. If you think
     this is a mistake please contact bureau of dreams
   email_not_in_spark: Sorry, but we couldn't find a Midburn profile associated with
+  email_not_in_spark_small: Sorry, but we couldn't find a Midburn profile associated with this email.
   dont_miss_out:
     banner: Don't miss out! Only %{time} left to %{action}
     actions:
