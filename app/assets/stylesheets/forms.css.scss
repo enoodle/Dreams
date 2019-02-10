@@ -15,6 +15,16 @@
 .email_invalid {
   background-color: lighten($c-red, 30%) !important;
 }
+.nested_email_error{
+  font-size: 12px;
+  color: lighten($c-red, 30%);
+  .hidden {
+    visibility: hidden;
+  }
+  .visible {
+    visibility: visible;
+  }
+}
 
 .menu-heading {
   height: 79px;
