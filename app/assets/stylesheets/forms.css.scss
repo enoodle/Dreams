@@ -10,10 +10,10 @@
 }
 
 .email_valid {
-  background-color: lighten($c-green, 30%);
+  background-color: lighten($c-green, 30%) !important;
 }
 .email_invalid {
-  background-color: lighten($c-red, 30%);
+  background-color: lighten($c-red, 30%) !important;
 }
 
 .menu-heading {

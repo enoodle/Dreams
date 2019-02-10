@@ -61,7 +61,7 @@ describe Person do
 
   def person_to_line(p)
     [p.email, p.name, p.phone_number, p.roles.pluck(:identifier).join('|'),
-     camp.en_name, camp.id.to_s, "Yes", "No"]
+     camp.en_name, camp.id.to_s]
   end
 
   describe "#self.to_csv" do
