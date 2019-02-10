@@ -4,7 +4,6 @@
     const email_field = event.target;
     if (email_field.value != '') {
       verify_email(email_field.value, function (valid) {
-        console.log(`email is valid: ${valid}`);
         if (!valid) {
           email_field.classList.remove("email_valid");
           email_field.classList.add("email_invalid");
