@@ -100,7 +100,7 @@ en:
   form_subtitle_en_label: Summarize your dream in English (required)
   form_subtitle_label: Summarize your dream (required)
   form_subtitle_guidetext_html: Brief summary of the dream prototype you are applying
-    for the front page of the dream's site. Keep it short, up to 256 characters.
+    for the front page of the dream's site and for Midburn's program. Keep it short, up to 256 characters.
   form_creator_name_label: Group / Artist name
   form_creator_name_guidetext_html: ''
   create_dream_loading_text: Making room for your dream in our magical cloud...
