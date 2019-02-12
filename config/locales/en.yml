@@ -103,6 +103,7 @@ en:
     for the front page of the dream's site and for Midburn's program. Keep it short, up to 256 characters.
   form_creator_name_label: Group / Artist name
   form_creator_name_guidetext_html: ''
+  art_car_form_fill_request_html: Artists that wish to build a magical ArtCar are required to fill out this <b><a href="">form</a></b>
   create_dream_loading_text: Making room for your dream in our magical cloud...
   create_dream_loading_text2: This usually takes ~8 seconds. Take a mindful breath as we integrate with the drive for you...
   form_dream_visability: Public for everyone to see?
