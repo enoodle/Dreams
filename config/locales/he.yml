@@ -120,7 +120,7 @@ he:
   form_subtitle_en_label: "סיכום החלום במשפט באנגלית (נדרש)"
   form_creator_name_label: "שם הקבוצה/אמן"
   form_creator_name_guidetext_html: ""
-  art_car_form_fill_request_html: אמנים המבקשים להביא לפלאייה רכב אומנות (ArtCar) נדרשים למלא גם את הטופס בקישור <b><a href="https://goo.gl/h3cU7J">הזה</a></b>
+  art_car_form_fill_request_html: אמנים המבקשים להביא לפלאייה רכב אומנות (ArtCar) נדרשים למלא גם את הטופס בקישור <b><a target="_blank" rel="noopener noreferrer" href="https://goo.gl/h3cU7J">הזה</a></b>
 
   create_dream_loading_text: "מכינים במיוחד עבורך מקום בענן הקסום שלנו..."
   create_dream_loading_text2: "מכינים במיוחד עבורך מקום בענן הקסום שלנו..."
