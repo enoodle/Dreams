@@ -138,6 +138,11 @@
       = t("form_dream_name")
       = @camp.name
 
+  - if current_user && (current_user.guide || current_user.admin)
+    .combo
+      = form.label t("approve_dream")
+      = form.check_box :approved_status
+
   .menu-heading
     %ul
       %li

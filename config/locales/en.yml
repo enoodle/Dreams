@@ -97,6 +97,7 @@ en:
   form_dream_name_en_label: Dream name in English (required)
   form_dream_name_label: Dream name (required) 
   form_dream_name_guidetext_html: What's your dream prototype called?
+  approve_dream: approve dream
   form_subtitle_en_label: Summarize your dream in English (required)
   form_subtitle_label: Summarize your dream (required)
   form_subtitle_guidetext_html: Brief summary of the dream prototype you are applying
