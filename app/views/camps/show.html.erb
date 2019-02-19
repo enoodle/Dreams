@@ -370,7 +370,8 @@
                     <span class='dream-point-of-contact'>
                         <span class='glyphicon glyphicon-envelope' aria-hidden="true"></span>&nbsp<%=t :form_dream_point_of_contact_email %>
                     </span><br>
-                    <% if @camp.creator == current_user %>
+                    <% if @camp.creator == current_user && @camp.dream_point_of_contact_name && @camp.dream_point_of_contact_email %>
+                        <%= @camp.dream_point_of_contact_name %><br>
                         <%= @camp.dream_point_of_contact_email %>
                     <% elsif current_user.guide || current_user.admin %>
                         <%= render 'edit_point_of_contact' %>
