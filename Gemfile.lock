@@ -282,7 +282,7 @@ GEM
       httparty (~> 0.13.7)
       json
       rack
-    rb-readline (0.5.4)
+    rb-readline (0.5.5)
     rdoc (4.2.1)
       json (~> 1.4)
     recaptcha (4.0.1)
