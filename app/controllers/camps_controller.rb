@@ -338,12 +338,16 @@ class CampsController < ApplicationController
 
   def create_camp
     Camp.transaction do
-      @camp.save!
-      if Rails.application.config.x.firestarter_settings['google_drive_integration'] and ENV['GOOGLE_APPS_SCRIPT'].present?
-        response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)
-        @camp.google_drive_folder_path = response['id']
-        @camp.google_drive_budget_file_path = response['budget']
+      begin
         @camp.save!
+        if Rails.application.config.x.firestarter_settings['google_drive_integration'] and ENV['GOOGLE_APPS_SCRIPT'].present?
+          response = NewDreamAppsScript::createNewDreamFolder(@camp.creator.email, @camp.id, @camp.name)
+          @camp.google_drive_folder_path = response['id']
+          @camp.google_drive_budget_file_path = response['budget']
+          @camp.save!
+        end
+      rescue
+        flash[:alert] = "#{t:failed_to_create_google_drive_integration}"
       end
     end
     true
