@@ -479,6 +479,7 @@ en:
   contact_alternative_name: Contact Name
   contact_email: Contact Email
   angel_name: Angel name
+  angel_email: Angel email
   save_camp: Save and continue
   done_camp: Done
   update_point_of_contact: Update contact
@@ -899,3 +900,12 @@ en:
       not_saved: Not saved
   form_tags: "Tags"
   sign_up_spark: "Please use your Midburn profile to log in"
+
+  dream_name: Dream Name
+  dream_id: Dream ID
+  # contact_name:
+  contact_phone_number: Contact Phone Number
+  dream_link: Dream Link
+  manager_name: Manager Name
+  manager_email: Manager Email
+  manager_phone: Manager Phone
