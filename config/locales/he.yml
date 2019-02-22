@@ -953,3 +953,11 @@ he:
     safety_comments_updated:
       subject: הערות בטיחות עודכנו עבור החלום
       someone_updated_safety_comments: עדכן את הערות הבטיחות עבור חלום זה
+
+  dream_name: שם החלום
+  dream_id: מספר החלום
+  contact_phone_number: מספר טלפון של האומן
+  dream_link: לינק לחלום
+  manager_name: שם מנהל
+  manager_email: אימייל מנהל
+  manager_phone: טלפון מנהל
