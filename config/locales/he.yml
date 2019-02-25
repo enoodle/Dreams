@@ -821,6 +821,8 @@ he:
           spec_electricity_watt: "מה ההספק שהמיצב צורך (יש לציין ערך ב-וואט) (חובה)"
           spec_electricity_info: "כדי שתוכלו לתת מענה להארת המיצב בלילה - כל מיצב שנרשם מראש ומוקם במפת המיצבים - יקבל שקע ישראלי סטנדרטי המספק עד 1500W בשעות החשיכה בלבד ולפי תיאום מקדים. במידה והמיצב דורש מפרט אחר להפעלתו - עליכן לדאוג לכך עצמאית ולהיערך לכך מבחינת התקציב. אם אין בידכם את המידע או הידע הדרוש, התייעצו עם איש מקצוע. לתיאום של מפרט אחר - אנא פנו למלאכית המלווה אתכם.ן מצוות קשרי אמנים."
           spec_electricity_how: "כיצד יעברו כבלי החשמל ואיך יחוברו למקור המתח?"
+          spec_for_questions_contact_html: >
+            'לשאלות ניתן לפנות לצוות הטכני בכתובת מייל: : <a href="mailto:technicaltealart2018@gmail.com">technicaltealart2018@gmail.com</a>'
           dreamprop_interactivity_audience_participation: "כיצד המיצב מערב את הקהל ומזמין השתתפות?"
           dreamprop_interactivity_fire_present: "פירוט"
           dreamprop_interactivity_sound_desc: "פירוט"
