@@ -861,6 +861,9 @@ en:
               or to the art department''s staff and will entail additional expenses.'
           spec_electricity_how: How will the wiring be installed and hooked up to the generators?
           # TODO: same for HE
+          spec_for_questions_contact_html: >
+            'For any question please contant the technical team: <a href="mailto:technicaltealart2018@gmail.com">technicaltealart2018@gmail.com</a>'
+
           dreamprop_interactivity_audience_participation: How does the art installation
             involve its audience and elicit participation?
           dreamprop_interactivity_fire_present: Description
