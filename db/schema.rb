@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190219203141) do
+ActiveRecord::Schema.define(version: 20190226220342) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     :index=>{:name=>"index_active_admin_comments_on_namespace"}
@@ -179,6 +179,9 @@ ActiveRecord::Schema.define(version: 20190219203141) do
     t.integer  "requested_funds_fallback"
     t.boolean  "approved_status",                                          :default=>false
     t.string   "dream_point_of_contact_name",                              :limit=>64
+    t.boolean  "safety_uses_telescopic_loader",                            :default=>false, :null=>false
+    t.boolean  "safety_uses_aerial_work_platform",                         :default=>false, :null=>false
+    t.boolean  "safety_uses_backhoe_loader",                               :default=>false, :null=>false
   end
 
   create_table "grants", force: :cascade do |t|

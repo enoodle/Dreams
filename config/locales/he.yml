@@ -285,10 +285,11 @@ he:
   form_is_heavey_equip_needed: "האם הקמת המיצב דורשת שימוש בצמ\"ה?"
   form_heavy_equip_desc_html: >
     צמה=ציוד מכאני הנדסי
-    <br>מעמיס טלסקופי - משמש להנפה של חלקים מהמיצב לגובה
-    <br>במת הרמה - משמשת לעבודה בגובה
     <br>הזמנת צמה כרוכה בתיאום תכנית ההקמה עם צוות הארטרי של מחלקת האמנות.
     <br>על צוות המיצב יהיה להשתתף בעלויות השכרת הציוד בגין השימוש.
+  form_heavy_equip_telescopic_loader_desc: מעמיס טלסקופי - משמש להנפה של חלקים מהמיצב לגובה
+  form_heavy_equip_aerial_work_platform_desc: במת הרמה - משמשת לעבודה בגובה
+  form_heavy_equip_backhoe_loader_desc: מחפרון
 
   form_safety_plan: "תכניות המיצב"
   form_safety_plan_guidetext_html: >
