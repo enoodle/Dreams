@@ -206,6 +206,8 @@ en:
   form_spec_electricity_details_guidetext_html: What objects will require electricity
     in your art installation? Electric systems, computers, lighting, sound, triangle
     toasters etc.
+  form_spec_for_questions_contact_html: >
+    For any question please contant the technical team: <a href="mailto:technicaltealart2018@gmail.com">technicaltealart2018@gmail.com</a>
   form_dream_prop_interactivity_audience_participation_guidetext_html: At Midburn,
               the artists are encouraged to break the barriers between the art work and its
               viewers. Please share with us your vision regarding the level in which one could
@@ -861,8 +863,6 @@ en:
               or to the art department''s staff and will entail additional expenses.'
           spec_electricity_how: How will the wiring be installed and hooked up to the generators?
           # TODO: same for HE
-          spec_for_questions_contact_html: >
-            'For any question please contant the technical team: <a href="mailto:technicaltealart2018@gmail.com">technicaltealart2018@gmail.com</a>'
 
           dreamprop_interactivity_audience_participation: How does the art installation
             involve its audience and elicit participation?
