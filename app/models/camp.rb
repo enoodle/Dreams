@@ -188,7 +188,8 @@ class Camp < ActiveRecord::Base
       :not_seeking_funding,
       :active,
       :not_hidden,
-      :is_cocreation
+      :is_cocreation,
+      :current_event
     ]
   )
   # Scope definitions. We implement all Filterrific filters through ActiveRecord
@@ -270,6 +271,10 @@ class Camp < ActiveRecord::Base
 
   scope :not_hidden, lambda { |flag|
     where(is_public: flag)
+  }
+
+  scope :current_event, lambda { |flag|
+    where(event_id: Rails.application.config.default_event)
   }
 
   scope :is_cocreation, lambda { |flag|
