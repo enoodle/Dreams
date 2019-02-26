@@ -205,6 +205,8 @@ he:
   form_spec_visual_night_day_guidetext_html: "חשוב לציין שיש לתת מחשבה על החוויות השונות של חושך ואור: כיצד המיצב נראה בחשכת הלילה, איזה מקום ממלאת התאורה ואיזה תוכן היא מוסיפה, האם שימוש באור הוא חלק מהותי מהמיצב? כיצד היצירה נראית במהלך היום בחום השמש, איך היא מוסיפה ומתחברת לנוף הפלאייה?"
   form_spec_electricity_details_label: "פירוט צרכני החשמל"
   form_spec_electricity_details_guidetext_html: "מהם צרכני החשמל במיצב? מערכות אלקטרוניות, מחשוב, תאורה, סאונד, טוסטר משולשים וכד'"
+  form_spec_for_questions_contact_html: >
+    לשאלות ניתן לפנות לצוות הטכני בכתובת מייל: <a href="mailto:technicaltealart2018@gmail.com">technicaltealart2018@gmail.com</a>
 
   form_dream_prop_head: "על הרעיון"
   form_dream_prop_philosophy: "מהו הרעיון שעומד בבסיסה של היצירה?"
@@ -821,8 +823,6 @@ he:
           spec_electricity_watt: "מה ההספק שהמיצב צורך (יש לציין ערך ב-וואט) (חובה)"
           spec_electricity_info: "כדי שתוכלו לתת מענה להארת המיצב בלילה - כל מיצב שנרשם מראש ומוקם במפת המיצבים - יקבל שקע ישראלי סטנדרטי המספק עד 1500W בשעות החשיכה בלבד ולפי תיאום מקדים. במידה והמיצב דורש מפרט אחר להפעלתו - עליכן לדאוג לכך עצמאית ולהיערך לכך מבחינת התקציב. אם אין בידכם את המידע או הידע הדרוש, התייעצו עם איש מקצוע. לתיאום של מפרט אחר - אנא פנו למלאכית המלווה אתכם.ן מצוות קשרי אמנים."
           spec_electricity_how: "כיצד יעברו כבלי החשמל ואיך יחוברו למקור המתח?"
-          spec_for_questions_contact_html: >
-            'לשאלות ניתן לפנות לצוות הטכני בכתובת מייל: : <a href="mailto:technicaltealart2018@gmail.com">technicaltealart2018@gmail.com</a>'
           dreamprop_interactivity_audience_participation: "כיצד המיצב מערב את הקהל ומזמין השתתפות?"
           dreamprop_interactivity_fire_present: "פירוט"
           dreamprop_interactivity_sound_desc: "פירוט"
