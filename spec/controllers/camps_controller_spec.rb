@@ -6,7 +6,9 @@ describe CampsController do
   render_views
 
   let(:email) { Faker::Internet.email }
+  let(:admin_email) { Faker::Internet.email }
   let(:user) { User.create! email: email, password: Faker::Internet.password, ticket_id: '6687' }
+  let(:admin) { User.create! email: admin_email, password: Faker::Internet.password, ticket_id: '6688', admin: true }
   let(:camp_leader) { Faker::Name.name }
 
   let(:camp_attributes){
@@ -70,6 +72,16 @@ describe CampsController do
       camp.default_image = img
 
       get :show, id: camp.id
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  context '#edit' do
+    let!(:camp) { Camp.create!(camp_attributes.merge(creator: user)) }
+
+    it 'renders camp edit page' do
+      sign_in admin
+      get :edit, id: camp.id
       expect(response).to have_http_status(:success)
     end
   end
