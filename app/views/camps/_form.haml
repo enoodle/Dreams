@@ -770,9 +770,22 @@
 
     .combo
       = form.label :safety_is_heavy_equipment
-      = form.check_box :safety_is_heavy_equipment
+      = form.check_box :safety_is_heavy_equipment, data: {show: '#heavy_equipment_extension'}
       %br
       = t("form_heavy_equip_desc_html")
+
+    #heavy_equipment_extension
+      .combo
+        = form.label t(:form_heavy_equip_telescopic_loader_desc)
+        = form.check_box :safety_uses_telescopic_loader
+
+      .combo
+        = form.label t(:form_heavy_equip_aerial_work_platform_desc)
+        = form.check_box :safety_uses_aerial_work_platform
+
+      .combo
+        = form.label t(:form_heavy_equip_backhoe_loader_desc)
+        = form.check_box :safety_uses_backhoe_loader
 
     %br
 
