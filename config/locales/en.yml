@@ -333,6 +333,9 @@ en:
   form_heavy_equip_desc_html: >
     Attention! Coordination of needs will be performed privately
     with the art department.
+  form_heavy_equip_telescopic_loader_desc: Telescopic loader
+  form_heavy_equip_aerial_work_platform_desc: Aerial work platform
+  form_heavy_equip_backhoe_loader_desc: Backhoe Loader
   form_safety_plan: A detailed engineering plan of the art installation
   form_safety_plan_guidetext_html: >
       1. A general plan of the structure specifying the
