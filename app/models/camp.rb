@@ -349,13 +349,13 @@ class Camp < ActiveRecord::Base
     "#{ENV['APP_URL']}/dreams/#{self.id}"
   end
 
-  CSV_ATTRIBUTES = %w{dream_name dream_id manager_name manager_email manager_phone angel_name angle_email dream_link}.freeze
+  CSV_ATTRIBUTES = %w{dream_name dream_id approval_status manager_name manager_email manager_phone angel_name angle_email dream_link}.freeze
 
   def self.to_csv
     CSV.generate(headers: true) do |csv|
       csv << CSV_ATTRIBUTES.map{ |col_name| I18n.t(col_name)}
       Camp.where(:event_id => Rails.application.config.default_event).each do |c|
-        csv << [c.en_name, c.id,
+        csv << [c.en_name, c.id, (c.approved_status ? I18n.t(:yes_text) : I18n.t(:no_text)),
                 c.camp_manager.name, c.camp_manager.email, c.camp_manager.phone_number,
                 c.dream_point_of_contact_name, c.dream_point_of_contact_email, c.link(),]
       end

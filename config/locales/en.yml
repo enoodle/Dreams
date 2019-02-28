@@ -98,6 +98,7 @@ en:
   form_dream_name_label: Dream name (required) 
   form_dream_name_guidetext_html: What's your dream prototype called?
   approve_dream: approve dream
+  approval_status: Approval Status
   form_subtitle_en_label: Summarize your dream in English (required)
   form_subtitle_label: Summarize your dream (required)
   form_subtitle_guidetext_html: Brief summary of the dream prototype you are applying
@@ -581,8 +582,8 @@ en:
   join_dream: Sweet! You just sent your email adress to the creator.
   join_errors_login: You need to be logged in to add your email to the list.
   join_already_sent: Nice! You've already sent your email to the creator.
-  yes_text: Yesss
-  no_text: Nope
+  yes_text: Yes
+  no_text: No
   or_text: Or
   versionate:
     latest_version: Latest version
