@@ -202,7 +202,7 @@ describe Person do
         csv_lines = Camp.to_csv.split("\n")
         expect(csv_lines.count).to eq(2)
         expect(csv_lines.last.split(",")).to eq([
-          camp.en_name, camp.id.to_s,
+          camp.en_name, camp.id.to_s, I18n.t(:no_text),
           camp.camp_manager.name.to_s, camp.camp_manager.email.to_s, camp.camp_manager.phone_number.to_s,
           camp.dream_point_of_contact_name.to_s, camp.dream_point_of_contact_email.to_s, camp.link().to_s,])
       end

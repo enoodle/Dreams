@@ -116,6 +116,7 @@ he:
   form_dream_name_guidetext_html: "איך קוראים לחלום שלך?"
   form_dream_name_en_label: "שם החלום באנגלית (נדרש)"
   approve_dream: אשר חלום
+  approval_status: סטטוס אישור
   form_subtitle_label: "סיכום החלום במשפט (נדרש)"
   form_subtitle_guidetext_html: "סיכום קצר של החלום שאת מציעה. סיכום זה יופיע בעמוד הראשי של האתר וגם בתוכנייה של מידברן (ולכן חשוב למלא במדויק). תעשי את זה קצר, עד 256 תווים."
   form_subtitle_en_label: "סיכום החלום במשפט באנגלית (נדרש)"
